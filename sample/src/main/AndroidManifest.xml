@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.smartregister.fp_pathfinder">
+    package="com.adosa.opensrp.chw.fp">
 
     <application
-        android:name="org.smartregister.chw.fp_pathfinder.activity.application.SampleApplication"
+        android:name="com.adosa.opensrp.chw.fp.activity.application.SampleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         tools:replace="android:theme"
         android:theme="@style/AppTheme">
         <activity
-            android:name="org.smartregister.chw.fp_pathfinder.activity.FpRegisterActivity"
+            android:name="com.adosa.opensrp.chw.fp.activity.FpRegisterActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

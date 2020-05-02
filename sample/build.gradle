@@ -4,7 +4,7 @@ android {
     compileSdkVersion androidCompileSdkVersion
 
     defaultConfig {
-        applicationId "org.smartregister.fp_pathfinder"
+        applicationId "com.adosa.opensrp.chw.fp"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
