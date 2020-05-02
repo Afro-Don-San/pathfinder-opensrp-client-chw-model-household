@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.ona.rdt-capture:lib:1.3.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63e9a51dae65f735fb14718bde5239a7/lib-1.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63e9a51dae65f735fb14718bde5239a7/lib-1.3.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ona.rdt-capture/lib/1.3.0/926f1275106df994f4315265aafb49ff6b088215/lib-1.3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

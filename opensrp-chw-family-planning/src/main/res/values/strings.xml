@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">Family Planning</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="home">Home</string>
+    <string name="add_family">Add family</string>
+    <string name="job_aids">Job Aids</string>
+    <string name="error_unable_to_start_form">An error occurred when starting the form</string>
+    <string name="fp_return_to_previous_page">Return to all family planning women</string>
+    <string name="interpunct" translatable="false">\u00b7</string>
+    <string name="family_head">FAMILY HEAD</string>
+    <string name="primary_care_giver">PRIMARY CARE GIVER</string>
+    <string name="record_fp_followup">Record family planning follow-up visit</string>
+    <string name="introduction_to_fp">Introduction to Family Planning</string>
+    <string name="fp_pregnancy_screening">Pregnancy Screening</string>
+    <string name="choose_fp_method">Choose Family Planning Method</string>
+    <string name="give_fp_method">Give Family Planning Method</string>
+    <string name="fp_visit_done">Family planning follow-up visit done</string>
+    <string name="not_visiting_this_month">Not visiting this month</string>
+    <string name="last_visit">Last visit</string>
+    <string name="last_visit_n_days_ago">Last visit %1$s ago</string>
+    <string name="less_than_twenty_four">less than 24 hrs</string>
+    <string name="days">days</string>
+    <string name="fp_visit_edit">Edit</string>
+    <string name="view_fp_registration">View FP registration</string>
+    <string name="view_medical_history">View medical history</string>
+    <string name="view_upcoming_services">View upcoming services</string>
+    <string name="family_has_nothing_due">Family has nothing due</string>
+    <string name="family_has_services_due">Family has services due</string>
+    <string name="fp_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
+    <string name="fp_service_overdue"><![CDATA[%1$s <font color=#f04646>overdue (%2$s)</font></b>]]></string>
+    <string name="fp_service_due"><![CDATA[%1$s <font color=#000000>due (%2$s)</font></b>]]></string>
+    <string name="family_has_service_overdue"><![CDATA[Family has <font color=#FF0000>services overdue</font></b>]]></string>
+    <string name="go_to_family_s_profile">Go to family\'s profile</string>
+    <string name="error_unable_to_save_form">An error occurred when saving the form</string>
+    <string name="fp_followup_visit">FOLLOWUP\nVISIT</string>
+    <string name="sort">Sort</string>
+    <string name="family_planning">Family Planning</string>
+    <string name="saving_dialog_title">Saving</string>
+    <string name="head_of_family">HEAD OF FAMILY</string>
+    <string name="call">Call</string>
+    <string name="call_fp_woman">Call Family Planning woman</string>
+    <string name="call_fp_man">Call Family Planning man</string>
+    <string name="fp_member">Family planning woman</string>
+    <string name="fp_man_member">Family planning man</string>
+    <string name="copy_to_clipboard">Copy to clipboard</string>
+    <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
+    <!--FP -->
+    <string name="fp_visit_day_next_due">Next Due %s </string>
+    <string name="fp_visit_day_due">%s DAYS DUE</string>
+    <string name="fp_visit_day_due_today">DUE TODAY</string>
+    <string name="fp_visit_day_overdue">%s DAYS OVERDUE</string>
+    <string name="fp_visit_day_overdue_today">OVERDUE TODAY</string>
+    <string name="fp_follow_up_visit">Fp Follow Up Visit</string>
+    <string name="fp_side_effects">Side effects</string>
+    <string name="counseling">Counseling</string>
+    <string name="resupply">Resupply %s</string>
+    <string name="next_health_facility_visit">Next health facility visit</string>
+    <string name="no_of_condoms">No. of Condoms:</string>
+    <string name="no_of_pill_cycles">No. of pill cycles:</string>
+    <string name="date_of_next_injection">Date of next injection:</string>
+    <string name="side_effects">Side-effects:</string>
+    <string name="action">Action:</string>
+    <!--counselling -->
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <!-- side effects -->
+    <string name="allergic_reactions">Allergic reactions</string>
+    <string name="heavy_bleading">Heavy bleeding</string>
+    <string name="irregular_period">Irregular periods</string>
+    <string name="others">Others</string>
+    <string name="none">None</string>
+    <string name="severe_pain_inside_the_vagina">Severe pain inside the vagina after IUD was put in</string>
+    <string name="cramps_or_back_ache">Cramping or backaches for a few days after the IUD is put in</string>
+    <string name="spotting">Spotting between periods and/or irregular periods</string>
+    <string name="heavier_period">Heavier periods and worse menstrual cramps </string>
+    <string name="IUCD_explusion">IUCD explusion</string>
+    <string name="incisional_bleeding">Incisional bleeding</string>
+    <string name="pus_discharge_from_incision">Pus/Discharge from incision</string>
+    <string name="swollen_around_the_incision">Swollen around the incision</string>
+   <!--action taken -->
+    <string name="managed">Managed</string>
+    <string name="Referred">Referred</string>
+    <string name="registered">Registered</string>
+
+    <!--Family planning fp start dates row-->
+    <string name="male_condom">Male Condom</string>
+    <string name="female_condom">Female Condom</string>
+    <string name="coc">COC</string>
+    <string name="pop">POP</string>
+    <string name="injectable">Injectable</string>
+    <string name="lam">Lactational amenorrhea method (LAM)</string>
+    <string name="jadelle">Jadelle</string>
+    <string name="vasectomy">Vasectomy</string>
+    <string name="tubal_ligation">Tubal ligation</string>
+    <string name="iud">IUD</string>
+    <string name="implants">Implants</string>
+    <string name="standard_day_method">Standard day method</string>
+    <string name="emergency_contraceptive">Emergency contraceptive</string>
+    <string name="not_applicable">Not applicable</string>
+    <string name="fp_insertion">insertion</string>
+    <string name="fp_started">started</string>
+    <string name="fp_on">on</string>
+
+    <string name="refill">{0} refill</string>
+    <string name="follow_up_one">{0} follow-up 1</string>
+    <string name="follow_up_two">{0} follow-up 2</string>
+    <string name="follow_up_three">{0} follow-up 3</string>
+</resources>

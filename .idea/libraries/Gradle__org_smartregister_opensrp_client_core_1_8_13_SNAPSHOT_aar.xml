@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Gradle: org.smartregister:opensrp-client-core:1.8.13-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/jars/libs/drishti-interface-0.1-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/jars/libs/butterknife-7.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/jars/libs/cloudant-sync-datastore-android-1.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/jars/libs/cloudant-sync-datastore-core-1.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/jars/libs/opensrp-api-0.1-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3884318e09a249e32a81cc128ed703a/opensrp-client-core-1.8.13-SNAPSHOT/jars/libs/java-json.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-core/1.8.13-SNAPSHOT/e3e0c1e10f76fa592fbe7a30a70dc5bc0ce8d96e/opensrp-client-core-1.8.13-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-core/1.8.13-SNAPSHOT/e3e0c1e10f76fa592fbe7a30a70dc5bc0ce8d96e/opensrp-client-core-1.8.13-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
