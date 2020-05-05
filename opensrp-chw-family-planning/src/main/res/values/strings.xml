@@ -11,6 +11,7 @@
     <string name="primary_care_giver">PRIMARY CARE GIVER</string>
     <string name="record_fp_followup">Record family planning follow-up visit</string>
     <string name="introduction_to_fp">Introduction to Family Planning</string>
+    <string name="issue_anc_referral">Issue ANC Referral</string>
     <string name="fp_pregnancy_screening">Pregnancy Screening</string>
     <string name="choose_fp_method">Choose Family Planning Method</string>
     <string name="give_fp_method">Give Family Planning Method</string>

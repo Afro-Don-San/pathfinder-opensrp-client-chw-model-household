@@ -58,6 +58,7 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     protected TextView tvFamilyStatus;
     protected TextView tvRecordFpFollowUp;
     protected TextView tvIntroductionToFp;
+    protected TextView tvIssueANCReferral;
     protected TextView tvFpPregnancyScreening;
     protected TextView tvChooseFpMethod;
     protected TextView tvGiveFpMethod;
@@ -138,6 +139,7 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
         profileImageView = findViewById(R.id.imageview_profile);
         tvRecordFpFollowUp = findViewById(R.id.textview_record_reccuring_visit);
         tvIntroductionToFp = findViewById(R.id.textview_introduction_to_fp);
+        tvIssueANCReferral = findViewById(R.id.textview_issue_anc_referral);
         tvFpPregnancyScreening = findViewById(R.id.textview_fp_pregnancy_screening);
         tvChooseFpMethod = findViewById(R.id.textview_choose_fp_method);
         tvGiveFpMethod = findViewById(R.id.textview_give_fp_method);
@@ -150,6 +152,7 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
         tvFpPregnancyScreening.setOnClickListener(this);
         tvChooseFpMethod.setOnClickListener(this);
         tvGiveFpMethod.setOnClickListener(this);
+        tvIssueANCReferral.setOnClickListener(this);
         findViewById(R.id.rl_last_visit_layout).setOnClickListener(this);
         findViewById(R.id.rlUpcomingServices).setOnClickListener(this);
         findViewById(R.id.rlFamilyServicesDue).setOnClickListener(this);
@@ -209,6 +212,8 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
             this.openChooseFpMethod();
         } else if (id == R.id.textview_give_fp_method) {
             this.openGiveFpMethodButton();
+        } else if (id == R.id.textview_issue_anc_referral) {
+            this.issueANCReferralForm();
         }
     }
 
@@ -449,6 +454,11 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     @Override
     public void showChooseFpMethodButton() {
         tvChooseFpMethod.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showIssueANCReferralButton() {
+        tvIssueANCReferral.setVisibility(View.VISIBLE);
     }
 
     @Override

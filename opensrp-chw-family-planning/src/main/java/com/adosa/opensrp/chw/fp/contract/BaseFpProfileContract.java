@@ -60,6 +60,8 @@ public interface BaseFpProfileContract {
 
         void showChooseFpMethodButton();
 
+        void showIssueANCReferralButton();
+
         void showGiveFpMethodButton();
 
         void showProgressBar(boolean status);
