@@ -50,6 +50,8 @@ public interface BaseFpProfileContract {
 
         void hideFollowUpVisitButton();
 
+        void issueANCReferralForm();
+
         void showFollowUpVisitButton();
 
         void showIntroductionToFpButton();

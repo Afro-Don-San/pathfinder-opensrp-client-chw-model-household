@@ -17,10 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.Period;
+import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.contract.BaseFpProfileContract;
 import com.adosa.opensrp.chw.fp.custom_views.BaseFpFloatingMenu;
 import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
@@ -28,8 +25,12 @@ import com.adosa.opensrp.chw.fp.interactor.BaseFpProfileInteractor;
 import com.adosa.opensrp.chw.fp.presenter.BaseFpProfilePresenter;
 import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
+
+import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+import org.joda.time.Period;
 import org.smartregister.domain.AlertStatus;
-import com.adosa.opensrp.chw.fp.R;
 import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.view.activity.BaseProfileActivity;
 
@@ -202,11 +203,11 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
             this.openFamilyPlanningRegistration();
         } else if (id == R.id.textview_introduction_to_fp) {
             this.openFamilyPlanningIntroduction();
-        }else if (id == R.id.textview_fp_pregnancy_screening) {
+        } else if (id == R.id.textview_fp_pregnancy_screening) {
             this.openPregnancyScreening();
-        }else if (id == R.id.textview_choose_fp_method) {
+        } else if (id == R.id.textview_choose_fp_method) {
             this.openChooseFpMethod();
-        }else if (id == R.id.textview_give_fp_method) {
+        } else if (id == R.id.textview_give_fp_method) {
             this.openGiveFpMethodButton();
         }
     }
@@ -241,22 +242,22 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
 
     @Override
     public void openFamilyPlanningIntroduction() {
-        // TODO :: Show registration form for edit
+        // TODO :: Show Introduction to Family Planning
     }
 
     @Override
     public void openPregnancyScreening() {
-        // TODO :: Show registration form for edit
+        // TODO :: Show Pregnancy Screening Form
     }
 
     @Override
     public void openChooseFpMethod() {
-        // TODO :: Show registration form for edit
+        // TODO :: Show Choose Family Planning Method
     }
 
     @Override
     public void openGiveFpMethodButton() {
-        // TODO :: Show registration form for edit
+        // TODO :: Show give Family Planning Method
     }
 
     @Override
@@ -277,6 +278,11 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     @Override
     public void openFollowUpVisitForm(boolean isEdit) {
         // TODO :: Open follow-up visit form for editing
+    }
+
+    @Override
+    public void issueANCReferralForm() {
+        // TODO :: issue anc Referrals
     }
 
     @Override
@@ -444,6 +450,7 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     public void showChooseFpMethodButton() {
         tvChooseFpMethod.setVisibility(View.VISIBLE);
     }
+
     @Override
     public void showGiveFpMethodButton() {
         tvGiveFpMethod.setVisibility(View.VISIBLE);
