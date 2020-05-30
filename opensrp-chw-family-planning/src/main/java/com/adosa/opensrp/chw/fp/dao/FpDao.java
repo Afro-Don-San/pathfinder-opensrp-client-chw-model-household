@@ -163,6 +163,7 @@ public class FpDao extends AbstractDao {
                 " AND (v.visit_type = '" + FamilyPlanningConstants.EventType.FAMILY_PLANNING_REGISTRATION + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + FamilyPlanningConstants.EventType.INTRODUCTION_TO_FAMILY_PLANNING + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + FamilyPlanningConstants.EventType.FAMILY_PLANNING_PREGNANCY_SCREENING + "' COLLATE NOCASE  OR " +
+                "v.visit_type = '" + FamilyPlanningConstants.EventType.CHOOSING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + FamilyPlanningConstants.EventType.GIVING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE) " +
                 "ORDER BY v.visit_date DESC";
 

@@ -221,8 +221,8 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     public void setupFollowupVisitEditViews(boolean isWithin24Hours) {
         if (isWithin24Hours) {
             recordFollowUpVisitLayout.setVisibility(View.GONE);
-            recordVisitStatusBarLayout.setVisibility(View.VISIBLE);
-            tvEditVisit.setVisibility(View.VISIBLE);
+//            recordVisitStatusBarLayout.setVisibility(View.VISIBLE);
+//            tvEditVisit.setVisibility(View.VISIBLE);
         } else {
             tvEditVisit.setVisibility(View.GONE);
             recordFollowUpVisitLayout.setVisibility(View.VISIBLE);
