@@ -2,7 +2,7 @@ package com.adosa.opensrp.chw.fp.domain;
 
 import java.io.Serializable;
 
-public class FpMemberObject implements Serializable {
+public class PathfinderFpMemberObject implements Serializable {
 
     private String familyHeadName;
     private String familyHeadPhoneNumber;
@@ -31,7 +31,7 @@ public class FpMemberObject implements Serializable {
     private String fpInitiationStage;
     private String pregnancyStatus;
 
-    public FpMemberObject() {
+    public PathfinderFpMemberObject() {
     }
 
     public String getFamilyHeadName() {

@@ -1,22 +1,22 @@
 package com.adosa.opensrp.chw.fp.presenter;
 
 import com.adosa.opensrp.chw.fp.contract.BaseFpProfileContract;
-import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import org.smartregister.domain.AlertStatus;
 import org.smartregister.view.contract.BaseProfileContract;
 
 import java.lang.ref.WeakReference;
 import java.util.Date;
 
-public class BaseFpProfilePresenter implements BaseProfileContract, BaseFpProfileContract.Presenter, BaseFpProfileContract.InteractorCallback {
+public class BasePathfinderFpProfilePresenter implements BaseProfileContract, BaseFpProfileContract.Presenter, BaseFpProfileContract.InteractorCallback {
     private WeakReference<BaseFpProfileContract.View> view;
-    private FpMemberObject fpMemberObject;
+    private PathfinderFpMemberObject pathfinderFpMemberObject;
     private BaseFpProfileContract.Interactor interactor;
 
-    public BaseFpProfilePresenter(BaseFpProfileContract.View view, BaseFpProfileContract.Interactor interactor, FpMemberObject fpMemberObject) {
+    public BasePathfinderFpProfilePresenter(BaseFpProfileContract.View view, BaseFpProfileContract.Interactor interactor, PathfinderFpMemberObject pathfinderFpMemberObject) {
         this.view = new WeakReference<>(view);
         this.interactor = interactor;
-        this.fpMemberObject = fpMemberObject;
+        this.pathfinderFpMemberObject = pathfinderFpMemberObject;
     }
 
     @Override
@@ -32,12 +32,12 @@ public class BaseFpProfilePresenter implements BaseProfileContract, BaseFpProfil
         if (getView() != null) {
             getView().showProgressBar(true);
         }
-        interactor.refreshProfileView(fpMemberObject, false, this);
+        interactor.refreshProfileView(pathfinderFpMemberObject, false, this);
     }
 
     @Override
     public void refreshProfileFpStatusInfo() {
-        interactor.updateProfileFpStatusInfo(fpMemberObject, this);
+        interactor.updateProfileFpStatusInfo(pathfinderFpMemberObject, this);
     }
 
     @Override
@@ -48,9 +48,9 @@ public class BaseFpProfilePresenter implements BaseProfileContract, BaseFpProfil
     }
 
     @Override
-    public void refreshProfileTopSection(FpMemberObject fpMemberObject) {
+    public void refreshProfileTopSection(PathfinderFpMemberObject pathfinderFpMemberObject) {
         if (getView() != null) {
-            getView().setProfileViewDetails(fpMemberObject);
+            getView().setProfileViewDetails(pathfinderFpMemberObject);
             getView().showProgressBar(false);
         }
     }

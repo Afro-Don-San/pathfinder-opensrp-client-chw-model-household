@@ -1,6 +1,6 @@
 package com.adosa.opensrp.chw.fp.domain;
 
-public class FpAlertObject {
+public class PathfinderFpAlertObject {
     private String fpMethod;
     private Integer fpPillCycles;
     private String fpStartDate;

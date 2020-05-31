@@ -13,7 +13,7 @@
         tools:replace="android:theme"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.adosa.opensrp.chw.fp.activity.FpRegisterActivity"
+            android:name="com.adosa.opensrp.chw.fp.activity.PathfinderFpRegisterActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

@@ -9,8 +9,8 @@ import org.smartregister.sync.helper.ECSyncHelper;
 
 import id.zelory.compressor.Compressor;
 
-public class FpLibrary {
-    private static FpLibrary instance;
+public class PathfinderFpLibrary {
+    private static PathfinderFpLibrary instance;
 
     private final Context context;
     private final Repository repository;
@@ -24,7 +24,7 @@ public class FpLibrary {
     private ClientProcessorForJava clientProcessorForJava;
     private Compressor compressor;
 
-    private FpLibrary(Context contextArg, Repository repositoryArg, int applicationVersion, int databaseVersion) {
+    private PathfinderFpLibrary(Context contextArg, Repository repositoryArg, int applicationVersion, int databaseVersion) {
         this.context = contextArg;
         this.repository = repositoryArg;
         this.applicationVersion = applicationVersion;
@@ -33,11 +33,11 @@ public class FpLibrary {
 
     public static void init(Context context, Repository repository, int applicationVersion, int databaseVersion) {
         if (instance == null) {
-            instance = new FpLibrary(context, repository, applicationVersion, databaseVersion);
+            instance = new PathfinderFpLibrary(context, repository, applicationVersion, databaseVersion);
         }
     }
 
-    public static FpLibrary getInstance() {
+    public static PathfinderFpLibrary getInstance() {
         if (instance == null) {
             throw new IllegalStateException(" Instance does not exist!!! Call "
                     + CoreLibrary.class.getName()
@@ -55,7 +55,7 @@ public class FpLibrary {
      */
     public static void reset(Context context, Repository repository, int applicationVersion, int databaseVersion) {
         if (context != null) {
-            instance = new FpLibrary(context, repository, applicationVersion, databaseVersion);
+            instance = new PathfinderFpLibrary(context, repository, applicationVersion, databaseVersion);
         }
     }
 
@@ -77,7 +77,7 @@ public class FpLibrary {
 
     public UniqueIdRepository getUniqueIdRepository() {
         if (uniqueIdRepository == null) {
-            uniqueIdRepository = new UniqueIdRepository(getRepository());
+            uniqueIdRepository = new UniqueIdRepository();
         }
         return uniqueIdRepository;
     }

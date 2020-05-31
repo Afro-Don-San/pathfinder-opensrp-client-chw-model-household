@@ -5,7 +5,7 @@ import org.apache.commons.lang3.tuple.Triple;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.adosa.opensrp.chw.fp.FpLibrary;
+import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.domain.tag.FormTag;
 import org.smartregister.repository.AllSharedPreferences;
@@ -47,8 +47,8 @@ public class FpJsonFormUtils extends org.smartregister.util.JsonFormUtils {
     protected static FormTag formTag(AllSharedPreferences allSharedPreferences) {
         FormTag formTag = new FormTag();
         formTag.providerId = allSharedPreferences.fetchRegisteredANM();
-        formTag.appVersion = FpLibrary.getInstance().getApplicationVersion();
-        formTag.databaseVersion = FpLibrary.getInstance().getDatabaseVersion();
+        formTag.appVersion = PathfinderFpLibrary.getInstance().getApplicationVersion();
+        formTag.databaseVersion = PathfinderFpLibrary.getInstance().getDatabaseVersion();
         return formTag;
     }
 
@@ -60,8 +60,8 @@ public class FpJsonFormUtils extends org.smartregister.util.JsonFormUtils {
         event.setTeam(allSharedPreferences.fetchDefaultTeam(providerId));
         event.setTeamId(allSharedPreferences.fetchDefaultTeamId(providerId));
 
-        event.setClientApplicationVersion(FpLibrary.getInstance().getApplicationVersion());
-        event.setClientDatabaseVersion(FpLibrary.getInstance().getDatabaseVersion());
+        event.setClientApplicationVersion(PathfinderFpLibrary.getInstance().getApplicationVersion());
+        event.setClientDatabaseVersion(PathfinderFpLibrary.getInstance().getDatabaseVersion());
     }
 
     private static String locationId(AllSharedPreferences allSharedPreferences) {
@@ -79,7 +79,7 @@ public class FpJsonFormUtils extends org.smartregister.util.JsonFormUtils {
     }
 
     public static JSONObject getFormAsJson(String formName) throws Exception {
-        return FormUtils.getInstance(FpLibrary.getInstance().context().applicationContext()).getFormJson(formName);
+        return FormUtils.getInstance(PathfinderFpLibrary.getInstance().context().applicationContext()).getFormJson(formName);
     }
     public static void updateFormField(JSONArray formFieldArrays, String formFieldKey, String updateValue) {
         if (updateValue != null) {

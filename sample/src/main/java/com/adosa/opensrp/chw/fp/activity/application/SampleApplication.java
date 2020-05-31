@@ -2,8 +2,8 @@ package com.adosa.opensrp.chw.fp.activity.application;
 
 import org.smartregister.Context;
 import org.smartregister.CoreLibrary;
-import com.adosa.opensrp.chw.fp.FpLibrary;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.configurableviews.ConfigurableViewsLibrary;
 import com.adosa.opensrp.chw.fp.BuildConfig;
@@ -34,7 +34,7 @@ public class SampleApplication extends DrishtiApplication {
         //Initialize Modules
         CoreLibrary.init(context);
         ConfigurableViewsLibrary.init(context, getRepository());
-        FpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        PathfinderFpLibrary.init(context, getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
 
         SyncStatusBroadcastReceiver.init(this);
 
@@ -85,17 +85,17 @@ public class SampleApplication extends DrishtiApplication {
     private static String[] getFtsSearchFields(String tableName) {
         if (tableName.equals(SampleConstants.TABLE_NAME.FAMILY)) {
             return new String[]{
-                    FamilyPlanningConstants.DBConstants.BASE_ENTITY_ID,
-                    FamilyPlanningConstants.DBConstants.VILLAGE_TOWN,
-                    FamilyPlanningConstants.DBConstants.FIRST_NAME,
-                    FamilyPlanningConstants.DBConstants.LAST_NAME
+                    PathfinderFamilyPlanningConstants.DBConstants.BASE_ENTITY_ID,
+                    PathfinderFamilyPlanningConstants.DBConstants.VILLAGE_TOWN,
+                    PathfinderFamilyPlanningConstants.DBConstants.FIRST_NAME,
+                    PathfinderFamilyPlanningConstants.DBConstants.LAST_NAME
             };
         } else if (tableName.equals(SampleConstants.TABLE_NAME.FAMILY_MEMBER)) {
             return new String[]{
-                    FamilyPlanningConstants.DBConstants.BASE_ENTITY_ID,
-                    FamilyPlanningConstants.DBConstants.FIRST_NAME,
-                    FamilyPlanningConstants.DBConstants.MIDDLE_NAME,
-                    FamilyPlanningConstants.DBConstants.LAST_NAME};
+                    PathfinderFamilyPlanningConstants.DBConstants.BASE_ENTITY_ID,
+                    PathfinderFamilyPlanningConstants.DBConstants.FIRST_NAME,
+                    PathfinderFamilyPlanningConstants.DBConstants.MIDDLE_NAME,
+                    PathfinderFamilyPlanningConstants.DBConstants.LAST_NAME};
         }
         return null;
     }
@@ -103,13 +103,13 @@ public class SampleApplication extends DrishtiApplication {
     private static String[] getFtsSortFields(String tableName) {
         if (tableName.equals(SampleConstants.TABLE_NAME.FAMILY)) {
             return new String[]{
-                    FamilyPlanningConstants.DBConstants.LAST_INTERACTED_WITH,
-                    FamilyPlanningConstants.DBConstants.DATE_REMOVED};
+                    PathfinderFamilyPlanningConstants.DBConstants.LAST_INTERACTED_WITH,
+                    PathfinderFamilyPlanningConstants.DBConstants.DATE_REMOVED};
         } else if (tableName.equals(SampleConstants.TABLE_NAME.FAMILY_MEMBER)) {
             return new String[]{
-                    FamilyPlanningConstants.DBConstants.DOB,
-                    FamilyPlanningConstants.DBConstants.LAST_INTERACTED_WITH,
-                    FamilyPlanningConstants.DBConstants.DATE_REMOVED};
+                    PathfinderFamilyPlanningConstants.DBConstants.DOB,
+                    PathfinderFamilyPlanningConstants.DBConstants.LAST_INTERACTED_WITH,
+                    PathfinderFamilyPlanningConstants.DBConstants.DATE_REMOVED};
         }
         return null;
     }

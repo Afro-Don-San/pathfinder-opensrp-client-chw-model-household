@@ -180,9 +180,9 @@
 
         <include
             android:id="@+id/record_fp_followup_visit"
-            layout="@layout/fp_follow_up_visit_view" />
+            layout="@layout/pathfinder_fp_follow_up_visit_view" />
 
-        <include layout="@layout/content_fp_profile" />
+        <include layout="@layout/content_pathfinder_fp_profile" />
 
         </LinearLayout>
         </ScrollView>

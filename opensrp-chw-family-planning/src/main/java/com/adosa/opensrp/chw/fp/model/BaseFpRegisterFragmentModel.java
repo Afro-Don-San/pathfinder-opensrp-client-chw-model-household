@@ -4,10 +4,10 @@ import android.support.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
-import com.adosa.opensrp.chw.fp.FpLibrary;
+import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
 import com.adosa.opensrp.chw.fp.util.ConfigHelper;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import org.smartregister.configurableviews.ConfigurableViewsLibrary;
 import org.smartregister.configurableviews.model.Field;
 import org.smartregister.configurableviews.model.RegisterConfiguration;
@@ -31,8 +31,8 @@ public class BaseFpRegisterFragmentModel implements BaseFpRegisterFragmentContra
     public String mainSelect(@NonNull String tableName, @NonNull String mainCondition) {
         SmartRegisterQueryBuilder queryBuilder = new SmartRegisterQueryBuilder();
         queryBuilder.SelectInitiateMainTable(tableName, mainColumns(tableName));
-        queryBuilder.customJoin("INNER JOIN " + FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + " ON  " + tableName + "." + FamilyPlanningConstants.DBConstants.BASE_ENTITY_ID + " = " + FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.BASE_ENTITY_ID + " COLLATE NOCASE ");
-        queryBuilder.customJoin("INNER JOIN " + FamilyPlanningConstants.DBConstants.FAMILY + " ON  " + FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.RELATIONAL_ID + " = " + FamilyPlanningConstants.DBConstants.FAMILY + "." + FamilyPlanningConstants.DBConstants.BASE_ENTITY_ID);
+        queryBuilder.customJoin("INNER JOIN " + PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + " ON  " + tableName + "." + PathfinderFamilyPlanningConstants.DBConstants.BASE_ENTITY_ID + " = " + PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.BASE_ENTITY_ID + " COLLATE NOCASE ");
+        queryBuilder.customJoin("INNER JOIN " + PathfinderFamilyPlanningConstants.DBConstants.FAMILY + " ON  " + PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.RELATIONAL_ID + " = " + PathfinderFamilyPlanningConstants.DBConstants.FAMILY + "." + PathfinderFamilyPlanningConstants.DBConstants.BASE_ENTITY_ID);
 
         return queryBuilder.mainCondition(mainCondition);
     }
@@ -40,7 +40,7 @@ public class BaseFpRegisterFragmentModel implements BaseFpRegisterFragmentContra
 
     @Override
     public RegisterConfiguration defaultRegisterConfiguration() {
-        return ConfigHelper.defaultRegisterConfiguration(FpLibrary.getInstance().context().applicationContext());
+        return ConfigHelper.defaultRegisterConfiguration(PathfinderFpLibrary.getInstance().context().applicationContext());
     }
 
     @Override
@@ -63,17 +63,17 @@ public class BaseFpRegisterFragmentModel implements BaseFpRegisterFragmentContra
 
     protected String[] mainColumns(String tableName) {
         Set<String> columnList = new HashSet<>();
-        columnList.add(tableName + "." + FamilyPlanningConstants.DBConstants.LAST_INTERACTED_WITH);
-        columnList.add(tableName + "." + FamilyPlanningConstants.DBConstants.BASE_ENTITY_ID);
-        columnList.add(tableName + "." + FamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED);
-        columnList.add(tableName + "." + FamilyPlanningConstants.DBConstants.FP_FP_START_DATE);
-        columnList.add(FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.RELATIONAL_ID + " as relationalid");
-        columnList.add(FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.RELATIONAL_ID);
-        columnList.add(FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.FIRST_NAME);
-        columnList.add(FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.MIDDLE_NAME);
-        columnList.add(FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.LAST_NAME);
-        columnList.add(FamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + FamilyPlanningConstants.DBConstants.DOB);
-        columnList.add(FamilyPlanningConstants.DBConstants.FAMILY + "." + FamilyPlanningConstants.DBConstants.VILLAGE_TOWN);
+        columnList.add(tableName + "." + PathfinderFamilyPlanningConstants.DBConstants.LAST_INTERACTED_WITH);
+        columnList.add(tableName + "." + PathfinderFamilyPlanningConstants.DBConstants.BASE_ENTITY_ID);
+        columnList.add(tableName + "." + PathfinderFamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED);
+        columnList.add(tableName + "." + PathfinderFamilyPlanningConstants.DBConstants.FP_FP_START_DATE);
+        columnList.add(PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.RELATIONAL_ID + " as relationalid");
+        columnList.add(PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.RELATIONAL_ID);
+        columnList.add(PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.FIRST_NAME);
+        columnList.add(PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.MIDDLE_NAME);
+        columnList.add(PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.LAST_NAME);
+        columnList.add(PathfinderFamilyPlanningConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderFamilyPlanningConstants.DBConstants.DOB);
+        columnList.add(PathfinderFamilyPlanningConstants.DBConstants.FAMILY + "." + PathfinderFamilyPlanningConstants.DBConstants.VILLAGE_TOWN);
 
         return columnList.toArray(new String[columnList.size()]);
     }

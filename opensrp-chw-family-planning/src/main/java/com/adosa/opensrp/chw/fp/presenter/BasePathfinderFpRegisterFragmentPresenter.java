@@ -1,7 +1,7 @@
 package com.adosa.opensrp.chw.fp.presenter;
 
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import org.smartregister.configurableviews.model.Field;
 import org.smartregister.configurableviews.model.RegisterConfiguration;
 import org.smartregister.configurableviews.model.View;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class BaseFpRegisterFragmentPresenter implements BaseFpRegisterFragmentContract.Presenter {
+public class BasePathfinderFpRegisterFragmentPresenter implements BaseFpRegisterFragmentContract.Presenter {
 
     protected WeakReference<BaseFpRegisterFragmentContract.View> viewReference;
 
@@ -22,7 +22,7 @@ public class BaseFpRegisterFragmentPresenter implements BaseFpRegisterFragmentCo
 
     protected Set<View> visibleColumns = new TreeSet<>();
 
-    public BaseFpRegisterFragmentPresenter(BaseFpRegisterFragmentContract.View view, BaseFpRegisterFragmentContract.Model model) {
+    public BasePathfinderFpRegisterFragmentPresenter(BaseFpRegisterFragmentContract.View view, BaseFpRegisterFragmentContract.Model model) {
         this.viewReference = new WeakReference<>(view);
         this.model = model;
         this.config = model.defaultRegisterConfiguration();
@@ -47,10 +47,10 @@ public class BaseFpRegisterFragmentPresenter implements BaseFpRegisterFragmentCo
     @Override
     public void processViewConfigurations() {
 
-        ViewConfiguration viewConfiguration = model.getViewConfiguration(FamilyPlanningConstants.CONFIGURATION.FAMILY_PLANNING_REGISTER);
+        ViewConfiguration viewConfiguration = model.getViewConfiguration(PathfinderFamilyPlanningConstants.CONFIGURATION.FAMILY_PLANNING_REGISTER);
         if (viewConfiguration != null) {
             config = (RegisterConfiguration) viewConfiguration.getMetadata();
-            this.visibleColumns = model.getRegisterActiveColumns(FamilyPlanningConstants.CONFIGURATION.FAMILY_PLANNING_REGISTER);
+            this.visibleColumns = model.getRegisterActiveColumns(PathfinderFamilyPlanningConstants.CONFIGURATION.FAMILY_PLANNING_REGISTER);
         }
 
         if (config.getSearchBarText() != null && getView() != null) {
@@ -60,7 +60,7 @@ public class BaseFpRegisterFragmentPresenter implements BaseFpRegisterFragmentCo
 
     @Override
     public void initializeQueries(String mainCondition) {
-        String tableName = FamilyPlanningConstants.DBConstants.FAMILY_PLANNING_TABLE;
+        String tableName = PathfinderFamilyPlanningConstants.DBConstants.FAMILY_PLANNING_TABLE;
 
         String countSelect = model.countSelect(tableName, "");
         String mainSelect = model.mainSelect(tableName, "");
@@ -99,6 +99,6 @@ public class BaseFpRegisterFragmentPresenter implements BaseFpRegisterFragmentCo
 
     @Override
     public String getMainTable() {
-        return FamilyPlanningConstants.DBConstants.FAMILY_PLANNING_TABLE;
+        return PathfinderFamilyPlanningConstants.DBConstants.FAMILY_PLANNING_TABLE;
     }
 }

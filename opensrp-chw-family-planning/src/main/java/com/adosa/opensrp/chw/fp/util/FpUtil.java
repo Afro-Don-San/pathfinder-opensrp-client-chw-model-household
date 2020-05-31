@@ -21,12 +21,13 @@ import android.widget.Toast;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
-import com.adosa.opensrp.chw.fp.FpLibrary;
+import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
 import com.adosa.opensrp.chw.fp.contract.BaseFpCallDialogContract;
-import com.adosa.opensrp.chw.fp.dao.FpDao;
-import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
+import com.adosa.opensrp.chw.fp.dao.PathfinderFpDao;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import org.smartregister.clientandeventmodel.Event;
 import com.adosa.opensrp.chw.fp.R;
+
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.repository.BaseRepository;
 import org.smartregister.sync.ClientProcessorForJava;
@@ -41,24 +42,24 @@ import static org.smartregister.util.Utils.getAllSharedPreferences;
 
 public class FpUtil {
     public static ClientProcessorForJava getClientProcessorForJava() {
-        return FpLibrary.getInstance().getClientProcessorForJava();
+        return PathfinderFpLibrary.getInstance().getClientProcessorForJava();
     }
 
     public static ECSyncHelper getSyncHelper() {
-        return FpLibrary.getInstance().getEcSyncHelper();
+        return PathfinderFpLibrary.getInstance().getEcSyncHelper();
     }
 
     public static void saveFormEvent(final String jsonString) throws Exception {
-        AllSharedPreferences allSharedPreferences = FpLibrary.getInstance().context().allSharedPreferences();
+        AllSharedPreferences allSharedPreferences = PathfinderFpLibrary.getInstance().context().allSharedPreferences();
         Event baseEvent = FpJsonFormUtils.processJsonForm(allSharedPreferences, jsonString);
         processEvent(allSharedPreferences, baseEvent);
     }
 
-    public static String getFullName(FpMemberObject fpMemberObject) {
+    public static String getFullName(PathfinderFpMemberObject pathfinderFpMemberObject) {
         StringBuilder nameBuilder = new StringBuilder();
-        String firstName = fpMemberObject.getFirstName();
-        String lastName = fpMemberObject.getLastName();
-        String middleName = fpMemberObject.getMiddleName();
+        String firstName = pathfinderFpMemberObject.getFirstName();
+        String lastName = pathfinderFpMemberObject.getLastName();
+        String middleName = pathfinderFpMemberObject.getMiddleName();
         if (StringUtils.isNotBlank(firstName)) {
             nameBuilder.append(firstName);
         } else if (StringUtils.isNotBlank(middleName)) {
@@ -148,7 +149,7 @@ public class FpUtil {
     }
 
     public static void processChangeFpMethod(String baseEntityId) {
-        FpDao.closeFpMemberFromRegister(baseEntityId);
+        PathfinderFpDao.closeFpMemberFromRegister(baseEntityId);
     }
 
     public static String getTranslatedMethodValue(@Nullable String fpMethod, Context context) {

@@ -2,7 +2,7 @@ package com.adosa.opensrp.chw.fp.activity;
 
 import android.view.MenuItem;
 
-public class FpRegisterActivity extends BaseFpRegisterActivity {
+public class PathfinderFpRegisterActivity extends BasePathfinderFpRegisterActivity {
 
     @Override
     protected void registerBottomNavigation() {

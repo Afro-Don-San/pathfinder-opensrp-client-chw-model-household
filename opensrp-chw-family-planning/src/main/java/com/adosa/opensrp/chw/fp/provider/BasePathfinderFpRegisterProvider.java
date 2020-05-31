@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import com.adosa.opensrp.chw.fp.fragment.BaseFpRegisterFragment;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpRegisterFragment;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.cursoradapter.RecyclerViewProvider;
@@ -32,7 +32,7 @@ import timber.log.Timber;
 
 import static org.smartregister.util.Utils.getName;
 
-public class BaseFpRegisterProvider implements RecyclerViewProvider<BaseFpRegisterProvider.RegisterViewHolder> {
+public class BasePathfinderFpRegisterProvider implements RecyclerViewProvider<BasePathfinderFpRegisterProvider.RegisterViewHolder> {
 
     private final LayoutInflater inflater;
     protected View.OnClickListener onClickListener;
@@ -40,7 +40,7 @@ public class BaseFpRegisterProvider implements RecyclerViewProvider<BaseFpRegist
     private Context context;
     private Set<org.smartregister.configurableviews.model.View> visibleColumns;
 
-    public BaseFpRegisterProvider(Context context, View.OnClickListener paginationClickListener, View.OnClickListener onClickListener, Set visibleColumns) {
+    public BasePathfinderFpRegisterProvider(Context context, View.OnClickListener paginationClickListener, View.OnClickListener onClickListener, Set visibleColumns) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.paginationClickListener = paginationClickListener;
         this.onClickListener = onClickListener;
@@ -59,14 +59,14 @@ public class BaseFpRegisterProvider implements RecyclerViewProvider<BaseFpRegist
     private void populatePatientColumn(CommonPersonObjectClient pc, final RegisterViewHolder viewHolder) {
         try {
             String firstName = getName(
-                    Utils.getValue(pc.getColumnmaps(), FamilyPlanningConstants.DBConstants.FIRST_NAME, true),
-                    Utils.getValue(pc.getColumnmaps(), FamilyPlanningConstants.DBConstants.MIDDLE_NAME, true));
+                    Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.FIRST_NAME, true),
+                    Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.MIDDLE_NAME, true));
 
-            String dobString = Utils.getValue(pc.getColumnmaps(), FamilyPlanningConstants.DBConstants.DOB, false);
+            String dobString = Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.DOB, false);
             int age = new Period(new DateTime(dobString), new DateTime()).getYears();
 
-            String patientName = getName(firstName, Utils.getValue(pc.getColumnmaps(), FamilyPlanningConstants.DBConstants.LAST_NAME, true));
-            String methodAccepted = FpUtil.getTranslatedMethodValue(FamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED, context);
+            String patientName = getName(firstName, Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.LAST_NAME, true));
+            String methodAccepted = FpUtil.getTranslatedMethodValue(PathfinderFamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED, context);
             viewHolder.patientName.setText(patientName + ", " + age);
             viewHolder.textViewFpMethod.setText(Utils.getValue(pc.getColumnmaps(), methodAccepted, true));
 
@@ -74,14 +74,14 @@ public class BaseFpRegisterProvider implements RecyclerViewProvider<BaseFpRegist
                 viewHolder.textViewFpMethod.setVisibility(View.GONE);
             }
 
-            viewHolder.textViewVillage.setText(Utils.getValue(pc.getColumnmaps(), FamilyPlanningConstants.DBConstants.VILLAGE_TOWN, true));
+            viewHolder.textViewVillage.setText(Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.VILLAGE_TOWN, true));
             viewHolder.patientColumn.setOnClickListener(onClickListener);
             viewHolder.patientColumn.setTag(pc);
-            viewHolder.patientColumn.setTag(R.id.VIEW_ID, BaseFpRegisterFragment.CLICK_VIEW_NORMAL);
+            viewHolder.patientColumn.setTag(R.id.VIEW_ID, BasePathfinderFpRegisterFragment.CLICK_VIEW_NORMAL);
 
             viewHolder.dueButton.setOnClickListener(onClickListener);
             viewHolder.dueButton.setTag(pc);
-            viewHolder.dueButton.setTag(R.id.VIEW_ID, BaseFpRegisterFragment.FOLLOW_UP_VISIT);
+            viewHolder.dueButton.setTag(R.id.VIEW_ID, BasePathfinderFpRegisterFragment.FOLLOW_UP_VISIT);
             viewHolder.registerColumns.setOnClickListener(onClickListener);
 
             viewHolder.registerColumns.setOnClickListener(v -> viewHolder.patientColumn.performClick());

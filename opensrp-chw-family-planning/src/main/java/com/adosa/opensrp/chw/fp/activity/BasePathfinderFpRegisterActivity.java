@@ -13,12 +13,12 @@ import com.vijay.jsonwizard.domain.Form;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterContract;
-import com.adosa.opensrp.chw.fp.fragment.BaseFpRegisterFragment;
-import com.adosa.opensrp.chw.fp.interactor.BaseFpRegisterInteractor;
+import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpRegisterFragment;
+import com.adosa.opensrp.chw.fp.interactor.BasePathfinderFpRegisterInteractor;
 import com.adosa.opensrp.chw.fp.listener.BaseFpBottomNavigationListener;
 import com.adosa.opensrp.chw.fp.model.BaseFpRegisterModel;
-import com.adosa.opensrp.chw.fp.presenter.BaseFpRegisterPresenter;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpRegisterPresenter;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import com.adosa.opensrp.chw.fp.R;
 import org.smartregister.helper.BottomNavigationHelper;
 import org.smartregister.listener.BottomNavigationListener;
@@ -30,7 +30,7 @@ import java.util.List;
 
 import timber.log.Timber;
 
-public class BaseFpRegisterActivity extends BaseRegisterActivity implements BaseFpRegisterContract.View {
+public class BasePathfinderFpRegisterActivity extends BaseRegisterActivity implements BaseFpRegisterContract.View {
 
     protected String BASE_ENTITY_ID;
     protected String DOB;
@@ -40,10 +40,10 @@ public class BaseFpRegisterActivity extends BaseRegisterActivity implements Base
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BASE_ENTITY_ID = getIntent().getStringExtra(FamilyPlanningConstants.ActivityPayload.BASE_ENTITY_ID);
-        DOB = getIntent().getStringExtra(FamilyPlanningConstants.ActivityPayload.DOB);
-        ACTION = getIntent().getStringExtra(FamilyPlanningConstants.ActivityPayload.ACTION);
-        FORM_NAME = getIntent().getStringExtra(FamilyPlanningConstants.ActivityPayload.FP_FORM_NAME);
+        BASE_ENTITY_ID = getIntent().getStringExtra(PathfinderFamilyPlanningConstants.ActivityPayload.BASE_ENTITY_ID);
+        DOB = getIntent().getStringExtra(PathfinderFamilyPlanningConstants.ActivityPayload.DOB);
+        ACTION = getIntent().getStringExtra(PathfinderFamilyPlanningConstants.ActivityPayload.ACTION);
+        FORM_NAME = getIntent().getStringExtra(PathfinderFamilyPlanningConstants.ActivityPayload.FP_FORM_NAME);
         onStartActivityWithAction();
     }
 
@@ -64,7 +64,7 @@ public class BaseFpRegisterActivity extends BaseRegisterActivity implements Base
     @Override
     public void startFormActivity(String formName, String entityId, String payloadType) {
         try {
-            if (mBaseFragment instanceof BaseFpRegisterFragment) {
+            if (mBaseFragment instanceof BasePathfinderFpRegisterFragment) {
 
                 presenter().startForm(formName, entityId, payloadType, DOB, getFpFormForEdit());
             }
@@ -80,14 +80,14 @@ public class BaseFpRegisterActivity extends BaseRegisterActivity implements Base
 
     @Override
     public void startFormActivity(JSONObject jsonForm) {
-        Intent intent = new Intent(this, BaseFpRegisterActivity.class);
-        intent.putExtra(FamilyPlanningConstants.JsonFromExtra.JSON, jsonForm.toString());
+        Intent intent = new Intent(this, BasePathfinderFpRegisterActivity.class);
+        intent.putExtra(PathfinderFamilyPlanningConstants.JsonFromExtra.JSON, jsonForm.toString());
 
         if (getFormConfig() != null) {
             intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, getFormConfig());
         }
 
-        startActivityForResult(intent, FamilyPlanningConstants.REQUEST_CODE_GET_JSON);
+        startActivityForResult(intent, PathfinderFamilyPlanningConstants.REQUEST_CODE_GET_JSON);
     }
 
     @Override
@@ -102,8 +102,8 @@ public class BaseFpRegisterActivity extends BaseRegisterActivity implements Base
 
     @Override
     protected void onActivityResultExtended(int requestCode, int resultCode, Intent data) {
-        if (requestCode == FamilyPlanningConstants.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
-            presenter().saveForm(data.getStringExtra(FamilyPlanningConstants.JsonFromExtra.JSON));
+        if (requestCode == PathfinderFamilyPlanningConstants.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
+            presenter().saveForm(data.getStringExtra(PathfinderFamilyPlanningConstants.JsonFromExtra.JSON));
         }
     }
 
@@ -113,7 +113,7 @@ public class BaseFpRegisterActivity extends BaseRegisterActivity implements Base
 
     @Override
     public List<String> getViewIdentifiers() {
-        return Arrays.asList(FamilyPlanningConstants.CONFIGURATION.FAMILY_PLANNING_REGISTER);
+        return Arrays.asList(PathfinderFamilyPlanningConstants.CONFIGURATION.FAMILY_PLANNING_REGISTER);
     }
 
     /**
@@ -144,12 +144,12 @@ public class BaseFpRegisterActivity extends BaseRegisterActivity implements Base
 
     @Override
     protected void initializePresenter() {
-        presenter = new BaseFpRegisterPresenter(this, new BaseFpRegisterModel(), new BaseFpRegisterInteractor());
+        presenter = new BasePathfinderFpRegisterPresenter(this, new BaseFpRegisterModel(), new BasePathfinderFpRegisterInteractor());
     }
 
     @Override
     protected BaseRegisterFragment getRegisterFragment() {
-        return new BaseFpRegisterFragment();
+        return new BasePathfinderFpRegisterFragment();
     }
 
     @Override
@@ -164,9 +164,9 @@ public class BaseFpRegisterActivity extends BaseRegisterActivity implements Base
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK && requestCode == FamilyPlanningConstants.REQUEST_CODE_GET_JSON) {
+        if (resultCode == Activity.RESULT_OK && requestCode == PathfinderFamilyPlanningConstants.REQUEST_CODE_GET_JSON) {
             try {
-                String jsonString = data.getStringExtra(FamilyPlanningConstants.JsonFromExtra.JSON);
+                String jsonString = data.getStringExtra(PathfinderFamilyPlanningConstants.JsonFromExtra.JSON);
                 JSONObject form = new JSONObject(jsonString);
                 presenter().saveForm(form.toString());
             } catch (JSONException e) {

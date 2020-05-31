@@ -2,9 +2,9 @@ package com.adosa.opensrp.chw.fp.dao;
 
 import org.jetbrains.annotations.Nullable;
 import org.smartregister.chw.anc.domain.Visit;
-import com.adosa.opensrp.chw.fp.domain.FpAlertObject;
-import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpAlertObject;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import org.smartregister.dao.AbstractDao;
 
 import java.text.SimpleDateFormat;
@@ -13,7 +13,7 @@ import java.util.Locale;
 
 import timber.log.Timber;
 
-public class FpDao extends AbstractDao {
+public class PathfinderFpDao extends AbstractDao {
 
     public static boolean isRegisteredForFp(String baseEntityID) {
         String sql = String.format(
@@ -44,7 +44,7 @@ public class FpDao extends AbstractDao {
         return visit.get(0);
     }
 
-    public static FpMemberObject getMember(String baseEntityID) {
+    public static PathfinderFpMemberObject getMember(String baseEntityID) {
         String sql = "select m.base_entity_id , m.unique_id , m.relational_id , m.dob , m.first_name , " +
                 "m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , " +
                 "f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town ," +
@@ -57,8 +57,8 @@ public class FpDao extends AbstractDao {
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver where m.base_entity_id ='" + baseEntityID + "' ";
 
-        DataMap<FpMemberObject> dataMap = cursor -> {
-            FpMemberObject memberObject = new FpMemberObject();
+        DataMap<PathfinderFpMemberObject> dataMap = cursor -> {
+            PathfinderFpMemberObject memberObject = new PathfinderFpMemberObject();
 
             memberObject.setFirstName(getCursorValue(cursor, "first_name", ""));
             memberObject.setMiddleName(getCursorValue(cursor, "middle_name", ""));
@@ -100,7 +100,7 @@ public class FpDao extends AbstractDao {
             return memberObject;
         };
 
-        List<FpMemberObject> res = readData(sql, dataMap);
+        List<PathfinderFpMemberObject> res = readData(sql, dataMap);
         if (res == null || res.size() != 1)
             return null;
 
@@ -108,28 +108,28 @@ public class FpDao extends AbstractDao {
     }
 
     @Nullable
-    public static List<FpAlertObject> getFpDetails(String baseEntityID) {
+    public static List<PathfinderFpAlertObject> getFpDetails(String baseEntityID) {
         String sql = "select fp_method_accepted, fp_start_date from ec_family_planning where base_entity_id = '" + baseEntityID + "' " +
                 "and is_closed is 0 and ecp = 1";
 
-        List<FpAlertObject> fpAlertObjects = AbstractDao.readData(sql, getVisitDetailsDataMap());
-        if (fpAlertObjects.size() == 0) {
+        List<PathfinderFpAlertObject> pathfinderFpAlertObjects = AbstractDao.readData(sql, getVisitDetailsDataMap());
+        if (pathfinderFpAlertObjects.size() == 0) {
             return null;
         }
-        return fpAlertObjects;
+        return pathfinderFpAlertObjects;
     }
 
-    private static DataMap<FpAlertObject> getVisitDetailsDataMap() {
+    private static DataMap<PathfinderFpAlertObject> getVisitDetailsDataMap() {
         return c -> {
-            FpAlertObject fpAlertObject = new FpAlertObject();
+            PathfinderFpAlertObject pathfinderFpAlertObject = new PathfinderFpAlertObject();
             try {
-                fpAlertObject.setFpMethod(getCursorValue(c, "fp_method_accepted"));
-                fpAlertObject.setFpPillCycles(getCursorIntValue(c, "no_pillcycles"));
-                fpAlertObject.setFpStartDate(getCursorValue(c, "fp_start_date"));
+                pathfinderFpAlertObject.setFpMethod(getCursorValue(c, "fp_method_accepted"));
+                pathfinderFpAlertObject.setFpPillCycles(getCursorIntValue(c, "no_pillcycles"));
+                pathfinderFpAlertObject.setFpStartDate(getCursorValue(c, "fp_start_date"));
             } catch (Exception e) {
                 Timber.e(e.toString());
             }
-            return fpAlertObject;
+            return pathfinderFpAlertObject;
         };
     }
 
@@ -160,11 +160,11 @@ public class FpDao extends AbstractDao {
                 "FROM Visits v " +
                 "INNER JOIN ec_family_planning fp on fp.base_entity_id = v.base_entity_id " +
                 " WHERE v.base_entity_id = '" + baseEntityId + "' COLLATE NOCASE " +
-                " AND (v.visit_type = '" + FamilyPlanningConstants.EventType.FAMILY_PLANNING_REGISTRATION + "' COLLATE NOCASE  OR " +
-                "v.visit_type = '" + FamilyPlanningConstants.EventType.INTRODUCTION_TO_FAMILY_PLANNING + "' COLLATE NOCASE  OR " +
-                "v.visit_type = '" + FamilyPlanningConstants.EventType.FAMILY_PLANNING_PREGNANCY_SCREENING + "' COLLATE NOCASE  OR " +
-                "v.visit_type = '" + FamilyPlanningConstants.EventType.CHOOSING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE  OR " +
-                "v.visit_type = '" + FamilyPlanningConstants.EventType.GIVING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE) " +
+                " AND (v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FAMILY_PLANNING_REGISTRATION + "' COLLATE NOCASE  OR " +
+                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.INTRODUCTION_TO_FAMILY_PLANNING + "' COLLATE NOCASE  OR " +
+                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FAMILY_PLANNING_PREGNANCY_SCREENING + "' COLLATE NOCASE  OR " +
+                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.CHOOSING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE  OR " +
+                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.GIVING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE) " +
                 "ORDER BY v.visit_date DESC";
 
         List<Visit> visit = AbstractDao.readData(sql, getVisitDataMap());

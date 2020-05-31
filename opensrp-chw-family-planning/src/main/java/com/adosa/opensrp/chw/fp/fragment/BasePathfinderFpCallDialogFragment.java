@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import org.apache.commons.lang3.StringUtils;
 import com.adosa.opensrp.chw.fp.contract.BaseFpCallDialogContract;
-import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.listener.BaseFpCallWidgetDialogListener;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import com.adosa.opensrp.chw.fp.R;
@@ -23,17 +23,17 @@ import com.adosa.opensrp.chw.fp.R;
 import static android.view.View.GONE;
 import static org.smartregister.util.Utils.getName;
 
-public class BaseFpCallDialogFragment extends DialogFragment implements BaseFpCallDialogContract.View {
+public class BasePathfinderFpCallDialogFragment extends DialogFragment implements BaseFpCallDialogContract.View {
 
     public static final String DIALOG_TAG = "BaseFpCallWidgetDialogFragment_DIALOG_TAG";
-    private static FpMemberObject fpMemberObject;
+    private static PathfinderFpMemberObject pathfinderFpMemberObject;
     private View.OnClickListener listener = null;
 
-    public static BaseFpCallDialogFragment launchDialog(Activity activity, FpMemberObject memberObject) {
-        BaseFpCallDialogFragment dialogFragment = BaseFpCallDialogFragment.newInstance();
+    public static BasePathfinderFpCallDialogFragment launchDialog(Activity activity, PathfinderFpMemberObject memberObject) {
+        BasePathfinderFpCallDialogFragment dialogFragment = BasePathfinderFpCallDialogFragment.newInstance();
         FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
         Fragment prev = activity.getFragmentManager().findFragmentByTag(DIALOG_TAG);
-        fpMemberObject = memberObject;
+        pathfinderFpMemberObject = memberObject;
         if (prev != null) {
             ft.remove(prev);
         }
@@ -44,8 +44,8 @@ public class BaseFpCallDialogFragment extends DialogFragment implements BaseFpCa
         return dialogFragment;
     }
 
-    public static BaseFpCallDialogFragment newInstance() {
-        return new BaseFpCallDialogFragment();
+    public static BasePathfinderFpCallDialogFragment newInstance() {
+        return new BasePathfinderFpCallDialogFragment();
     }
 
     @Override
@@ -72,32 +72,32 @@ public class BaseFpCallDialogFragment extends DialogFragment implements BaseFpCa
 
     private void initUI(ViewGroup rootView) {
 
-        if (StringUtils.isNotBlank(fpMemberObject.getPhoneNumber())) {
+        if (StringUtils.isNotBlank(pathfinderFpMemberObject.getPhoneNumber())) {
             TextView fpWomanNameTextView = rootView.findViewById(R.id.call_fp_woman_name);
-            fpWomanNameTextView.setText(FpUtil.getFullName(fpMemberObject));
+            fpWomanNameTextView.setText(FpUtil.getFullName(pathfinderFpMemberObject));
 
             TextView fpWomanPhone = rootView.findViewById(R.id.call_fp_woman_phone);
-            fpWomanPhone.setTag(fpMemberObject.getPhoneNumber());
-            fpWomanPhone.setText(getName(getCurrentContext().getString(R.string.call), fpMemberObject.getPhoneNumber()));
+            fpWomanPhone.setTag(pathfinderFpMemberObject.getPhoneNumber());
+            fpWomanPhone.setText(getName(getCurrentContext().getString(R.string.call), pathfinderFpMemberObject.getPhoneNumber()));
             fpWomanPhone.setOnClickListener(listener);
         } else {
             rootView.findViewById(R.id.layout_fp_woman).setVisibility(GONE);
         }
 
-        if (StringUtils.isNotBlank(fpMemberObject.getFamilyHeadPhoneNumber())) {
+        if (StringUtils.isNotBlank(pathfinderFpMemberObject.getFamilyHeadPhoneNumber())) {
             TextView fpPrimaryCaregiverTitle = rootView.findViewById(R.id.call_primary_caregiver_title);
-            if (StringUtils.isNotBlank(fpMemberObject.getPrimaryCareGiver()) &&
-                    fpMemberObject.getFamilyHead().equals(fpMemberObject.getPrimaryCareGiver())) {
+            if (StringUtils.isNotBlank(pathfinderFpMemberObject.getPrimaryCareGiver()) &&
+                    pathfinderFpMemberObject.getFamilyHead().equals(pathfinderFpMemberObject.getPrimaryCareGiver())) {
                 fpPrimaryCaregiverTitle.setVisibility(View.VISIBLE);
             } else {
                 fpPrimaryCaregiverTitle.setVisibility(GONE);
             }
             TextView familyHeadName = rootView.findViewById(R.id.fp_call_head_name);
-            familyHeadName.setText(fpMemberObject.getFamilyHeadName());
+            familyHeadName.setText(pathfinderFpMemberObject.getFamilyHeadName());
 
             TextView callHeadPhoneNumber = rootView.findViewById(R.id.fp_call_head_phone_number);
-            callHeadPhoneNumber.setTag(fpMemberObject.getFamilyHeadPhoneNumber());
-            callHeadPhoneNumber.setText(getName(getCurrentContext().getString(R.string.call), fpMemberObject.getFamilyHeadPhoneNumber()));
+            callHeadPhoneNumber.setTag(pathfinderFpMemberObject.getFamilyHeadPhoneNumber());
+            callHeadPhoneNumber.setText(getName(getCurrentContext().getString(R.string.call), pathfinderFpMemberObject.getFamilyHeadPhoneNumber()));
             callHeadPhoneNumber.setOnClickListener(listener);
 
         } else {

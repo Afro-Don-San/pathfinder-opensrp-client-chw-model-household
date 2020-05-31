@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterContract;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import com.adosa.opensrp.chw.fp.util.FpJsonFormUtils;
 import com.adosa.opensrp.chw.fp.R;
 import org.smartregister.util.JsonFormUtils;
@@ -20,15 +20,15 @@ import java.util.List;
 
 import timber.log.Timber;
 
-public class BaseFpRegisterPresenter implements BaseFpRegisterContract.Presenter, BaseFpRegisterContract.InteractorCallBack {
+public class BasePathfinderFpRegisterPresenter implements BaseFpRegisterContract.Presenter, BaseFpRegisterContract.InteractorCallBack {
 
-    public static final String TAG = BaseFpRegisterPresenter.class.getName();
+    public static final String TAG = BasePathfinderFpRegisterPresenter.class.getName();
 
     protected WeakReference<BaseFpRegisterContract.View> viewReference;
     protected BaseFpRegisterContract.Model model;
     private BaseFpRegisterContract.Interactor interactor;
 
-    public BaseFpRegisterPresenter(BaseFpRegisterContract.View view, BaseFpRegisterContract.Model model, BaseFpRegisterContract.Interactor interactor) {
+    public BasePathfinderFpRegisterPresenter(BaseFpRegisterContract.View view, BaseFpRegisterContract.Model model, BaseFpRegisterContract.Interactor interactor) {
         viewReference = new WeakReference<>(view);
         this.interactor = interactor;
         this.model = model;
@@ -39,7 +39,7 @@ public class BaseFpRegisterPresenter implements BaseFpRegisterContract.Presenter
         if (StringUtils.isBlank(entityId)) {
             return;
         }
-        if (FamilyPlanningConstants.ActivityPayload.UPDATE_REGISTRATION_PAYLOAD_TYPE.equals(payloadType)) {
+        if (PathfinderFamilyPlanningConstants.ActivityPayload.UPDATE_REGISTRATION_PAYLOAD_TYPE.equals(payloadType)) {
             getView().startFormActivity(form);
         } else {
             JSONObject formAsJson = model.getFormAsJson(formName, entityId);
@@ -47,7 +47,7 @@ public class BaseFpRegisterPresenter implements BaseFpRegisterContract.Presenter
                 JSONObject stepOne = formAsJson.getJSONObject(JsonFormUtils.STEP1);
                 JSONArray jsonArray = stepOne.getJSONArray(JsonFormUtils.FIELDS);
                 int age = new Period(new DateTime(dob), new DateTime()).getYears();
-                FpJsonFormUtils.updateFormField(jsonArray, FamilyPlanningConstants.DBConstants.AGE, String.valueOf(age));
+                FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.AGE, String.valueOf(age));
 
             } catch (JSONException e) {
                 Timber.e(e);

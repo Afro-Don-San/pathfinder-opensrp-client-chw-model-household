@@ -5,7 +5,7 @@ import org.smartregister.chw.anc.contract.BaseAncHomeVisitContract;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.interactor.BaseAncHomeVisitInteractor;
 import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import org.smartregister.clientandeventmodel.Event;
 
 import java.text.SimpleDateFormat;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class BaseFpFollowUpVisitInteractor extends BaseAncHomeVisitInteractor {
+public class BasePathfinderFpFollowUpVisitInteractor extends BaseAncHomeVisitInteractor {
 
     private String motherID;
     private String parentVisitID;
@@ -54,12 +54,12 @@ public class BaseFpFollowUpVisitInteractor extends BaseAncHomeVisitInteractor {
 
     @Override
     protected String getEncounterType() {
-        return FamilyPlanningConstants.EventType.FP_FOLLOW_UP_VISIT;
+        return PathfinderFamilyPlanningConstants.EventType.FP_FOLLOW_UP_VISIT;
     }
 
     @Override
     protected String getTableName() {
-        return FamilyPlanningConstants.DBConstants.FAMILY_PLANNING_TABLE;
+        return PathfinderFamilyPlanningConstants.DBConstants.FAMILY_PLANNING_TABLE;
     }
 
 

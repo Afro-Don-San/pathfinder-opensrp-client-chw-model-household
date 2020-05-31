@@ -12,9 +12,9 @@ import java.text.MessageFormat;
 import static org.smartregister.chw.anc.util.Constants.ANC_MEMBER_OBJECTS.EDIT_MODE;
 import static org.smartregister.chw.anc.util.Constants.ANC_MEMBER_OBJECTS.MEMBER_PROFILE_OBJECT;
 
-public class BaseFpFollowUpVisitActivity extends BaseAncHomeVisitActivity {
+public class BasePathfinderFpFollowUpVisitActivity extends BaseAncHomeVisitActivity {
     public static void startMe(Activity activity, MemberObject memberObject, Boolean isEditMode) {
-        Intent intent = new Intent(activity, BaseFpFollowUpVisitActivity.class);
+        Intent intent = new Intent(activity, BasePathfinderFpFollowUpVisitActivity.class);
         intent.putExtra(MEMBER_PROFILE_OBJECT, memberObject);
         intent.putExtra(EDIT_MODE, isEditMode);
         activity.startActivity(intent);

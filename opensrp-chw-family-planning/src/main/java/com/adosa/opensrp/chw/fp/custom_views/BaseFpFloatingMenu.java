@@ -6,17 +6,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
-import com.adosa.opensrp.chw.fp.fragment.BaseFpCallDialogFragment;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
+import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpCallDialogFragment;
 import com.adosa.opensrp.chw.fp.R;
 
 
 public class BaseFpFloatingMenu extends LinearLayout implements View.OnClickListener {
-    private FpMemberObject fpMemberObject;
+    private PathfinderFpMemberObject pathfinderFpMemberObject;
 
-    public BaseFpFloatingMenu(Context context, FpMemberObject fpMemberObject) {
+    public BaseFpFloatingMenu(Context context, PathfinderFpMemberObject pathfinderFpMemberObject) {
         super(context);
-        this.fpMemberObject = fpMemberObject;
+        this.pathfinderFpMemberObject = pathfinderFpMemberObject;
         initUi();
     }
 
@@ -31,7 +31,7 @@ public class BaseFpFloatingMenu extends LinearLayout implements View.OnClickList
     public void onClick(View view) {
         if (view.getId() == R.id.fp_fab) {
             Activity activity = (Activity) getContext();
-            BaseFpCallDialogFragment.launchDialog(activity, fpMemberObject);
+            BasePathfinderFpCallDialogFragment.launchDialog(activity, pathfinderFpMemberObject);
         }
     }
 }

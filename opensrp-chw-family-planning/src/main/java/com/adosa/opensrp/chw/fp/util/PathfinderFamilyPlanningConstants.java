@@ -1,11 +1,11 @@
 package com.adosa.opensrp.chw.fp.util;
 
-public interface FamilyPlanningConstants {
+public interface PathfinderFamilyPlanningConstants {
 
     int REQUEST_CODE_GET_JSON = 2244;
 
     interface FamilyPlanningMemberObject {
-        String MEMBER_OBJECT = "fpMemberObject";
+        String MEMBER_OBJECT = "pathfinderFpMemberObject";
     }
 
     interface JsonFromExtra {

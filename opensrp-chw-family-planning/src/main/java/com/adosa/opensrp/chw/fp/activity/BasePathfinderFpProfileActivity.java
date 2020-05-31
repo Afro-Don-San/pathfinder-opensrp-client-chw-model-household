@@ -20,11 +20,11 @@ import android.widget.TextView;
 import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.contract.BaseFpProfileContract;
 import com.adosa.opensrp.chw.fp.custom_views.BaseFpFloatingMenu;
-import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
-import com.adosa.opensrp.chw.fp.interactor.BaseFpProfileInteractor;
-import com.adosa.opensrp.chw.fp.presenter.BaseFpProfilePresenter;
-import com.adosa.opensrp.chw.fp.util.FamilyPlanningConstants;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
+import com.adosa.opensrp.chw.fp.interactor.BasePathfinderFpProfileInteractor;
+import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpProfilePresenter;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -41,7 +41,7 @@ import java.util.Locale;
 import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
 
-public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFpProfileContract.View {
+public class BasePathfinderFpProfileActivity extends BaseProfileActivity implements BaseFpProfileContract.View {
     protected View lastVisitRow;
     protected LinearLayout recordFollowUpVisitLayout;
     protected RelativeLayout recordVisitStatusBarLayout;
@@ -65,7 +65,7 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     protected TextView tvFpMethodRow;
     protected BaseFpProfileContract.Presenter fpProfilePresenter;
     protected BaseFpFloatingMenu fpFloatingMenu;
-    protected FpMemberObject fpMemberObject;
+    protected PathfinderFpMemberObject pathfinderFpMemberObject;
     protected int numOfDays;
     private ProgressBar progressBar;
     private CircleImageView profileImageView;
@@ -77,15 +77,17 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     private View familyRow;
     private ImageRenderHelper imageRenderHelper;
 
-    public static void startProfileActivity(Activity activity, FpMemberObject memberObject) {
-        Intent intent = new Intent(activity, BaseFpProfileActivity.class);
-        intent.putExtra(FamilyPlanningConstants.FamilyPlanningMemberObject.MEMBER_OBJECT, memberObject);
+    public static void startProfileActivity(Activity activity, PathfinderFpMemberObject memberObject) {
+        Intent intent = new Intent(activity, BasePathfinderFpProfileActivity.class);
+        intent.putExtra(PathfinderFamilyPlanningConstants.FamilyPlanningMemberObject.MEMBER_OBJECT, memberObject);
         activity.startActivity(intent);
     }
 
     @Override
     protected void onCreation() {
-        setContentView(R.layout.activity_base_fp_profile);
+        Timber.e("Coze setting up content view");
+        setContentView(R.layout.activity_base_pathfinder_fp_profile);
+        Timber.e("Coze content view set");
 
         Toolbar toolbar = findViewById(R.id.collapsing_toolbar);
         setSupportActionBar(toolbar);
@@ -98,16 +100,19 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
             actionBar.setHomeAsUpIndicator(upArrow);
         }
 
-        toolbar.setNavigationOnClickListener(v -> BaseFpProfileActivity.this.finish());
+        toolbar.setNavigationOnClickListener(v -> BasePathfinderFpProfileActivity.this.finish());
         appBarLayout = this.findViewById(R.id.collapsing_toolbar_appbarlayout);
         if (Build.VERSION.SDK_INT >= 21) {
             appBarLayout.setOutlineProvider(null);
         }
 
-        fpMemberObject = (FpMemberObject) getIntent().getSerializableExtra(FamilyPlanningConstants.FamilyPlanningMemberObject.MEMBER_OBJECT);
+        pathfinderFpMemberObject = (PathfinderFpMemberObject) getIntent().getSerializableExtra(PathfinderFamilyPlanningConstants.FamilyPlanningMemberObject.MEMBER_OBJECT);
         imageRenderHelper = new ImageRenderHelper(this);
 
+        Timber.e("Coze setting up views");
         setupViews();
+
+        Timber.e("Initializing presenter");
         initializePresenter();
         fetchProfileData();
         initializeCallFAB();
@@ -161,13 +166,13 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
 
     @Override
     protected void initializePresenter() {
-        fpProfilePresenter = new BaseFpProfilePresenter(this, new BaseFpProfileInteractor(), fpMemberObject);
+        fpProfilePresenter = new BasePathfinderFpProfilePresenter(this, new BasePathfinderFpProfileInteractor(), pathfinderFpMemberObject);
     }
 
     public void initializeCallFAB() {
-        if (StringUtils.isNotBlank(fpMemberObject.getPhoneNumber())
-                || StringUtils.isNotBlank(fpMemberObject.getFamilyHeadPhoneNumber())) {
-            fpFloatingMenu = new BaseFpFloatingMenu(this, fpMemberObject);
+        if (StringUtils.isNotBlank(pathfinderFpMemberObject.getPhoneNumber())
+                || StringUtils.isNotBlank(pathfinderFpMemberObject.getFamilyHeadPhoneNumber())) {
+            fpFloatingMenu = new BaseFpFloatingMenu(this, pathfinderFpMemberObject);
             fpFloatingMenu.setGravity(Gravity.BOTTOM | Gravity.RIGHT);
             LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -321,20 +326,20 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     }
 
     @Override
-    public void setProfileViewDetails(FpMemberObject fpMemberObject) {
-        int age = new Period(new DateTime(fpMemberObject.getAge()), new DateTime()).getYears();
-        tvName.setText(String.format(Locale.getDefault(), "%s %s %s, %d", fpMemberObject.getFirstName(),
-                fpMemberObject.getMiddleName(), fpMemberObject.getLastName(), age));
-        tvGender.setText(fpMemberObject.getGender());
-        tvLocation.setText(fpMemberObject.getAddress());
-        tvUniqueID.setText(fpMemberObject.getUniqueId());
-        imageRenderHelper.refreshProfileImage(fpMemberObject.getBaseEntityId(), profileImageView, FpUtil.getMemberProfileImageResourceIDentifier());
-        tvFpMethodRow.setText(getFpMethodRowString(fpMemberObject.getFpMethod(), fpMemberObject.getFpStartDate(), fpMemberObject.getFpRegistrationDate()));
+    public void setProfileViewDetails(PathfinderFpMemberObject pathfinderFpMemberObject) {
+        int age = new Period(new DateTime(pathfinderFpMemberObject.getAge()), new DateTime()).getYears();
+        tvName.setText(String.format(Locale.getDefault(), "%s %s %s, %d", pathfinderFpMemberObject.getFirstName(),
+                pathfinderFpMemberObject.getMiddleName(), pathfinderFpMemberObject.getLastName(), age));
+        tvGender.setText(pathfinderFpMemberObject.getGender());
+        tvLocation.setText(pathfinderFpMemberObject.getAddress());
+        tvUniqueID.setText(pathfinderFpMemberObject.getUniqueId());
+        imageRenderHelper.refreshProfileImage(pathfinderFpMemberObject.getBaseEntityId(), profileImageView, FpUtil.getMemberProfileImageResourceIDentifier());
+        tvFpMethodRow.setText(getFpMethodRowString(pathfinderFpMemberObject.getFpMethod(), pathfinderFpMemberObject.getFpStartDate(), pathfinderFpMemberObject.getFpRegistrationDate()));
 
-        if (StringUtils.isNotBlank(fpMemberObject.getFamilyHead()) && fpMemberObject.getFamilyHead().equals(fpMemberObject.getBaseEntityId())) {
+        if (StringUtils.isNotBlank(pathfinderFpMemberObject.getFamilyHead()) && pathfinderFpMemberObject.getFamilyHead().equals(pathfinderFpMemberObject.getBaseEntityId())) {
             findViewById(R.id.fp_family_head).setVisibility(View.VISIBLE);
         }
-        if (StringUtils.isNotBlank(fpMemberObject.getPrimaryCareGiver()) && fpMemberObject.getPrimaryCareGiver().equals(fpMemberObject.getBaseEntityId())) {
+        if (StringUtils.isNotBlank(pathfinderFpMemberObject.getPrimaryCareGiver()) && pathfinderFpMemberObject.getPrimaryCareGiver().equals(pathfinderFpMemberObject.getBaseEntityId())) {
             findViewById(R.id.fp_primary_caregiver).setVisibility(View.VISIBLE);
         }
     }
@@ -362,37 +367,37 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
         String onText = getString(R.string.fp_on);
 
         switch (fpMethod) {
-            case FamilyPlanningConstants.DBConstants.FP_POP:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_POP:
                 fpMethodDisplayText = getString(R.string.pop) + " " + startedText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_COC:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_COC:
                 fpMethodDisplayText = getString(R.string.coc) + " " + startedText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_FEMALE_CONDOM:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_FEMALE_CONDOM:
                 fpMethodDisplayText = getString(R.string.female_condom) + " " + startedText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_MALE_CONDOM:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_MALE_CONDOM:
                 fpMethodDisplayText = getString(R.string.male_condom) + " " + startedText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_INJECTABLE:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_INJECTABLE:
                 fpMethodDisplayText = getString(R.string.injectable) + " " + startedText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_IUD:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_IUD:
                 fpMethodDisplayText = getString(R.string.iud) + " " + insertionText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_VASECTOMY:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_VASECTOMY:
                 fpMethodDisplayText = getString(R.string.vasectomy);
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_TUBAL_LIGATION:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_TUBAL_LIGATION:
                 fpMethodDisplayText = getString(R.string.tubal_ligation);
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_LAM:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_LAM:
                 fpMethodDisplayText = getString(R.string.lam) + " " + insertionText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_IMPLANTS:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_IMPLANTS:
                 fpMethodDisplayText = getString(R.string.implants) + " " + insertionText;
                 break;
-            case FamilyPlanningConstants.DBConstants.FP_SDM:
+            case PathfinderFamilyPlanningConstants.DBConstants.FP_SDM:
                 fpMethodDisplayText = getString(R.string.standard_day_method) + " " + insertionText;
                 break;
             case "0": //TODO coze update empty fp method to ""
@@ -419,7 +424,7 @@ public class BaseFpProfileActivity extends BaseProfileActivity implements BaseFp
     }
 
     @Override
-    public void onMemberDetailsReloaded(FpMemberObject fpMemberObject) {
+    public void onMemberDetailsReloaded(PathfinderFpMemberObject pathfinderFpMemberObject) {
         setupViews();
         fetchProfileData();
     }

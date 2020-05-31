@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
 
-public class BaseFpRegisterFragmentPresenterTest {
+public class BasePathfinderFpRegisterFragmentPresenterTest {
 
     @Mock
     protected BaseFpRegisterFragmentContract.View view;
@@ -15,23 +15,23 @@ public class BaseFpRegisterFragmentPresenterTest {
     @Mock
     protected BaseFpRegisterFragmentContract.Model model;
 
-    private BaseFpRegisterFragmentPresenter baseFpRegisterFragmentPresenter;
+    private BasePathfinderFpRegisterFragmentPresenter basePathfinderFpRegisterFragmentPresenter;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        baseFpRegisterFragmentPresenter = new BaseFpRegisterFragmentPresenter(view, model);
+        basePathfinderFpRegisterFragmentPresenter = new BasePathfinderFpRegisterFragmentPresenter(view, model);
     }
 
     @Test
     public void assertNotNull() {
-        Assert.assertNotNull(baseFpRegisterFragmentPresenter);
+        Assert.assertNotNull(basePathfinderFpRegisterFragmentPresenter);
     }
 
     @Test
     public void getMainCondition() {
-        Assert.assertEquals(" ec_family_member.date_removed is null AND ec_family_planning.is_closed = 0 AND ec_family_planning.ecp = 1", baseFpRegisterFragmentPresenter.getMainCondition());
+        Assert.assertEquals(" ec_family_member.date_removed is null AND ec_family_planning.is_closed = 0 AND ec_family_planning.ecp = 1", basePathfinderFpRegisterFragmentPresenter.getMainCondition());
     }
 
 }

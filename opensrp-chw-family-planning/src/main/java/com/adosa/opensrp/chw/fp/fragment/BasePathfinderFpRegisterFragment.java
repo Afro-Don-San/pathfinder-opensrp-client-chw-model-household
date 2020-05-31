@@ -3,11 +3,11 @@ package com.adosa.opensrp.chw.fp.fragment;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.adosa.opensrp.chw.fp.activity.BaseFpFollowUpVisitActivity;
+import com.adosa.opensrp.chw.fp.activity.BasePathfinderFpFollowUpVisitActivity;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
 import com.adosa.opensrp.chw.fp.model.BaseFpRegisterFragmentModel;
-import com.adosa.opensrp.chw.fp.presenter.BaseFpRegisterFragmentPresenter;
-import com.adosa.opensrp.chw.fp.provider.BaseFpRegisterProvider;
+import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpRegisterFragmentPresenter;
+import com.adosa.opensrp.chw.fp.provider.BasePathfinderFpRegisterProvider;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.configurableviews.model.View;
 import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter;
@@ -19,13 +19,13 @@ import org.smartregister.view.fragment.BaseRegisterFragment;
 import java.util.HashMap;
 import java.util.Set;
 
-public class BaseFpRegisterFragment extends BaseRegisterFragment implements BaseFpRegisterFragmentContract.View {
+public class BasePathfinderFpRegisterFragment extends BaseRegisterFragment implements BaseFpRegisterFragmentContract.View {
     public static final String CLICK_VIEW_NORMAL = "click_view_normal";
     public static final String FOLLOW_UP_VISIT = "follow_up_visit";
 
     @Override
     public void initializeAdapter(Set<View> visibleColumns) {
-        BaseFpRegisterProvider fpRegisterProvider = new BaseFpRegisterProvider(getActivity(), paginationViewHandler, registerActionHandler, visibleColumns);
+        BasePathfinderFpRegisterProvider fpRegisterProvider = new BasePathfinderFpRegisterProvider(getActivity(), paginationViewHandler, registerActionHandler, visibleColumns);
         clientAdapter = new RecyclerViewPaginatedAdapter(null, fpRegisterProvider, context().commonrepository(this.tablename));
         clientAdapter.setCurrentlimit(20);
         clientsView.setAdapter(clientAdapter);
@@ -80,7 +80,7 @@ public class BaseFpRegisterFragment extends BaseRegisterFragment implements Base
         if (getActivity() == null) {
             return;
         }
-        presenter = new BaseFpRegisterFragmentPresenter(this, new BaseFpRegisterFragmentModel());
+        presenter = new BasePathfinderFpRegisterFragmentPresenter(this, new BaseFpRegisterFragmentModel());
     }
 
     @Override
@@ -123,11 +123,11 @@ public class BaseFpRegisterFragment extends BaseRegisterFragment implements Base
     }
 
     protected void openProfile(CommonPersonObjectClient client) {
-//        BaseFpProfileActivity.startProfileActivity(getActivity(), new FpMemberObject(client));
+//        BasePathfinderFpProfileActivity.startProfileActivity(getActivity(), new PathfinderFpMemberObject(client));
     }
 
     protected void openFollowUpVisit(CommonPersonObjectClient client) {
-        BaseFpFollowUpVisitActivity.startMe(getActivity(), client.getCaseId(), false);
+        BasePathfinderFpFollowUpVisitActivity.startMe(getActivity(), client.getCaseId(), false);
     }
 
     @Override

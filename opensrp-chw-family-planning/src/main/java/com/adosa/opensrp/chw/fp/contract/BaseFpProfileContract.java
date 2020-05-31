@@ -2,7 +2,8 @@ package com.adosa.opensrp.chw.fp.contract;
 
 import android.content.Context;
 
-import com.adosa.opensrp.chw.fp.domain.FpMemberObject;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
+
 import org.smartregister.domain.AlertStatus;
 import org.smartregister.view.contract.BaseProfileContract;
 
@@ -38,7 +39,7 @@ public interface BaseFpProfileContract {
 
         void setFamilyStatus(AlertStatus status);
 
-        void setProfileViewDetails(FpMemberObject fpMemberObject);
+        void setProfileViewDetails(PathfinderFpMemberObject pathfinderFpMemberObject);
 
         void setupFollowupVisitEditViews(boolean isWithin24Hours);
 
@@ -66,7 +67,7 @@ public interface BaseFpProfileContract {
 
         void showProgressBar(boolean status);
 
-        void onMemberDetailsReloaded(FpMemberObject fpMemberObject);
+        void onMemberDetailsReloaded(PathfinderFpMemberObject pathfinderFpMemberObject);
 
     }
 
@@ -82,15 +83,15 @@ public interface BaseFpProfileContract {
 
     interface Interactor {
 
-        void refreshProfileView(FpMemberObject fpMemberObject, boolean isForEdit, BaseFpProfileContract.InteractorCallback callback);
+        void refreshProfileView(PathfinderFpMemberObject pathfinderFpMemberObject, boolean isForEdit, BaseFpProfileContract.InteractorCallback callback);
 
-        void updateProfileFpStatusInfo(FpMemberObject memberObject, BaseFpProfileContract.InteractorCallback callback);
+        void updateProfileFpStatusInfo(PathfinderFpMemberObject memberObject, BaseFpProfileContract.InteractorCallback callback);
 
     }
 
     interface InteractorCallback {
 
-        void refreshProfileTopSection(FpMemberObject fpMemberObject);
+        void refreshProfileTopSection(PathfinderFpMemberObject pathfinderFpMemberObject);
 
         void refreshUpComingServicesStatus(String service, AlertStatus status, Date date);
 

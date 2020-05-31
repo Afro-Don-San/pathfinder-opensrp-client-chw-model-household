@@ -6,16 +6,16 @@ import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterContract;
 import com.adosa.opensrp.chw.fp.util.AppExecutors;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 
-public class BaseFpRegisterInteractor implements BaseFpRegisterContract.Interactor {
+public class BasePathfinderFpRegisterInteractor implements BaseFpRegisterContract.Interactor {
 
     private AppExecutors appExecutors;
 
     @VisibleForTesting
-    BaseFpRegisterInteractor(AppExecutors appExecutors) {
+    BasePathfinderFpRegisterInteractor(AppExecutors appExecutors) {
         this.appExecutors = appExecutors;
     }
 
-    public BaseFpRegisterInteractor() {
+    public BasePathfinderFpRegisterInteractor() {
         this(new AppExecutors());
     }
 
