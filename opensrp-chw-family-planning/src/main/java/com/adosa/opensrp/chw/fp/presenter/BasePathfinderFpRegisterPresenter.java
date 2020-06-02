@@ -35,23 +35,26 @@ public class BasePathfinderFpRegisterPresenter implements BaseFpRegisterContract
     }
 
     @Override
-    public void startForm(String formName, String entityId, String payloadType, String dob, JSONObject form) throws Exception {
+    public void startForm(String formName, String entityId, String payloadType, String updateValue, JSONObject form) throws Exception {
         if (StringUtils.isBlank(entityId)) {
             return;
         }
         if (PathfinderFamilyPlanningConstants.ActivityPayload.UPDATE_REGISTRATION_PAYLOAD_TYPE.equals(payloadType)) {
             getView().startFormActivity(form);
-        } else {
+        }else {
             JSONObject formAsJson = model.getFormAsJson(formName, entityId);
-            try {
-                JSONObject stepOne = formAsJson.getJSONObject(JsonFormUtils.STEP1);
-                JSONArray jsonArray = stepOne.getJSONArray(JsonFormUtils.FIELDS);
-                int age = new Period(new DateTime(dob), new DateTime()).getYears();
+            JSONObject stepOne = formAsJson.getJSONObject(JsonFormUtils.STEP1);
+            JSONArray jsonArray = stepOne.getJSONArray(JsonFormUtils.FIELDS);
+            if (PathfinderFamilyPlanningConstants.ActivityPayload.GIVE_FP_METHOD.equals(payloadType)) {
+                JSONObject fp_method = new JSONObject();
+                fp_method.put("fp_method",updateValue);
+                formAsJson.put("global",fp_method);
+                FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED, String.valueOf(updateValue));
+            } else {
+                int age = new Period(new DateTime(updateValue), new DateTime()).getYears();
                 FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.AGE, String.valueOf(age));
-
-            } catch (JSONException e) {
-                Timber.e(e);
             }
+            Timber.e("Coze :: "+formAsJson);
             getView().startFormActivity(formAsJson);
         }
     }
