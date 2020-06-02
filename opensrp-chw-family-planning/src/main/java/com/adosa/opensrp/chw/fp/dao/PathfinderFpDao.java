@@ -164,7 +164,7 @@ public class PathfinderFpDao extends AbstractDao {
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.INTRODUCTION_TO_FAMILY_PLANNING + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FAMILY_PLANNING_PREGNANCY_SCREENING + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.CHOOSING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE  OR " +
-                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.GIVING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE) " +
+                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.GIVE_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE) " +
                 "ORDER BY v.visit_date DESC";
 
         List<Visit> visit = AbstractDao.readData(sql, getVisitDataMap());
@@ -269,7 +269,7 @@ public class PathfinderFpDao extends AbstractDao {
                 " INNER JOIN visit_details vdd " +
                 " on vd.visit_id  = vdd.visit_id " +
                 "  INNER JOIN visits v on vd.visit_id = v.visit_id " +
-                "  WHERE (vd.visit_key LIKE 'no_pillcycles') " +
+                "  WHERE (vd.visit_key LIKE 'number_of_') " +
                 "  AND (vdd.visit_key LIKE 'fp_method_accepted' or vdd.visit_key LIKE 'fp_method') " +
                 "  AND (vdd.details LIKE '" + fpMethod + "' COLLATE NOCASE ) " +
                 "  AND v.base_entity_id = '" + baseEntityId + "' COLLATE NOCASE " +

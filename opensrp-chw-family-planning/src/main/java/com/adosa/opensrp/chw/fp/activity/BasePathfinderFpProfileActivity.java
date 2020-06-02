@@ -25,6 +25,7 @@ import com.adosa.opensrp.chw.fp.interactor.BasePathfinderFpProfileInteractor;
 import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpProfilePresenter;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -85,9 +86,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
     @Override
     protected void onCreation() {
-        Timber.e("Coze setting up content view");
         setContentView(R.layout.activity_base_pathfinder_fp_profile);
-        Timber.e("Coze content view set");
 
         Toolbar toolbar = findViewById(R.id.collapsing_toolbar);
         setSupportActionBar(toolbar);
@@ -109,10 +108,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         pathfinderFpMemberObject = (PathfinderFpMemberObject) getIntent().getSerializableExtra(PathfinderFamilyPlanningConstants.FamilyPlanningMemberObject.MEMBER_OBJECT);
         imageRenderHelper = new ImageRenderHelper(this);
 
-        Timber.e("Coze setting up views");
         setupViews();
 
-        Timber.e("Initializing presenter");
         initializePresenter();
         fetchProfileData();
         initializeCallFAB();
@@ -356,11 +353,25 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         return timePassedString;
     }
 
+    private CharSequence formatTime(long timestamp) {
+        CharSequence timePassedString = null;
+        try {
+            Date date = new Date(timestamp);
+            timePassedString = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(date);
+        } catch (Exception e) {
+            Timber.d(e);
+        }
+        return timePassedString;
+    }
+
     public String getFpMethodRowString(String fpMethod, String fpStartDate, String fpRegistrationDate) {
         String fpMethodDisplayText;
         String fpDisplayDate = "";
         if (StringUtils.isNotEmpty(fpStartDate) || StringUtils.isNotEmpty(fpRegistrationDate)) {
-            fpDisplayDate = String.valueOf(formatTime(StringUtils.isNotEmpty(fpStartDate) ? fpStartDate : fpRegistrationDate));
+            if(StringUtils.isNotEmpty(fpStartDate))
+                fpDisplayDate = String.valueOf(formatTime(Long.parseLong(fpStartDate)));
+            else
+                fpDisplayDate = String.valueOf(fpRegistrationDate);
         }
         String insertionText = getString(R.string.fp_insertion);
         String startedText = getString(R.string.fp_started);

@@ -24,7 +24,7 @@ public interface PathfinderFamilyPlanningConstants {
         String INTRODUCTION_TO_FAMILY_PLANNING= "Introduction to Family Planning";
         String FAMILY_PLANNING_PREGNANCY_SCREENING = "Family Planning Pregnancy Screening";
         String CHOOSING_FAMILY_PLANNING_METHOD = "Family Planning Method Choice";
-        String GIVING_FAMILY_PLANNING_METHOD = "Giving Family Planning Method";
+        String GIVE_FAMILY_PLANNING_METHOD = "Give Family Planning Method";
         String FAMILY_PLANNING_RISK_ASSESSMENT = "Family Planning Risk assessment";
         String FAMILY_PLANNING_REFERRAL_FOLLOWUP = "Family Planning Referral Followup";
     }
