@@ -3,16 +3,16 @@ package com.adosa.opensrp.chw.fp.presenter;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.adosa.opensrp.chw.fp.R;
+import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterContract;
+import com.adosa.opensrp.chw.fp.util.FpJsonFormUtils;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterContract;
-import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
-import com.adosa.opensrp.chw.fp.util.FpJsonFormUtils;
-import com.adosa.opensrp.chw.fp.R;
 import org.smartregister.util.JsonFormUtils;
 
 import java.lang.ref.WeakReference;
@@ -41,20 +41,19 @@ public class BasePathfinderFpRegisterPresenter implements BaseFpRegisterContract
         }
         if (PathfinderFamilyPlanningConstants.ActivityPayload.UPDATE_REGISTRATION_PAYLOAD_TYPE.equals(payloadType)) {
             getView().startFormActivity(form);
-        }else {
+        } else {
             JSONObject formAsJson = model.getFormAsJson(formName, entityId);
             JSONObject stepOne = formAsJson.getJSONObject(JsonFormUtils.STEP1);
             JSONArray jsonArray = stepOne.getJSONArray(JsonFormUtils.FIELDS);
             if (PathfinderFamilyPlanningConstants.ActivityPayload.GIVE_FP_METHOD.equals(payloadType)) {
                 JSONObject fp_method = new JSONObject();
-                fp_method.put("fp_method",updateValue);
-                formAsJson.put("global",fp_method);
+                fp_method.put("fp_method", updateValue);
+                formAsJson.put("global", fp_method);
                 FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED, String.valueOf(updateValue));
             } else {
                 int age = new Period(new DateTime(updateValue), new DateTime()).getYears();
                 FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.AGE, String.valueOf(age));
             }
-            Timber.e("Coze :: "+formAsJson);
             getView().startFormActivity(formAsJson);
         }
     }
