@@ -49,7 +49,6 @@ public class BasePathfinderFpRegisterPresenter implements BaseFpRegisterContract
                 JSONObject fp_method = new JSONObject();
                 fp_method.put("fp_method", updateValue);
                 formAsJson.put("global", fp_method);
-                FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED, String.valueOf(updateValue));
             } else {
                 int age = new Period(new DateTime(updateValue), new DateTime()).getYears();
                 FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.AGE, String.valueOf(age));
