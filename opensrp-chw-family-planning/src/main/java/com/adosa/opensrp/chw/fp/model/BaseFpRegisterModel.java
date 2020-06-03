@@ -1,8 +1,9 @@
 package com.adosa.opensrp.chw.fp.model;
 
-import org.json.JSONObject;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterContract;
 import com.adosa.opensrp.chw.fp.util.FpJsonFormUtils;
+
+import org.json.JSONObject;
 
 public class BaseFpRegisterModel implements BaseFpRegisterContract.Model {
     @Override

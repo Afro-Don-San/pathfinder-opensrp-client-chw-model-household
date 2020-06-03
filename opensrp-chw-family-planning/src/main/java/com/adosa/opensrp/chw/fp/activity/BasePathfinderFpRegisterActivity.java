@@ -7,11 +7,7 @@ import android.support.annotation.MenuRes;
 import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.v4.app.Fragment;
 
-import com.vijay.jsonwizard.constants.JsonFormConstants;
-import com.vijay.jsonwizard.domain.Form;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterContract;
 import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpRegisterFragment;
 import com.adosa.opensrp.chw.fp.interactor.BasePathfinderFpRegisterInteractor;
@@ -19,7 +15,11 @@ import com.adosa.opensrp.chw.fp.listener.BaseFpBottomNavigationListener;
 import com.adosa.opensrp.chw.fp.model.BaseFpRegisterModel;
 import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpRegisterPresenter;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
-import com.adosa.opensrp.chw.fp.R;
+import com.vijay.jsonwizard.constants.JsonFormConstants;
+import com.vijay.jsonwizard.domain.Form;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.smartregister.helper.BottomNavigationHelper;
 import org.smartregister.listener.BottomNavigationListener;
 import org.smartregister.view.activity.BaseRegisterActivity;

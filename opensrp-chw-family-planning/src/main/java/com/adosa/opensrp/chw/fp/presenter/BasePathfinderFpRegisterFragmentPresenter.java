@@ -2,6 +2,7 @@ package com.adosa.opensrp.chw.fp.presenter;
 
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+
 import org.smartregister.configurableviews.model.Field;
 import org.smartregister.configurableviews.model.RegisterConfiguration;
 import org.smartregister.configurableviews.model.View;

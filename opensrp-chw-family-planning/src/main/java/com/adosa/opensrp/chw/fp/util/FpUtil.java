@@ -18,21 +18,20 @@ import android.text.Html;
 import android.text.Spanned;
 import android.widget.Toast;
 
-import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.Nullable;
-import org.json.JSONObject;
 import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
+import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.contract.BaseFpCallDialogContract;
 import com.adosa.opensrp.chw.fp.dao.PathfinderFpDao;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
+import com.google.gson.Gson;
 
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.Nullable;
+import org.json.JSONObject;
 import org.smartregister.chw.anc.AncLibrary;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.clientandeventmodel.Event;
-import com.adosa.opensrp.chw.fp.R;
-import com.google.gson.Gson;
-
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.repository.BaseRepository;
 import org.smartregister.sync.ClientProcessorForJava;

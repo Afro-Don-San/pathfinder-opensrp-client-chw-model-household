@@ -2,6 +2,7 @@ package com.adosa.opensrp.chw.fp.presenter;
 
 import com.adosa.opensrp.chw.fp.contract.BaseFpProfileContract;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
+
 import org.smartregister.domain.AlertStatus;
 import org.smartregister.view.contract.BaseProfileContract;
 

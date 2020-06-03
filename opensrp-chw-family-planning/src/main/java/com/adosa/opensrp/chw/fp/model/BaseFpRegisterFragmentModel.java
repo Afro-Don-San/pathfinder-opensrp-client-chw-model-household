@@ -2,12 +2,13 @@ package com.adosa.opensrp.chw.fp.model;
 
 import android.support.annotation.NonNull;
 
-import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
 import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
 import com.adosa.opensrp.chw.fp.util.ConfigHelper;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.smartregister.configurableviews.ConfigurableViewsLibrary;
 import org.smartregister.configurableviews.model.Field;
 import org.smartregister.configurableviews.model.RegisterConfiguration;

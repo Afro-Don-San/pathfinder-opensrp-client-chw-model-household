@@ -25,7 +25,6 @@ import com.adosa.opensrp.chw.fp.interactor.BasePathfinderFpProfileInteractor;
 import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpProfilePresenter;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
-import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;

@@ -6,9 +6,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpCallDialogFragment;
-import com.adosa.opensrp.chw.fp.R;
 
 
 public class BaseFpFloatingMenu extends LinearLayout implements View.OnClickListener {

@@ -1,11 +1,12 @@
 package com.adosa.opensrp.chw.fp.util;
 
+import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Triple;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.adosa.opensrp.chw.fp.PathfinderFpLibrary;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.domain.tag.FormTag;
 import org.smartregister.repository.AllSharedPreferences;

@@ -2,9 +2,9 @@ package com.adosa.opensrp.chw.fp.listener;
 
 import android.view.View;
 
+import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpCallDialogFragment;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
-import com.adosa.opensrp.chw.fp.R;
 
 import timber.log.Timber;
 

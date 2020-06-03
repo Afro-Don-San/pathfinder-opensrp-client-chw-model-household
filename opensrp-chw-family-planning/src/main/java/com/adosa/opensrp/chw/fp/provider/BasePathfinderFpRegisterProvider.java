@@ -9,14 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.adosa.opensrp.chw.fp.R;
+import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpRegisterFragment;
+import com.adosa.opensrp.chw.fp.util.FpUtil;
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpRegisterFragment;
-import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
-import com.adosa.opensrp.chw.fp.util.FpUtil;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.cursoradapter.RecyclerViewProvider;
-import com.adosa.opensrp.chw.fp.R;
 import org.smartregister.util.Utils;
 import org.smartregister.view.contract.SmartRegisterClient;
 import org.smartregister.view.contract.SmartRegisterClients;

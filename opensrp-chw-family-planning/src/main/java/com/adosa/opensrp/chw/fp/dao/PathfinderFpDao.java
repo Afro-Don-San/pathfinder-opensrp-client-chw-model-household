@@ -1,10 +1,11 @@
 package com.adosa.opensrp.chw.fp.dao;
 
-import org.jetbrains.annotations.Nullable;
-import org.smartregister.chw.anc.domain.Visit;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpAlertObject;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+
+import org.jetbrains.annotations.Nullable;
+import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.dao.AbstractDao;
 
 import java.text.SimpleDateFormat;

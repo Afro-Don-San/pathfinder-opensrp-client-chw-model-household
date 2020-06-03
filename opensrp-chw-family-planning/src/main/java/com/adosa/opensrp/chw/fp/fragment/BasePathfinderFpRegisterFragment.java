@@ -3,15 +3,16 @@ package com.adosa.opensrp.chw.fp.fragment;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.activity.BasePathfinderFpFollowUpVisitActivity;
 import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
 import com.adosa.opensrp.chw.fp.model.BaseFpRegisterFragmentModel;
 import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpRegisterFragmentPresenter;
 import com.adosa.opensrp.chw.fp.provider.BasePathfinderFpRegisterProvider;
+
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.configurableviews.model.View;
 import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter;
-import com.adosa.opensrp.chw.fp.R;
 import org.smartregister.view.customcontrols.CustomFontTextView;
 import org.smartregister.view.customcontrols.FontVariant;
 import org.smartregister.view.fragment.BaseRegisterFragment;

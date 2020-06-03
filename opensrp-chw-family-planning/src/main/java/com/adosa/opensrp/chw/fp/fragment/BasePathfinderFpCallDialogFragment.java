@@ -1,11 +1,11 @@
 package com.adosa.opensrp.chw.fp.fragment;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.app.DialogFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +13,13 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import org.apache.commons.lang3.StringUtils;
+import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.contract.BaseFpCallDialogContract;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.listener.BaseFpCallWidgetDialogListener;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
-import com.adosa.opensrp.chw.fp.R;
+
+import org.apache.commons.lang3.StringUtils;
 
 import static android.view.View.GONE;
 import static org.smartregister.util.Utils.getName;

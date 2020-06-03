@@ -1,11 +1,12 @@
 package com.adosa.opensrp.chw.fp.presenter;
 
+import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import com.adosa.opensrp.chw.fp.contract.BaseFpRegisterFragmentContract;
 
 public class BasePathfinderFpRegisterFragmentPresenterTest {
 

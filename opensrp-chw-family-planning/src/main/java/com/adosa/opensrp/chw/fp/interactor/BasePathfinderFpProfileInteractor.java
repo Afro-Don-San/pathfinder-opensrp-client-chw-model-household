@@ -5,6 +5,7 @@ import android.support.annotation.VisibleForTesting;
 import com.adosa.opensrp.chw.fp.contract.BaseFpProfileContract;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.util.AppExecutors;
+
 import org.smartregister.domain.AlertStatus;
 
 import java.util.Date;

@@ -1,11 +1,12 @@
 package com.adosa.opensrp.chw.fp.interactor;
 
+import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.chw.anc.contract.BaseAncHomeVisitContract;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.interactor.BaseAncHomeVisitInteractor;
 import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
-import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 import org.smartregister.clientandeventmodel.Event;
 
 import java.text.SimpleDateFormat;

@@ -3,9 +3,10 @@ package com.adosa.opensrp.chw.fp.activity;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.adosa.opensrp.chw.fp.R;
+
 import org.smartregister.chw.anc.activity.BaseAncHomeVisitActivity;
 import org.smartregister.chw.anc.domain.MemberObject;
-import com.adosa.opensrp.chw.fp.R;
 
 import java.text.MessageFormat;
 

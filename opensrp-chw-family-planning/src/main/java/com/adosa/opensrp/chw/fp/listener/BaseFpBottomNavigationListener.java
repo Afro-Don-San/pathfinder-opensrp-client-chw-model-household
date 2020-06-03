@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.view.MenuItem;
 
 import com.adosa.opensrp.chw.fp.R;
+
 import org.smartregister.listener.BottomNavigationListener;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
