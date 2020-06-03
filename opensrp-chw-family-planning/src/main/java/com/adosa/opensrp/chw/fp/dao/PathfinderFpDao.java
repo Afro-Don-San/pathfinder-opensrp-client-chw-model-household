@@ -279,7 +279,8 @@ public class PathfinderFpDao extends AbstractDao {
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "details");
 
         List<String> res = readData(sql, dataMap);
-        return (res == null || res.size() == 0) ? 0 : Integer.parseInt(res.get(0));
+//        return (res == null || res.size() == 0) ? 0 : Integer.parseInt(res.get(0));
+        return 1;
     }
 }
 
