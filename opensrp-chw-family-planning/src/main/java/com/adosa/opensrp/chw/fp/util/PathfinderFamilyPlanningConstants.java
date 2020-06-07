@@ -19,13 +19,13 @@ public interface PathfinderFamilyPlanningConstants {
         String FP_FOLLOW_UP_VISIT = "Fp Follow Up Visit";
         String FP_FOLLOW_UP_VISIT_RESUPPLY = "FP Follow up Visit Resupply";
         String FP_FOLLOW_UP_VISIT_COUNSELLING = "FP Follow up visit Counselling";
-        String FP_FOLLOW_UP_VISIT_SIDE_EFFECTS = "FP Follow-up Visit Side-effects";
-
         String INTRODUCTION_TO_FAMILY_PLANNING= "Introduction to Family Planning";
         String FAMILY_PLANNING_PREGNANCY_SCREENING = "Family Planning Pregnancy Screening";
         String CHOOSING_FAMILY_PLANNING_METHOD = "Family Planning Method Choice";
         String GIVE_FAMILY_PLANNING_METHOD = "Give Family Planning Method";
-        String FAMILY_PLANNING_RISK_ASSESSMENT = "Family Planning Risk assessment";
+        String FAMILY_PLANNING_DISCONTINUATION= "Family Planning Discontinuation";
+        String ANC_REFERRAL = "ANC Referral";
+        String FAMILY_PLANNING_REFERRAL = "Family Planning Referral";
         String FAMILY_PLANNING_REFERRAL_FOLLOWUP = "Family Planning Referral Followup";
     }
 
@@ -51,6 +51,7 @@ public interface PathfinderFamilyPlanningConstants {
         String AGE = "age";
         String LAST_INTERACTED_WITH = "last_interacted_with";
         String VILLAGE_TOWN = "village_town";
+        String NEAREST_FACILITY = "nearest_facility";
         String DATE_REMOVED = "date_removed";
         String RELATIONALID = "relationalid";
         String FAMILY_HEAD = "family_head";

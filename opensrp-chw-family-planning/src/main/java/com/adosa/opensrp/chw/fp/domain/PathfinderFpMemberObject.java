@@ -28,8 +28,11 @@ public class PathfinderFpMemberObject implements Serializable {
     private String fpRegistrationDate;
     private int pillCycles;
     private String fpMethod;
-    private String fpInitiationStage;
     private String pregnancyStatus;
+    private boolean introductionToFamilyPlanningDone;
+    private boolean pregnancyScreeningDone;
+    private boolean fpMethodChoiceDone;
+    private boolean isClientAlreadyUsingFp;
 
     public PathfinderFpMemberObject() {
     }
@@ -226,19 +229,44 @@ public class PathfinderFpMemberObject implements Serializable {
         this.fpRegistrationDate = fpRegistrationDate;
     }
 
-    public String getFpInitiationStage() {
-        return fpInitiationStage;
-    }
-
-    public void setFpInitiationStage(String fpInitiationStage) {
-        this.fpInitiationStage = fpInitiationStage;
-    }
-
     public String getPregnancyStatus() {
         return pregnancyStatus;
     }
 
     public void setPregnancyStatus(String pregnancyStatus) {
         this.pregnancyStatus = pregnancyStatus;
+    }
+
+    public boolean isIntroductionToFamilyPlanningDone() {
+
+        return introductionToFamilyPlanningDone;
+    }
+
+    public void setIntroductionToFamilyPlanningDone(boolean introductionToFamilyPlanningDone) {
+        this.introductionToFamilyPlanningDone = introductionToFamilyPlanningDone;
+    }
+
+    public boolean isPregnancyScreeningDone() {
+        return pregnancyScreeningDone;
+    }
+
+    public void setPregnancyScreeningDone(boolean pregnancyScreeningDone) {
+        this.pregnancyScreeningDone = pregnancyScreeningDone;
+    }
+
+    public boolean isFpMethodChoiceDone() {
+        return fpMethodChoiceDone;
+    }
+
+    public void setFpMethodChoiceDone(boolean fpMethodChoiceDone) {
+        this.fpMethodChoiceDone = fpMethodChoiceDone;
+    }
+
+    public boolean isClientAlreadyUsingFp() {
+        return isClientAlreadyUsingFp;
+    }
+
+    public void setClientAlreadyUsingFp(boolean clientAlreadyUsingFp) {
+        isClientAlreadyUsingFp = clientAlreadyUsingFp;
     }
 }

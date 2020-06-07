@@ -61,7 +61,6 @@ public class FpUtil {
 
         if(baseEvent.getEntityType().equals(GIVE_FAMILY_PLANNING_METHOD)){
             Visit visit = NCUtils.eventToVisit(baseEvent, org.smartregister.chw.anc.util.JsonFormUtils.generateRandomUUIDString());
-            visit.setPreProcessedJson(new Gson().toJson(baseEvent));
             AncLibrary.getInstance().visitRepository().addVisit(visit);
         }
     }

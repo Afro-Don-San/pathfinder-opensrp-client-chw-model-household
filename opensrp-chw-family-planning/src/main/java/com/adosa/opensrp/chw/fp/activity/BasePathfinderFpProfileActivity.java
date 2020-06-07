@@ -295,7 +295,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     public void setUpComingServicesStatus(String service, AlertStatus status, Date date) {
         showProgressBar(false);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
-        if (status == AlertStatus.complete)
+        if (status == AlertStatus.complete || pathfinderFpMemberObject.getFpStartDate().equals(""))
             return;
         overDueRow.setVisibility(View.VISIBLE);
         rlUpcomingServices.setVisibility(View.VISIBLE);
@@ -367,7 +367,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         String fpMethodDisplayText;
         String fpDisplayDate = "";
         if (StringUtils.isNotEmpty(fpStartDate) || StringUtils.isNotEmpty(fpRegistrationDate)) {
-            if(StringUtils.isNotEmpty(fpStartDate))
+            if (StringUtils.isNotEmpty(fpStartDate))
                 fpDisplayDate = String.valueOf(formatTime(Long.parseLong(fpStartDate)));
             else
                 fpDisplayDate = String.valueOf(fpRegistrationDate);

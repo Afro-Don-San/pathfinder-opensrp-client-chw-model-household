@@ -10,12 +10,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.adosa.opensrp.chw.fp.R;
+import com.adosa.opensrp.chw.fp.dao.PathfinderFpDao;
+import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpRegisterFragment;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+import com.google.gson.Gson;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.cursoradapter.RecyclerViewProvider;
 import org.smartregister.util.Utils;
@@ -52,30 +57,32 @@ public class BasePathfinderFpRegisterProvider implements RecyclerViewProvider<Ba
     @Override
     public void getView(Cursor cursor, SmartRegisterClient smartRegisterClient, RegisterViewHolder registerViewHolder) {
         CommonPersonObjectClient pc = (CommonPersonObjectClient) smartRegisterClient;
+        PathfinderFpMemberObject pathfinderFpMemberObject = PathfinderFpDao.getMember(pc.getCaseId());
+
         if (visibleColumns.isEmpty()) {
-            populatePatientColumn(pc, registerViewHolder);
+            populatePatientColumn(pc,pathfinderFpMemberObject, registerViewHolder);
         }
     }
 
-    private void populatePatientColumn(CommonPersonObjectClient pc, final RegisterViewHolder viewHolder) {
+    private void populatePatientColumn(CommonPersonObjectClient pc,PathfinderFpMemberObject pathfinderFpMemberObject, final RegisterViewHolder viewHolder) {
         try {
             String firstName = getName(
-                    Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.FIRST_NAME, true),
-                    Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.MIDDLE_NAME, true));
+                    pathfinderFpMemberObject.getFirstName(),
+                    pathfinderFpMemberObject.getMiddleName());
 
             String dobString = Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.DOB, false);
             int age = new Period(new DateTime(dobString), new DateTime()).getYears();
 
-            String patientName = getName(firstName, Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.LAST_NAME, true));
-            String methodAccepted = FpUtil.getTranslatedMethodValue(PathfinderFamilyPlanningConstants.DBConstants.FP_METHOD_ACCEPTED, context);
+            String patientName = getName(firstName, pathfinderFpMemberObject.getLastName());
+            String methodAccepted = FpUtil.getTranslatedMethodValue(pathfinderFpMemberObject.getFpMethod(), context);
             viewHolder.patientName.setText(patientName + ", " + age);
-            viewHolder.textViewFpMethod.setText(Utils.getValue(pc.getColumnmaps(), methodAccepted, true));
+            viewHolder.textViewFpMethod.setText(methodAccepted);
 
-            if(methodAccepted.equals("fp_method_accepted")){
+            if(methodAccepted.equals("") || methodAccepted.equals("0")){
                 viewHolder.textViewFpMethod.setVisibility(View.GONE);
             }
 
-            viewHolder.textViewVillage.setText(Utils.getValue(pc.getColumnmaps(), PathfinderFamilyPlanningConstants.DBConstants.VILLAGE_TOWN, true));
+            viewHolder.textViewVillage.setText(pathfinderFpMemberObject.getAddress());
             viewHolder.patientColumn.setOnClickListener(onClickListener);
             viewHolder.patientColumn.setTag(pc);
             viewHolder.patientColumn.setTag(R.id.VIEW_ID, BasePathfinderFpRegisterFragment.CLICK_VIEW_NORMAL);

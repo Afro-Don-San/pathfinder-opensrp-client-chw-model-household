@@ -5,6 +5,8 @@ import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
 
 import org.jetbrains.annotations.Nullable;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.dao.AbstractDao;
 
@@ -48,7 +50,7 @@ public class PathfinderFpDao extends AbstractDao {
     public static PathfinderFpMemberObject getMember(String baseEntityID) {
         String sql = "select m.base_entity_id , m.unique_id , m.relational_id , m.dob , m.first_name , " +
                 "m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , " +
-                "f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town ," +
+                "f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town, f.nearest_facility ," +
                 "fh.first_name family_head_first_name , fh.middle_name family_head_middle_name , " +
                 "fh.last_name family_head_last_name, fh.phone_number family_head_phone_number, " +
                 "pcg.first_name pcg_first_name , pcg.last_name pcg_last_name , pcg.middle_name pcg_middle_name , " +
@@ -64,7 +66,14 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setFirstName(getCursorValue(cursor, "first_name", ""));
             memberObject.setMiddleName(getCursorValue(cursor, "middle_name", ""));
             memberObject.setLastName(getCursorValue(cursor, "last_name", ""));
-            memberObject.setAddress(getCursorValue(cursor, "village_town"));
+            JSONArray locationArray = null;
+            try {
+                locationArray = new JSONArray(getCursorValue(cursor, "nearest_facility"));
+                memberObject.setAddress(locationArray.getString(locationArray.length()-1));
+            } catch (JSONException e) {
+                Timber.e(e);
+                memberObject.setAddress(getCursorValue(cursor, "village_town"));
+            }
             memberObject.setGender(getCursorValue(cursor, "gender"));
             memberObject.setUniqueId(getCursorValue(cursor, "unique_id", ""));
             memberObject.setAge(getCursorValue(cursor, "dob"));
@@ -80,10 +89,13 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setFpStartDate(getCursorValue(cursor, "fp_start_date", ""));
             memberObject.setPillCycles(Integer.parseInt(getCursorValue(cursor, "no_pillcycles", "0")));
             memberObject.setFpMethod(getCursorValue(cursor, "fp_method_accepted", ""));
-            memberObject.setFpInitiationStage(getCursorValue(cursor, "fp_initiation_stage", ""));
             memberObject.setPregnancyStatus(getCursorValue(cursor, "pregnancy_status", ""));
             memberObject.setFpRegistrationDate(getCursorValue(cursor, "fp_reg_date", ""));
 
+            memberObject.setClientAlreadyUsingFp(getCursorValue(cursor, "is_client_already_using_fp", "").equals("yes"));
+            memberObject.setIntroductionToFamilyPlanningDone(getCursorValue(cursor, "introduction_to_fp_done", "").equals("true"));
+            memberObject.setPregnancyScreeningDone(getCursorValue(cursor, "pregnant_screening_done", "").equals("true"));
+            memberObject.setFpMethodChoiceDone(getCursorValue(cursor, "fp_method_choice_done", "").equals("true"));
             String familyHeadName = getCursorValue(cursor, "family_head_first_name", "") + " "
                     + getCursorValue(cursor, "family_head_middle_name", "");
 
@@ -141,12 +153,13 @@ public class PathfinderFpDao extends AbstractDao {
                 "INNER JOIN ec_family_planning fp on fp.base_entity_id = v.base_entity_id " +
                 " WHERE v.base_entity_id = '" + baseEntityId + "' COLLATE NOCASE " +
                 " AND v.visit_type = '" + entityType + "' COLLATE NOCASE " +
-                " AND fp.fp_method_accepted = '" + fpMethod + "' COLLATE NOCASE " +
-                " AND strftime('%Y%d%m', (datetime(v.visit_date/1000, 'unixepoch')))  >= substr(fp.fp_start_date " +
-                ",7,4) || substr(fp.fp_start_date " +
-                ",4,2) || substr(fp.fp_start_date " +
-                ",1,2) " +
-                "ORDER BY v.visit_date DESC";
+                " AND fp.fp_method_accepted = '" + fpMethod + "' COLLATE NOCASE ";
+
+//                " AND strftime('%Y%d%m', (datetime(v.visit_date/1000, 'unixepoch')))  >= substr(fp.fp_start_date " +
+//                ",7,4) || substr(fp.fp_start_date " +
+//                ",4,2) || substr(fp.fp_start_date " +
+//                ",1,2) " +
+//                "ORDER BY v.visit_date DESC";
 
         List<Visit> visit = AbstractDao.readData(sql, getVisitDataMap());
         if (visit.size() == 0) {
