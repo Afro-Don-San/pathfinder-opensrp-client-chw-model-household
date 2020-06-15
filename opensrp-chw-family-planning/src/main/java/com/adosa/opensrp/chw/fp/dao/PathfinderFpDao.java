@@ -91,6 +91,7 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setFpMethod(getCursorValue(cursor, "fp_method_accepted", ""));
             memberObject.setPregnancyStatus(getCursorValue(cursor, "pregnancy_status", ""));
             memberObject.setFpRegistrationDate(getCursorValue(cursor, "fp_reg_date", ""));
+            memberObject.setEdd(getCursorValue(cursor, "edd", ""));
 
             memberObject.setClientAlreadyUsingFp(getCursorValue(cursor, "is_client_already_using_fp", "").equals("yes"));
             memberObject.setIntroductionToFamilyPlanningDone(getCursorValue(cursor, "introduction_to_fp_done", "").equals("true"));

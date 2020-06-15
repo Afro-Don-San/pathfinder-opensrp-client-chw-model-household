@@ -12,6 +12,8 @@
     <string name="record_fp_followup">Record family planning follow-up visit</string>
     <string name="introduction_to_fp">Introduction to Family Planning</string>
     <string name="issue_anc_referral">Issue ANC Referral</string>
+    <string name="issue_pregnancy_test_referral">Issue Pregnancy Test Referral</string>
+    <string name="fp_method_referral">Family Planning Method Referral</string>
     <string name="fp_pregnancy_screening">Pregnancy Screening</string>
     <string name="choose_fp_method">Choose Family Planning Method</string>
     <string name="give_fp_method">Give Family Planning Method</string>
@@ -103,6 +105,7 @@
     <string name="fp_on">on</string>
 
     <string name="refill">{0} refill</string>
+    <string name="pregnant_client_followup">Pregnant client followup</string>
     <string name="follow_up_one">{0} follow-up 1</string>
     <string name="follow_up_two">{0} follow-up 2</string>
     <string name="follow_up_three">{0} follow-up 3</string>

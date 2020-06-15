@@ -23,15 +23,14 @@ import com.adosa.opensrp.chw.fp.R;
 import com.adosa.opensrp.chw.fp.contract.BaseFpCallDialogContract;
 import com.adosa.opensrp.chw.fp.dao.PathfinderFpDao;
 import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
-import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
+import org.joda.time.DateTime;
 import org.json.JSONObject;
-import org.smartregister.chw.anc.AncLibrary;
-import org.smartregister.chw.anc.domain.Visit;
-import org.smartregister.chw.anc.util.NCUtils;
 import org.smartregister.clientandeventmodel.Event;
+import org.smartregister.domain.Task;
+import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.repository.BaseRepository;
 import org.smartregister.sync.ClientProcessorForJava;
@@ -39,10 +38,10 @@ import org.smartregister.sync.helper.ECSyncHelper;
 import org.smartregister.util.PermissionUtils;
 
 import java.util.Date;
+import java.util.UUID;
 
 import timber.log.Timber;
 
-import static com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants.EventType.GIVE_FAMILY_PLANNING_METHOD;
 import static org.smartregister.util.Utils.getAllSharedPreferences;
 
 public class FpUtil {
@@ -58,11 +57,6 @@ public class FpUtil {
         AllSharedPreferences allSharedPreferences = PathfinderFpLibrary.getInstance().context().allSharedPreferences();
         Event baseEvent = FpJsonFormUtils.processJsonForm(allSharedPreferences, jsonString);
         processEvent(allSharedPreferences, baseEvent);
-
-        if(baseEvent.getEntityType().equals(GIVE_FAMILY_PLANNING_METHOD)){
-            Visit visit = NCUtils.eventToVisit(baseEvent, org.smartregister.chw.anc.util.JsonFormUtils.generateRandomUUIDString());
-            AncLibrary.getInstance().visitRepository().addVisit(visit);
-        }
     }
 
     public static String getFullName(PathfinderFpMemberObject pathfinderFpMemberObject) {

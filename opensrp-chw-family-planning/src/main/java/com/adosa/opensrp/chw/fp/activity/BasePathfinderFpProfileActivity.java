@@ -25,6 +25,7 @@ import com.adosa.opensrp.chw.fp.interactor.BasePathfinderFpProfileInteractor;
 import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpProfilePresenter;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
+import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -58,7 +59,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     protected TextView tvFamilyStatus;
     protected TextView tvRecordFpFollowUp;
     protected TextView tvIntroductionToFp;
-    protected TextView tvIssueANCReferral;
     protected TextView tvFpPregnancyScreening;
     protected TextView tvChooseFpMethod;
     protected TextView tvGiveFpMethod;
@@ -140,7 +140,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         profileImageView = findViewById(R.id.imageview_profile);
         tvRecordFpFollowUp = findViewById(R.id.textview_record_reccuring_visit);
         tvIntroductionToFp = findViewById(R.id.textview_introduction_to_fp);
-        tvIssueANCReferral = findViewById(R.id.textview_issue_anc_referral);
         tvFpPregnancyScreening = findViewById(R.id.textview_fp_pregnancy_screening);
         tvChooseFpMethod = findViewById(R.id.textview_choose_fp_method);
         tvGiveFpMethod = findViewById(R.id.textview_give_fp_method);
@@ -153,7 +152,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvFpPregnancyScreening.setOnClickListener(this);
         tvChooseFpMethod.setOnClickListener(this);
         tvGiveFpMethod.setOnClickListener(this);
-        tvIssueANCReferral.setOnClickListener(this);
         findViewById(R.id.rl_last_visit_layout).setOnClickListener(this);
         findViewById(R.id.rlUpcomingServices).setOnClickListener(this);
         findViewById(R.id.rlFamilyServicesDue).setOnClickListener(this);
@@ -213,8 +211,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
             this.openChooseFpMethod();
         } else if (id == R.id.textview_give_fp_method) {
             this.openGiveFpMethodButton();
-        } else if (id == R.id.textview_issue_anc_referral) {
-            this.issueANCReferralForm();
         }
     }
 
@@ -287,15 +283,12 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     }
 
     @Override
-    public void issueANCReferralForm() {
-        // TODO :: issue anc Referrals
-    }
-
-    @Override
     public void setUpComingServicesStatus(String service, AlertStatus status, Date date) {
+        Timber.e("Coze :: setUpComingServicesStatus");
+        Timber.e("Coze :: AlertStatus = "+new Gson().toJson(status));
         showProgressBar(false);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
-        if (status == AlertStatus.complete || pathfinderFpMemberObject.getFpStartDate().equals(""))
+        if (status == AlertStatus.complete)
             return;
         overDueRow.setVisibility(View.VISIBLE);
         rlUpcomingServices.setVisibility(View.VISIBLE);
@@ -452,6 +445,17 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     }
 
     @Override
+    public void setPregnancyScreeningButtonDue() {
+        showFpPregnancyScreeningButton();
+        tvFpPregnancyScreening.setBackground(getResources().getDrawable(R.drawable.record_fp_followup));
+    }
+    @Override
+    public void setPregnancyScreeningButtonOverdue() {
+        showFpPregnancyScreeningButton();
+        tvFpPregnancyScreening.setBackground(getResources().getDrawable(R.drawable.record_fp_followup_overdue));
+    }
+
+    @Override
     public void showFollowUpVisitButton() {
         tvRecordFpFollowUp.setVisibility(View.VISIBLE);
     }
@@ -469,11 +473,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     @Override
     public void showChooseFpMethodButton() {
         tvChooseFpMethod.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void showIssueANCReferralButton() {
-        tvIssueANCReferral.setVisibility(View.VISIBLE);
     }
 
     @Override

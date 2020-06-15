@@ -65,7 +65,6 @@ public class BasePathfinderFpRegisterActivity extends BaseRegisterActivity imple
     public void startFormActivity(String formName, String entityId, String payloadType) {
         try {
             if (mBaseFragment instanceof BasePathfinderFpRegisterFragment) {
-
                 presenter().startForm(formName, entityId, payloadType, DOB, getFpFormForEdit());
             }
         } catch (Exception e) {

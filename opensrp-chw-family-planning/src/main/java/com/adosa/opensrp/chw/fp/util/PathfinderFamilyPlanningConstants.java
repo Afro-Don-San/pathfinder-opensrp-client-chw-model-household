@@ -60,6 +60,7 @@ public interface PathfinderFamilyPlanningConstants {
         String DETAILS = "details";
         String FP_METHOD_ACCEPTED = "fp_method_accepted";
         String FP_FP_START_DATE = "fp_start_date";
+        String EDD = "edd";
         String FP_PILL_CYCLES = "no_pillcycles";
         String REASON_STOP_FP_CHW = "reason_stop_fp_chw";
 

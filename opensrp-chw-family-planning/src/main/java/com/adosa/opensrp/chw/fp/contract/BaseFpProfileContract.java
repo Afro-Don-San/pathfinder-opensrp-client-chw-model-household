@@ -49,9 +49,11 @@ public interface BaseFpProfileContract {
 
         void setFollowUpButtonDue();
 
-        void hideFollowUpVisitButton();
+        void setPregnancyScreeningButtonDue();
 
-        void issueANCReferralForm();
+        void setPregnancyScreeningButtonOverdue();
+
+        void hideFollowUpVisitButton();
 
         void showFollowUpVisitButton();
 
@@ -60,8 +62,6 @@ public interface BaseFpProfileContract {
         void showFpPregnancyScreeningButton();
 
         void showChooseFpMethodButton();
-
-        void showIssueANCReferralButton();
 
         void showGiveFpMethodButton();
 

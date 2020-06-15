@@ -26,6 +26,7 @@ public class PathfinderFpMemberObject implements Serializable {
     private String phoneNumber;
     private String fpStartDate;
     private String fpRegistrationDate;
+    private String edd;
     private int pillCycles;
     private String fpMethod;
     private String pregnancyStatus;
@@ -268,5 +269,13 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setClientAlreadyUsingFp(boolean clientAlreadyUsingFp) {
         isClientAlreadyUsingFp = clientAlreadyUsingFp;
+    }
+
+    public String getEdd() {
+        return edd;
+    }
+
+    public void setEdd(String edd) {
+        this.edd = edd;
     }
 }
