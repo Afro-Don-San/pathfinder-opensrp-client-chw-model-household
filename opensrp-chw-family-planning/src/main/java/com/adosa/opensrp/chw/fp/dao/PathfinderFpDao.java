@@ -77,7 +77,7 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setGender(getCursorValue(cursor, "gender"));
             memberObject.setUniqueId(getCursorValue(cursor, "unique_id", ""));
             memberObject.setAge(getCursorValue(cursor, "dob"));
-            memberObject.setChoosePregnancyTestReferral(getCursorValue(cursor, "choose_pregnancy_test_referral"));
+            memberObject.setChoosePregnancyTestReferral(getCursorValue(cursor, "choose_pregnancy_test_referral",""));
             memberObject.setFamilyBaseEntityId(getCursorValue(cursor, "relational_id", ""));
             memberObject.setRelationalId(getCursorValue(cursor, "relational_id", ""));
             memberObject.setPrimaryCareGiver(getCursorValue(cursor, "primary_caregiver"));
