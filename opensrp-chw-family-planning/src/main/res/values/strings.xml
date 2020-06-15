@@ -106,6 +106,7 @@
 
     <string name="refill">{0} refill</string>
     <string name="pregnant_client_followup">Pregnant client followup</string>
+    <string name="pregnancy_screening_followup">Pregnancy screening followup</string>
     <string name="follow_up_one">{0} follow-up 1</string>
     <string name="follow_up_two">{0} follow-up 2</string>
     <string name="follow_up_three">{0} follow-up 3</string>
