@@ -95,4 +95,9 @@ public interface PathfinderFamilyPlanningConstants {
         String NOT_UNLIKELY_PREGNANT = "NOT UNLIKELY PREGNANT";
     }
 
+    interface ChoosePregnancyTestReferral {
+        String WAIT_FOR_NEXT_VISIT = "wait_for_next_visit";
+        String RECEIVE_PREGNANCY_TEST_REFERRAL = "receive_pregnancy_test_referral";
+    }
+
 }
