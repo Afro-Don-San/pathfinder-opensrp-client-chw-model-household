@@ -30,6 +30,7 @@ public class PathfinderFpMemberObject implements Serializable {
     private int pillCycles;
     private String fpMethod;
     private String pregnancyStatus;
+    private String choosePregnancyTestReferral;
     private boolean introductionToFamilyPlanningDone;
     private boolean pregnancyScreeningDone;
     private boolean fpMethodChoiceDone;
@@ -277,5 +278,13 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setEdd(String edd) {
         this.edd = edd;
+    }
+
+    public String getChoosePregnancyTestReferral() {
+        return choosePregnancyTestReferral;
+    }
+
+    public void setChoosePregnancyTestReferral(String choosePregnancyTestReferral) {
+        this.choosePregnancyTestReferral = choosePregnancyTestReferral;
     }
 }
