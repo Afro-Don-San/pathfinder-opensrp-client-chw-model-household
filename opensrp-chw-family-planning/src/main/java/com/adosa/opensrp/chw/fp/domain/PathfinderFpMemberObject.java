@@ -31,6 +31,7 @@ public class PathfinderFpMemberObject implements Serializable {
     private String fpMethod;
     private String pregnancyStatus;
     private String choosePregnancyTestReferral;
+    private String fpPregnancyScreeningDate;
     private boolean introductionToFamilyPlanningDone;
     private boolean pregnancyScreeningDone;
     private boolean fpMethodChoiceDone;
@@ -286,5 +287,13 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setChoosePregnancyTestReferral(String choosePregnancyTestReferral) {
         this.choosePregnancyTestReferral = choosePregnancyTestReferral;
+    }
+
+    public String getFpPregnancyScreeningDate() {
+        return fpPregnancyScreeningDate;
+    }
+
+    public void setFpPregnancyScreeningDate(String fpPregnancyScreeningDate) {
+        this.fpPregnancyScreeningDate = fpPregnancyScreeningDate;
     }
 }
