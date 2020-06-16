@@ -89,12 +89,16 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setFamilyHeadPhoneNumber(getCursorValue(cursor, "family_head_phone_number", ""));
             memberObject.setFpStartDate(getCursorValue(cursor, "fp_start_date", ""));
             memberObject.setFpPregnancyScreeningDate(getCursorValue(cursor, "fp_pregnancy_screening_date", ""));
+            memberObject.setFpMethodChoiceDate(getCursorValue(cursor, "fp_method_choice_date", ""));
             memberObject.setPillCycles(Integer.parseInt(getCursorValue(cursor, "no_pillcycles", "0")));
             memberObject.setFpMethod(getCursorValue(cursor, "fp_method_accepted", ""));
             memberObject.setPregnancyStatus(getCursorValue(cursor, "pregnancy_status", ""));
             memberObject.setFpRegistrationDate(getCursorValue(cursor, "fp_reg_date", ""));
             memberObject.setEdd(getCursorValue(cursor, "edd", ""));
+            memberObject.setPeriodsRegularity(getCursorValue(cursor, "periods_regularity", ""));
 
+            memberObject.setManRequestedMethodForPartner(getCursorValue(cursor, "man_request_method_for_partner", "").equals("true"));
+            memberObject.setDoesTheClientRememberLmp(getCursorValue(cursor, "does_the_client_remember_lmp", "").equals("yes"));
             memberObject.setClientAlreadyUsingFp(getCursorValue(cursor, "is_client_already_using_fp", "").equals("yes"));
             memberObject.setIntroductionToFamilyPlanningDone(getCursorValue(cursor, "introduction_to_fp_done", "").equals("true"));
             memberObject.setPregnancyScreeningDone(getCursorValue(cursor, "pregnant_screening_done", "").equals("true"));

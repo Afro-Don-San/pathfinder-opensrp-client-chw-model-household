@@ -53,6 +53,10 @@ public interface BaseFpProfileContract {
 
         void setPregnancyScreeningButtonOverdue();
 
+        void setFpMethodChoiceButtonDue();
+
+        void setFpMethodChoiceButtonOverdue();
+
         void hideFollowUpVisitButton();
 
         void showFollowUpVisitButton();

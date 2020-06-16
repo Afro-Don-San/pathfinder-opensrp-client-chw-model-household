@@ -32,10 +32,14 @@ public class PathfinderFpMemberObject implements Serializable {
     private String pregnancyStatus;
     private String choosePregnancyTestReferral;
     private String fpPregnancyScreeningDate;
+    private String fpMethodChoiceDate;
+    private String periodsRegularity;
     private boolean introductionToFamilyPlanningDone;
     private boolean pregnancyScreeningDone;
     private boolean fpMethodChoiceDone;
     private boolean isClientAlreadyUsingFp;
+    private boolean doesTheClientRememberLmp;
+    private boolean manRequestedMethodForPartner;
 
     public PathfinderFpMemberObject() {
     }
@@ -295,5 +299,37 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setFpPregnancyScreeningDate(String fpPregnancyScreeningDate) {
         this.fpPregnancyScreeningDate = fpPregnancyScreeningDate;
+    }
+
+    public String getPeriodsRegularity() {
+        return periodsRegularity;
+    }
+
+    public void setPeriodsRegularity(String periodsRegularity) {
+        this.periodsRegularity = periodsRegularity;
+    }
+
+    public boolean isDoesTheClientRememberLmp() {
+        return doesTheClientRememberLmp;
+    }
+
+    public void setDoesTheClientRememberLmp(boolean doesTheClientRememberLmp) {
+        this.doesTheClientRememberLmp = doesTheClientRememberLmp;
+    }
+
+    public String getFpMethodChoiceDate() {
+        return fpMethodChoiceDate;
+    }
+
+    public void setFpMethodChoiceDate(String fpMethodChoiceDate) {
+        this.fpMethodChoiceDate = fpMethodChoiceDate;
+    }
+
+    public boolean isManRequestedMethodForPartner() {
+        return manRequestedMethodForPartner;
+    }
+
+    public void setManRequestedMethodForPartner(boolean manRequestedMethodForPartner) {
+        this.manRequestedMethodForPartner = manRequestedMethodForPartner;
     }
 }
