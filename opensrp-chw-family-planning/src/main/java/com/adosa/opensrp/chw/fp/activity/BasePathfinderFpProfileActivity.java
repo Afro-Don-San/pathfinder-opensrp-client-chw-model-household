@@ -401,7 +401,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
                 fpMethodDisplayText = getString(R.string.implants) + " " + insertionText;
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_SDM:
-                fpMethodDisplayText = getString(R.string.standard_day_method) + " " + insertionText;
+                fpMethodDisplayText = getString(R.string.standard_day_method) + " " + startedText;
                 break;
             case "0": //TODO coze update empty fp method to ""
                 fpMethodDisplayText = getString(R.string.registered) + " ";
