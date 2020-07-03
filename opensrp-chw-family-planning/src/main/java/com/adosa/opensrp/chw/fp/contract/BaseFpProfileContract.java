@@ -23,9 +23,15 @@ public interface BaseFpProfileContract {
 
         void openPregnancyScreening();
 
+        void openPregnancyTestFollowup();
+
         void openChooseFpMethod();
 
         void openGiveFpMethodButton();
+
+        void openRiskAssessment();
+
+        void showRiskAssessmentButton();
 
         void openUpcomingServices();
 
@@ -53,6 +59,10 @@ public interface BaseFpProfileContract {
 
         void setPregnancyScreeningButtonOverdue();
 
+        void setPregnancyTestFollowupButtonDue();
+
+        void setPregnancyTestFollowupButtonOverdue();
+
         void setFpMethodChoiceButtonDue();
 
         void setFpMethodChoiceButtonOverdue();
@@ -64,6 +74,8 @@ public interface BaseFpProfileContract {
         void showIntroductionToFpButton();
 
         void showFpPregnancyScreeningButton();
+
+        void showFpPregnancyTestFollowupButton();
 
         void showChooseFpMethodButton();
 

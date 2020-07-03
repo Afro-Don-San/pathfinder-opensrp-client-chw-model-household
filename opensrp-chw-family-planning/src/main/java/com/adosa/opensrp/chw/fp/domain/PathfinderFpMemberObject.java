@@ -37,9 +37,11 @@ public class PathfinderFpMemberObject implements Serializable {
     private boolean introductionToFamilyPlanningDone;
     private boolean pregnancyScreeningDone;
     private boolean fpMethodChoiceDone;
+    private boolean giveFpMethodDone;
     private boolean isClientAlreadyUsingFp;
     private boolean doesTheClientRememberLmp;
     private boolean manRequestedMethodForPartner;
+    private boolean fpRiskAssessmentDone;
 
     public PathfinderFpMemberObject() {
     }
@@ -331,5 +333,21 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setManRequestedMethodForPartner(boolean manRequestedMethodForPartner) {
         this.manRequestedMethodForPartner = manRequestedMethodForPartner;
+    }
+
+    public boolean isGiveFpMethodDone() {
+        return giveFpMethodDone;
+    }
+
+    public void setGiveFpMethodDone(boolean giveFpMethodDone) {
+        this.giveFpMethodDone = giveFpMethodDone;
+    }
+
+    public boolean isFpRiskAssessmentDone() {
+        return fpRiskAssessmentDone;
+    }
+
+    public void setFpRiskAssessmentDone(boolean fpRiskAssessmentDone) {
+        this.fpRiskAssessmentDone = fpRiskAssessmentDone;
     }
 }

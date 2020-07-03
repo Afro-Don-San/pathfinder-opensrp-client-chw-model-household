@@ -60,6 +60,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     protected TextView tvRecordFpFollowUp;
     protected TextView tvIntroductionToFp;
     protected TextView tvFpPregnancyScreening;
+    protected TextView tvFpPregnancyTestFollowup;
+    protected TextView tvRiskAssessment;
     protected TextView tvChooseFpMethod;
     protected TextView tvGiveFpMethod;
     protected TextView tvFpMethodRow;
@@ -141,6 +143,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvRecordFpFollowUp = findViewById(R.id.textview_record_reccuring_visit);
         tvIntroductionToFp = findViewById(R.id.textview_introduction_to_fp);
         tvFpPregnancyScreening = findViewById(R.id.textview_fp_pregnancy_screening);
+        tvFpPregnancyTestFollowup = findViewById(R.id.textview_fp_pregnancy_test_followup);
+        tvRiskAssessment = findViewById(R.id.textview_risk_assesment);
         tvChooseFpMethod = findViewById(R.id.textview_choose_fp_method);
         tvGiveFpMethod = findViewById(R.id.textview_give_fp_method);
         tvFpMethodRow = findViewById(R.id.textview_fp_method_date_row);
@@ -152,6 +156,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvFpPregnancyScreening.setOnClickListener(this);
         tvChooseFpMethod.setOnClickListener(this);
         tvGiveFpMethod.setOnClickListener(this);
+        tvFpPregnancyTestFollowup.setOnClickListener(this);
+        tvRiskAssessment.setOnClickListener(this);
         findViewById(R.id.rl_last_visit_layout).setOnClickListener(this);
         findViewById(R.id.rlUpcomingServices).setOnClickListener(this);
         findViewById(R.id.rlFamilyServicesDue).setOnClickListener(this);
@@ -211,6 +217,10 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
             this.openChooseFpMethod();
         } else if (id == R.id.textview_give_fp_method) {
             this.openGiveFpMethodButton();
+        } else if (id == R.id.textview_fp_pregnancy_test_followup) {
+            this.openPregnancyTestFollowup();
+        } else if (id == R.id.textview_risk_assesment) {
+            this.openRiskAssessment();
         }
     }
 
@@ -280,6 +290,16 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     @Override
     public void openFollowUpVisitForm(boolean isEdit) {
         // TODO :: Open follow-up visit form for editing
+    }
+
+    @Override
+    public void openPregnancyTestFollowup() {
+        // TODO :: Show pregnancy test followup form
+    }
+
+    @Override
+    public void openRiskAssessment() {
+        // TODO :: Show Risk assessment form
     }
 
     @Override
@@ -455,6 +475,18 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvFpPregnancyScreening.setBackground(getResources().getDrawable(R.drawable.record_fp_followup_overdue));
     }
 
+
+    @Override
+    public void setPregnancyTestFollowupButtonDue() {
+        showFpPregnancyTestFollowupButton();
+        tvFpPregnancyTestFollowup.setBackground(getResources().getDrawable(R.drawable.record_fp_followup));
+    }
+    @Override
+    public void setPregnancyTestFollowupButtonOverdue() {
+        showFpPregnancyTestFollowupButton();
+        tvFpPregnancyTestFollowup.setBackground(getResources().getDrawable(R.drawable.record_fp_followup_overdue));
+    }
+
     @Override
     public void setFpMethodChoiceButtonDue() {
         showChooseFpMethodButton();
@@ -479,6 +511,16 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     @Override
     public void showFpPregnancyScreeningButton() {
         tvFpPregnancyScreening.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showFpPregnancyTestFollowupButton() {
+        tvFpPregnancyTestFollowup.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showRiskAssessmentButton() {
+        tvRiskAssessment.setVisibility(View.VISIBLE);
     }
 
     @Override

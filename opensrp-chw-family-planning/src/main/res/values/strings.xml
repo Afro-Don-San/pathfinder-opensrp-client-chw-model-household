@@ -12,11 +12,16 @@
     <string name="record_fp_followup">Record family planning follow-up visit</string>
     <string name="introduction_to_fp">Introduction to Family Planning</string>
     <string name="issue_anc_referral">Issue ANC Referral</string>
+    <string name="issue_hiv_referral">Issue HIV Treatment and Care Clinic (CTC) Referral</string>
+    <string name="issue_sti_referral">Issue STI Referral</string>
+    <string name="issue_htc_referral">Issue HTC Referral</string>
     <string name="issue_pregnancy_test_referral">Issue Pregnancy Test Referral</string>
     <string name="fp_method_referral">Family Planning Method Referral</string>
     <string name="fp_pregnancy_screening">Pregnancy Screening</string>
+    <string name="fp_pregnancy_test_followup">Pregnancy Test Followup</string>
     <string name="choose_fp_method">Choose Family Planning Method</string>
     <string name="give_fp_method">Give Family Planning Method</string>
+    <string name="risk_assessment">Risk assessment, HIV testing &amp; Dual protection counseling</string>
     <string name="fp_visit_done">Family planning follow-up visit done</string>
     <string name="not_visiting_this_month">Not visiting this month</string>
     <string name="last_visit">Last visit</string>
@@ -112,4 +117,9 @@
     <string name="follow_up_one">{0} follow-up 1</string>
     <string name="follow_up_two">{0} follow-up 2</string>
     <string name="follow_up_three">{0} follow-up 3</string>
+
+    <!--Pathfinder referrals-->
+    <string name="referral_to_loan_unit">Referral to Loan Unit</string>
+    <string name="referral_to_beach_management_unit">Referral to Beach management unit</string>
+    <string name="refer_client">Refer Client</string>
 </resources>
