@@ -60,6 +60,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     protected TextView tvRecordFpFollowUp;
     protected TextView tvIntroductionToFp;
     protected TextView tvFpPregnancyScreening;
+    protected TextView tvCitizenReportCard;
     protected TextView tvFpPregnancyTestFollowup;
     protected TextView tvRiskAssessment;
     protected TextView tvChooseFpMethod;
@@ -143,6 +144,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvRecordFpFollowUp = findViewById(R.id.textview_record_reccuring_visit);
         tvIntroductionToFp = findViewById(R.id.textview_introduction_to_fp);
         tvFpPregnancyScreening = findViewById(R.id.textview_fp_pregnancy_screening);
+        tvCitizenReportCard = findViewById(R.id.textview_citizen_report_card);
         tvFpPregnancyTestFollowup = findViewById(R.id.textview_fp_pregnancy_test_followup);
         tvRiskAssessment = findViewById(R.id.textview_risk_assesment);
         tvChooseFpMethod = findViewById(R.id.textview_choose_fp_method);
@@ -154,6 +156,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvRecordFpFollowUp.setOnClickListener(this);
         tvIntroductionToFp.setOnClickListener(this);
         tvFpPregnancyScreening.setOnClickListener(this);
+        tvCitizenReportCard.setOnClickListener(this);
         tvChooseFpMethod.setOnClickListener(this);
         tvGiveFpMethod.setOnClickListener(this);
         tvFpPregnancyTestFollowup.setOnClickListener(this);
@@ -221,6 +224,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
             this.openPregnancyTestFollowup();
         } else if (id == R.id.textview_risk_assesment) {
             this.openRiskAssessment();
+        } else if (id == R.id.textview_citizen_report_card) {
+            this.openCitizenReportCard();
         }
     }
 
@@ -299,6 +304,11 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
     @Override
     public void openRiskAssessment() {
+        // TODO :: Show Risk assessment form
+    }
+
+    @Override
+    public void openCitizenReportCard() {
         // TODO :: Show Risk assessment form
     }
 
@@ -469,6 +479,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         showFpPregnancyScreeningButton();
         tvFpPregnancyScreening.setBackground(getResources().getDrawable(R.drawable.record_fp_followup));
     }
+
     @Override
     public void setPregnancyScreeningButtonOverdue() {
         showFpPregnancyScreeningButton();
@@ -511,6 +522,11 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     @Override
     public void showFpPregnancyScreeningButton() {
         tvFpPregnancyScreening.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showCitizenReportCardButton() {
+        tvCitizenReportCard.setVisibility(View.VISIBLE);
     }
 
     @Override

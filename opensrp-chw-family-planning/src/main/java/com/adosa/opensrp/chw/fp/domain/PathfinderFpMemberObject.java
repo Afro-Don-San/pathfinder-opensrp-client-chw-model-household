@@ -42,6 +42,8 @@ public class PathfinderFpMemberObject implements Serializable {
     private boolean doesTheClientRememberLmp;
     private boolean manRequestedMethodForPartner;
     private boolean fpRiskAssessmentDone;
+    private boolean fpFollowupDone;
+    private boolean fpCitizenReportCardDone;
 
     public PathfinderFpMemberObject() {
     }
@@ -349,5 +351,21 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setFpRiskAssessmentDone(boolean fpRiskAssessmentDone) {
         this.fpRiskAssessmentDone = fpRiskAssessmentDone;
+    }
+
+    public boolean isFpFollowupDone() {
+        return fpFollowupDone;
+    }
+
+    public void setFpFollowupDone(boolean fpFollowupDone) {
+        this.fpFollowupDone = fpFollowupDone;
+    }
+
+    public boolean isFpCitizenReportCardDone() {
+        return fpCitizenReportCardDone;
+    }
+
+    public void setFpCitizenReportCardDone(boolean fpCitizenReportCardDone) {
+        this.fpCitizenReportCardDone = fpCitizenReportCardDone;
     }
 }

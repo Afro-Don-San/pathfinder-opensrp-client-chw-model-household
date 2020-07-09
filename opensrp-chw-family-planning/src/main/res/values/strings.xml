@@ -22,6 +22,7 @@
     <string name="choose_fp_method">Choose Family Planning Method</string>
     <string name="give_fp_method">Give Family Planning Method</string>
     <string name="risk_assessment">Risk assessment, HIV testing &amp; Dual protection counseling</string>
+    <string name="citizen_report_card">Citizen Report Card</string>
     <string name="fp_visit_done">Family planning follow-up visit done</string>
     <string name="not_visiting_this_month">Not visiting this month</string>
     <string name="last_visit">Last visit</string>

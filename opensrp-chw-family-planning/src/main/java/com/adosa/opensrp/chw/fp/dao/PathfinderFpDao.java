@@ -105,6 +105,8 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setFpMethodChoiceDone(getCursorValue(cursor, "fp_method_choice_done", "").equals("true"));
             memberObject.setGiveFpMethodDone(getCursorValue(cursor, "give_fp_method_done", "").equals("true"));
             memberObject.setFpRiskAssessmentDone(getCursorValue(cursor, "fp_risk_assessment_done", "").equals("true"));
+            memberObject.setFpFollowupDone(getCursorValue(cursor, "fp_followup_done", "").equals("true"));
+            memberObject.setFpCitizenReportCardDone(getCursorValue(cursor, "fp_citizen_report_card_done", "").equals("true"));
             String familyHeadName = getCursorValue(cursor, "family_head_first_name", "") + " "
                     + getCursorValue(cursor, "family_head_middle_name", "");
 
