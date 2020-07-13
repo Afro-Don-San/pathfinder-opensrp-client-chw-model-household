@@ -41,6 +41,8 @@ public interface BaseFpProfileContract {
 
         void openCitizenReportCard();
 
+        void openReferralFollowup();
+
         void openFollowUpVisitForm(boolean isEdit);
 
         void setUpComingServicesStatus(String service, AlertStatus status, Date date);
@@ -84,6 +86,8 @@ public interface BaseFpProfileContract {
         void showGiveFpMethodButton();
 
         void showCitizenReportCardButton();
+
+        void showReferralFollowupButton();
 
         void showProgressBar(boolean status);
 

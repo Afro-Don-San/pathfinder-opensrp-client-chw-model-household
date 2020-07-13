@@ -25,7 +25,6 @@ import com.adosa.opensrp.chw.fp.interactor.BasePathfinderFpProfileInteractor;
 import com.adosa.opensrp.chw.fp.presenter.BasePathfinderFpProfilePresenter;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
-import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -65,6 +64,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     protected TextView tvRiskAssessment;
     protected TextView tvChooseFpMethod;
     protected TextView tvGiveFpMethod;
+    protected TextView tvReferralFollowup;
     protected TextView tvFpMethodRow;
     protected BaseFpProfileContract.Presenter fpProfilePresenter;
     protected BaseFpFloatingMenu fpFloatingMenu;
@@ -149,6 +149,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvRiskAssessment = findViewById(R.id.textview_risk_assesment);
         tvChooseFpMethod = findViewById(R.id.textview_choose_fp_method);
         tvGiveFpMethod = findViewById(R.id.textview_give_fp_method);
+        tvReferralFollowup = findViewById(R.id.textview_referral_followup);
         tvFpMethodRow = findViewById(R.id.textview_fp_method_date_row);
 
         tvUndo.setOnClickListener(this);
@@ -159,6 +160,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvCitizenReportCard.setOnClickListener(this);
         tvChooseFpMethod.setOnClickListener(this);
         tvGiveFpMethod.setOnClickListener(this);
+        tvReferralFollowup.setOnClickListener(this);
         tvFpPregnancyTestFollowup.setOnClickListener(this);
         tvRiskAssessment.setOnClickListener(this);
         findViewById(R.id.rl_last_visit_layout).setOnClickListener(this);
@@ -226,6 +228,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
             this.openRiskAssessment();
         } else if (id == R.id.textview_citizen_report_card) {
             this.openCitizenReportCard();
+        } else if (id == R.id.textview_referral_followup) {
+            this.openReferralFollowup();
         }
     }
 
@@ -309,13 +313,16 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
     @Override
     public void openCitizenReportCard() {
-        // TODO :: Show Risk assessment form
+        // TODO :: Show Citizen Report Card form
+    }
+
+    @Override
+    public void openReferralFollowup() {
+        // TODO :: Show Referral followup form
     }
 
     @Override
     public void setUpComingServicesStatus(String service, AlertStatus status, Date date) {
-        Timber.e("Coze :: setUpComingServicesStatus");
-        Timber.e("Coze :: AlertStatus = "+new Gson().toJson(status));
         showProgressBar(false);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
         if (status == AlertStatus.complete)
@@ -492,6 +499,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         showFpPregnancyTestFollowupButton();
         tvFpPregnancyTestFollowup.setBackground(getResources().getDrawable(R.drawable.record_fp_followup));
     }
+
     @Override
     public void setPregnancyTestFollowupButtonOverdue() {
         showFpPregnancyTestFollowupButton();
@@ -503,6 +511,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         showChooseFpMethodButton();
         tvChooseFpMethod.setBackground(getResources().getDrawable(R.drawable.record_fp_followup));
     }
+
     @Override
     public void setFpMethodChoiceButtonOverdue() {
         showChooseFpMethodButton();
@@ -532,6 +541,11 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     @Override
     public void showFpPregnancyTestFollowupButton() {
         tvFpPregnancyTestFollowup.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showReferralFollowupButton() {
+        tvReferralFollowup.setVisibility(View.VISIBLE);
     }
 
     @Override
