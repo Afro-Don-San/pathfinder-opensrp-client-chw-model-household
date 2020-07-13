@@ -506,6 +506,19 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvFpPregnancyTestFollowup.setBackground(getResources().getDrawable(R.drawable.record_fp_followup_overdue));
     }
 
+
+    @Override
+    public void setReferralFollowupButtonDue() {
+        showFpPregnancyTestFollowupButton();
+        tvReferralFollowup.setBackground(getResources().getDrawable(R.drawable.record_fp_followup));
+    }
+
+    @Override
+    public void setReferralFollowupButtonOverdue() {
+        showFpPregnancyTestFollowupButton();
+        tvReferralFollowup.setBackground(getResources().getDrawable(R.drawable.record_fp_followup_overdue));
+    }
+
     @Override
     public void setFpMethodChoiceButtonDue() {
         showChooseFpMethodButton();

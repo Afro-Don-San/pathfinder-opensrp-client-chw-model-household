@@ -67,6 +67,10 @@ public interface BaseFpProfileContract {
 
         void setPregnancyTestFollowupButtonOverdue();
 
+        void setReferralFollowupButtonDue();
+
+        void setReferralFollowupButtonOverdue();
+
         void setFpMethodChoiceButtonDue();
 
         void setFpMethodChoiceButtonOverdue();
