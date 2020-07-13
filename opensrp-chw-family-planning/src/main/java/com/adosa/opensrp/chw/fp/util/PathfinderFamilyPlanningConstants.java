@@ -84,6 +84,7 @@ public interface PathfinderFamilyPlanningConstants {
         String REGISTRATION_PAYLOAD_TYPE = "REGISTRATION";
         String UPDATE_REGISTRATION_PAYLOAD_TYPE = "UPDATE_REGISTRATION";
         String GIVE_FP_METHOD = "GIVE_FP_METHOD";
+        String CITIZEN_REPORT_CARD = "CITIZEN_REPORT_CARD";
         String CHANGE_METHOD_PAYLOAD_TYPE = "CHANGE_METHOD";
         String DOB = "DOB";
         String FORM_AS_STRING = "FORM_AS_STRING";

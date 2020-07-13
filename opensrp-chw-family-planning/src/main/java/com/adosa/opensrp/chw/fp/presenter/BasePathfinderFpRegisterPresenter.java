@@ -13,6 +13,8 @@ import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.smartregister.domain.Location;
+import org.smartregister.repository.LocationRepository;
 import org.smartregister.util.JsonFormUtils;
 
 import java.lang.ref.WeakReference;
@@ -49,6 +51,26 @@ public class BasePathfinderFpRegisterPresenter implements BaseFpRegisterContract
                 JSONObject fp_method = new JSONObject();
                 fp_method.put("fp_method", updateValue);
                 formAsJson.put("global", fp_method);
+            }else if (PathfinderFamilyPlanningConstants.ActivityPayload.CITIZEN_REPORT_CARD.equals(payloadType)) {
+                JSONArray fields = formAsJson.getJSONObject("step3").getJSONArray("fields");
+                for (int i = 0; i < fields.length(); i++) {
+                    JSONObject object = fields.getJSONObject(i);
+                    if (object.getString("key").equals("name_of_health_facility_visited_for_family_planning_services")) {
+                        List<Location> locations = new LocationRepository().getAllLocations();
+
+                        JSONObject openmrsIds = new JSONObject();
+                        JSONArray values = new JSONArray();
+                        for (Location location : locations) {
+                            openmrsIds.put(location.getProperties().getName(), location.getId());
+                            values.put(location.getProperties().getName());
+                        }
+
+                        object.put("values", values);
+                        object.put("keys", values);
+                        object.put("openmrs_choice_ids", openmrsIds);
+                        break;
+                    }
+                }
             } else {
                 int age = new Period(new DateTime(updateValue), new DateTime()).getYears();
                 FpJsonFormUtils.updateFormField(jsonArray, PathfinderFamilyPlanningConstants.DBConstants.AGE, String.valueOf(age));
