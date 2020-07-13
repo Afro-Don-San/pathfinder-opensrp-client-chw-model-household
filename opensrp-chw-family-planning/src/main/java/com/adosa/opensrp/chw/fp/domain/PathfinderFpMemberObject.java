@@ -34,6 +34,7 @@ public class PathfinderFpMemberObject implements Serializable {
     private String fpPregnancyScreeningDate;
     private String fpMethodChoiceDate;
     private String periodsRegularity;
+    private String issuedReferralService;
     private boolean introductionToFamilyPlanningDone;
     private boolean pregnancyScreeningDone;
     private boolean fpMethodChoiceDone;
@@ -44,6 +45,7 @@ public class PathfinderFpMemberObject implements Serializable {
     private boolean fpRiskAssessmentDone;
     private boolean fpFollowupDone;
     private boolean fpCitizenReportCardDone;
+    private boolean clientIsCurrentlyReferred;
 
     public PathfinderFpMemberObject() {
     }
@@ -367,5 +369,21 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setFpCitizenReportCardDone(boolean fpCitizenReportCardDone) {
         this.fpCitizenReportCardDone = fpCitizenReportCardDone;
+    }
+
+    public String getIssuedReferralService() {
+        return issuedReferralService;
+    }
+
+    public void setIssuedReferralService(String issuedReferralService) {
+        this.issuedReferralService = issuedReferralService;
+    }
+
+    public boolean isClientIsCurrentlyReferred() {
+        return clientIsCurrentlyReferred;
+    }
+
+    public void setClientIsCurrentlyReferred(boolean clientIsCurrentlyReferred) {
+        this.clientIsCurrentlyReferred = clientIsCurrentlyReferred;
     }
 }

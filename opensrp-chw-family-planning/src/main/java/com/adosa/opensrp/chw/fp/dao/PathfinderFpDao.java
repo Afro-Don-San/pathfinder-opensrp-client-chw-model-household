@@ -96,6 +96,7 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setFpRegistrationDate(getCursorValue(cursor, "fp_reg_date", ""));
             memberObject.setEdd(getCursorValue(cursor, "edd", ""));
             memberObject.setPeriodsRegularity(getCursorValue(cursor, "periods_regularity", ""));
+            memberObject.setIssuedReferralService(getCursorValue(cursor, "issued_referral_service", ""));
 
             memberObject.setManRequestedMethodForPartner(getCursorValue(cursor, "man_request_method_for_partner", "").equals("true"));
             memberObject.setDoesTheClientRememberLmp(getCursorValue(cursor, "does_the_client_remember_lmp", "").equals("yes"));
@@ -107,6 +108,7 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setFpRiskAssessmentDone(getCursorValue(cursor, "fp_risk_assessment_done", "").equals("true"));
             memberObject.setFpFollowupDone(getCursorValue(cursor, "fp_followup_done", "").equals("true"));
             memberObject.setFpCitizenReportCardDone(getCursorValue(cursor, "fp_citizen_report_card_done", "").equals("true"));
+            memberObject.setClientIsCurrentlyReferred(getCursorValue(cursor, "client_is_currently_referred", "").equals("true"));
             String familyHeadName = getCursorValue(cursor, "family_head_first_name", "") + " "
                     + getCursorValue(cursor, "family_head_middle_name", "");
 
