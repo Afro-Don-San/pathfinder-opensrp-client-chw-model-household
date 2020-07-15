@@ -17,6 +17,7 @@
     <string name="issue_htc_referral">Issue HTC Referral</string>
     <string name="issue_pregnancy_test_referral">Issue Pregnancy Test Referral</string>
     <string name="fp_method_referral">Family Planning Method Referral</string>
+    <string name="fp_method_refill_referral">Family Planning Method Refill Referral</string>
     <string name="fp_pregnancy_screening">Pregnancy Screening</string>
     <string name="fp_pregnancy_test_followup">Pregnancy Test Followup</string>
     <string name="choose_fp_method">Choose Family Planning Method</string>
@@ -115,6 +116,7 @@
     <string name="pregnant_client_followup">Pregnant client followup</string>
     <string name="pregnancy_screening_followup">Pregnancy screening followup</string>
     <string name="fp_method_choice_followup">Family Planning Method choice followup</string>
+    <string name="fp_referral_followup">Referral followup</string>
     <string name="man_chose_fp_method_for_partner_followup">Man Chose Family Planning Method For Partner followup</string>
     <string name="follow_up_one">{0} follow-up 1</string>
     <string name="follow_up_two">{0} follow-up 2</string>

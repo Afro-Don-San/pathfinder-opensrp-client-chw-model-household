@@ -235,15 +235,15 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
     @Override
     public void setupFollowupVisitEditViews(boolean isWithin24Hours) {
-        if (isWithin24Hours) {
-            recordFollowUpVisitLayout.setVisibility(View.GONE);
+//        if (isWithin24Hours) {
+//            recordFollowUpVisitLayout.setVisibility(View.GONE);
 //            recordVisitStatusBarLayout.setVisibility(View.VISIBLE);
 //            tvEditVisit.setVisibility(View.VISIBLE);
-        } else {
-            tvEditVisit.setVisibility(View.GONE);
-            recordFollowUpVisitLayout.setVisibility(View.VISIBLE);
-            recordVisitStatusBarLayout.setVisibility(View.GONE);
-        }
+//        } else {
+//            tvEditVisit.setVisibility(View.GONE);
+//            recordFollowUpVisitLayout.setVisibility(View.VISIBLE);
+//            recordVisitStatusBarLayout.setVisibility(View.GONE);
+//        }
     }
 
     @Override

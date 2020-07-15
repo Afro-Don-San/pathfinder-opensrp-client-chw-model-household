@@ -166,13 +166,8 @@ public class PathfinderFpDao extends AbstractDao {
                 "INNER JOIN ec_family_planning fp on fp.base_entity_id = v.base_entity_id " +
                 " WHERE v.base_entity_id = '" + baseEntityId + "' COLLATE NOCASE " +
                 " AND v.visit_type = '" + entityType + "' COLLATE NOCASE " +
-                " AND fp.fp_method_accepted = '" + fpMethod + "' COLLATE NOCASE ";
-
-//                " AND strftime('%Y%d%m', (datetime(v.visit_date/1000, 'unixepoch')))  >= substr(fp.fp_start_date " +
-//                ",7,4) || substr(fp.fp_start_date " +
-//                ",4,2) || substr(fp.fp_start_date " +
-//                ",1,2) " +
-//                "ORDER BY v.visit_date DESC";
+                " AND fp.fp_method_accepted = '" + fpMethod + "' COLLATE NOCASE "+
+                " ORDER BY v.visit_date DESC";
 
         List<Visit> visit = AbstractDao.readData(sql, getVisitDataMap());
         if (visit.size() == 0) {
@@ -191,9 +186,9 @@ public class PathfinderFpDao extends AbstractDao {
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.INTRODUCTION_TO_FAMILY_PLANNING + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FAMILY_PLANNING_PREGNANCY_SCREENING + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.CHOOSING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE  OR " +
+                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FP_FOLLOW_UP_VISIT + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.GIVE_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE) " +
                 "ORDER BY v.visit_date DESC";
-
         List<Visit> visit = AbstractDao.readData(sql, getVisitDataMap());
         if (visit.size() == 0) {
             return null;
