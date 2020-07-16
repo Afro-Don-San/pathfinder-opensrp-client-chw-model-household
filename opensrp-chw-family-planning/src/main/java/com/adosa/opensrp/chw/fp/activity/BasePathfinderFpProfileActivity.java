@@ -142,14 +142,23 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvUndo = findViewById(R.id.textview_undo);
         profileImageView = findViewById(R.id.imageview_profile);
         tvRecordFpFollowUp = findViewById(R.id.textview_record_reccuring_visit);
+        tvRecordFpFollowUp.setVisibility(View.GONE);
         tvIntroductionToFp = findViewById(R.id.textview_introduction_to_fp);
+        tvIntroductionToFp.setVisibility(View.GONE);
         tvFpPregnancyScreening = findViewById(R.id.textview_fp_pregnancy_screening);
+        tvFpPregnancyScreening.setVisibility(View.GONE);
         tvCitizenReportCard = findViewById(R.id.textview_citizen_report_card);
+        tvCitizenReportCard.setVisibility(View.GONE);
         tvFpPregnancyTestFollowup = findViewById(R.id.textview_fp_pregnancy_test_followup);
+        tvFpPregnancyTestFollowup.setVisibility(View.GONE);
         tvRiskAssessment = findViewById(R.id.textview_risk_assesment);
+        tvRiskAssessment.setVisibility(View.GONE);
         tvChooseFpMethod = findViewById(R.id.textview_choose_fp_method);
+        tvChooseFpMethod.setVisibility(View.GONE);
         tvGiveFpMethod = findViewById(R.id.textview_give_fp_method);
+        tvGiveFpMethod.setVisibility(View.GONE);
         tvReferralFollowup = findViewById(R.id.textview_referral_followup);
+        tvReferralFollowup.setVisibility(View.GONE);
         tvFpMethodRow = findViewById(R.id.textview_fp_method_date_row);
 
         tvUndo.setOnClickListener(this);
