@@ -201,7 +201,7 @@
                     android:layout_below="@+id/textview_fp_method_date_row"
                     android:layout_marginLeft="8dp"
                     android:layout_toRightOf="@+id/fp_method_row_image"
-                    android:text="@string/view_fp_registration"
+                    android:text="@string/view_pathfinder_fp_registration"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/darker_gray" />
 

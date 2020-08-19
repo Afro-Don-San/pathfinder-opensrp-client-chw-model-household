@@ -365,7 +365,14 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         int age = new Period(new DateTime(pathfinderFpMemberObject.getAge()), new DateTime()).getYears();
         tvName.setText(String.format(Locale.getDefault(), "%s %s %s, %d", pathfinderFpMemberObject.getFirstName(),
                 pathfinderFpMemberObject.getMiddleName(), pathfinderFpMemberObject.getLastName(), age));
-        tvGender.setText(pathfinderFpMemberObject.getGender());
+
+
+        if(pathfinderFpMemberObject.getGender().equals("Male")){
+            tvGender.setText(getResources().getString(R.string.gender_male));
+        }else {
+            tvGender.setText(getResources().getString(R.string.gender_female));
+        }
+
         tvLocation.setText(pathfinderFpMemberObject.getAddress());
         tvUniqueID.setText(pathfinderFpMemberObject.getUniqueId());
         imageRenderHelper.refreshProfileImage(pathfinderFpMemberObject.getBaseEntityId(), profileImageView, FpUtil.getMemberProfileImageResourceIDentifier());

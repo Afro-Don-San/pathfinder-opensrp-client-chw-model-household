@@ -1,41 +1,34 @@
 <resources>
-    <string name="app_name">Family Planning</string>
-    <string name="scan_qr">Scan QR</string>
-    <string name="home">Home</string>
-    <string name="add_family">Add family</string>
-    <string name="job_aids">Job Aids</string>
-    <string name="error_unable_to_start_form">An error occurred when starting the form</string>
-    <string name="fp_return_to_previous_page">Return to all family planning women</string>
+    <string name="app_name">Uzazi wa Mpango</string>
+    <string name="fp_return_to_previous_page">Rudi kwenye orodha ya wateja wa Uzazi wa Mpango</string>
     <string name="interpunct" translatable="false">\u00b7</string>
-    <string name="family_head">FAMILY HEAD</string>
-    <string name="primary_care_giver">PRIMARY CARE GIVER</string>
-    <string name="record_fp_followup">Record family planning follow-up visit</string>
-    <string name="introduction_to_fp">Introduction to Family Planning</string>
-    <string name="issue_anc_referral">Issue ANC Referral</string>
+    <string name="record_fp_followup">" Rekodi Ufuatiliaji wa Rufaa za Uzazi wa Mpango"</string>
+    <string name="introduction_to_fp">Utambulisho kuhusu uzazi wa mpango</string>
+    <string name="issue_anc_referral">Toa rufaa ya mama mjamzito</string>
     <string name="issue_hiv_referral">Issue HIV Treatment and Care Clinic (CTC) Referral</string>
     <string name="issue_sti_referral">Issue STI Referral</string>
-    <string name="issue_htc_referral">Issue HTC Referral</string>
-    <string name="issue_pregnancy_test_referral">Issue Pregnancy Test Referral</string>
-    <string name="fp_method_referral">Family Planning Method Referral</string>
+    <string name="issue_htc_referral">Toa rufaa kwenda kitengo cha Upimaji na Ushauri nasaha</string>
+    <string name="issue_pregnancy_test_referral">Toa Rufaa ya kupima ujauzito</string>
+    <string name="fp_method_referral">Rufaa ya kupata njia ya uzazi wa Mpango</string>
     <string name="fp_method_refill_referral">Family Planning Method Refill Referral</string>
-    <string name="fp_pregnancy_screening">Pregnancy Screening</string>
+    <string name="fp_pregnancy_screening">Uchunguzi wa ujauzito</string>
     <string name="fp_pregnancy_test_followup">Pregnancy Test Followup</string>
-    <string name="choose_fp_method">Choose Family Planning Method</string>
-    <string name="give_fp_method">Give Family Planning Method</string>
+    <string name="choose_fp_method">Chagua Njia ya Uzazi wa Mpango</string>
+    <string name="give_fp_method">Toa Njia ya Uzazi wa Mpango</string>
     <string name="risk_assessment">Risk assessment, HIV testing &amp; Dual protection counseling</string>
     <string name="citizen_report_card">Citizen Report Card</string>
-    <string name="referral_followup">Referral Followup</string>
+    <string name="referral_followup">Ufwatiliaji wa Rufaa</string>
     <string name="fp_visit_done">Family planning follow-up visit done</string>
     <string name="not_visiting_this_month">Not visiting this month</string>
     <string name="last_visit">Last visit</string>
     <string name="last_visit_n_days_ago">Last visit %1$s ago</string>
     <string name="less_than_twenty_four">less than 24 hrs</string>
-    <string name="days">days</string>
+    <string name="days">siku</string>
     <string name="fp_visit_edit">Edit</string>
-    <string name="view_pathfinder_fp_registration">View FP registration</string>
-    <string name="view_medical_history">View medical history</string>
-    <string name="view_upcoming_services">View upcoming services</string>
-    <string name="family_has_nothing_due">Family has nothing due</string>
+    <string name="view_pathfinder_fp_registration">Fungua fomu ya usajili</string>
+    <string name="view_medical_history">Angalia historia ya matibabu</string>
+    <string name="view_upcoming_services">Angalia huduma zinazokaribia</string>
+    <string name="family_has_nothing_due">Muda wa huduma kwenye kaya haujafika</string>
     <string name="family_has_services_due">Family has services due</string>
     <string name="fp_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
     <string name="fp_service_overdue"><![CDATA[%1$s <font color=#f04646>overdue (%2$s)</font></b>]]></string>
@@ -72,8 +65,8 @@
     <string name="side_effects">Side-effects:</string>
     <string name="action">Action:</string>
     <!--counselling -->
-    <string name="yes">yes</string>
-    <string name="no">no</string>
+    <string name="yes">Ndio</string>
+    <string name="no">Hapana</string>
     <!-- side effects -->
     <string name="allergic_reactions">Allergic reactions</string>
     <string name="heavy_bleading">Heavy bleeding</string>
@@ -91,26 +84,26 @@
    <!--action taken -->
     <string name="managed">Managed</string>
     <string name="Referred">Referred</string>
-    <string name="registered">Registered</string>
+    <string name="registered">Alisajiliwa</string>
 
     <!--Family planning fp start dates row-->
-    <string name="male_condom">Male Condom</string>
-    <string name="female_condom">Female Condom</string>
-    <string name="coc">COC</string>
-    <string name="pop">POP</string>
+    <string name="male_condom">Kodomu za kiume</string>
+    <string name="female_condom">Kodomu za kike</string>
+    <string name="coc">Vichocheo viwili</string>
+    <string name="pop">Kichocheo Kimoja</string>
     <string name="injectable">Injectable</string>
     <string name="lam">Lactational amenorrhea method (LAM)</string>
     <string name="jadelle">Jadelle</string>
-    <string name="vasectomy">Vasectomy</string>
-    <string name="tubal_ligation">Tubal ligation</string>
-    <string name="iud">IUD</string>
-    <string name="implants">Implants</string>
-    <string name="standard_day_method">Standard day method</string>
+    <string name="vasectomy">Kufunga uzazi kwa mwanaume</string>
+    <string name="tubal_ligation">Kufunga uzazi kwa mwanamke</string>
+    <string name="iud">Lupu/Kitanzi</string>
+    <string name="implants">Vipandikizi</string>
+    <string name="standard_day_method">Njia yakuhesabu siku kwa kutukia shanga</string>
     <string name="emergency_contraceptive">Emergency contraceptive</string>
     <string name="not_applicable">Not applicable</string>
     <string name="fp_insertion">insertion</string>
-    <string name="fp_started">started</string>
-    <string name="fp_on">on</string>
+    <string name="fp_started">Ameanza</string>
+    <string name="fp_on">tarehe</string>
 
     <string name="refill">{0} refill</string>
     <string name="pregnant_client_followup">Pregnant client followup</string>
@@ -123,11 +116,10 @@
     <string name="follow_up_three">{0} follow-up 3</string>
 
     <!--Pathfinder referrals-->
-    <string name="referral_to_loan_unit">Referral to Loan Unit</string>
-    <string name="referral_to_beach_management_unit">Referral to Beach management unit</string>
-    <string name="refer_client">Refer Client</string>
-    <string name="independent_client">Independent</string>
-    <string name="gender_male">Male</string>
-    <string name="gender_female">Female</string>
-
+    <string name="referral_to_loan_unit">Rufaa ya sehemu ya mkopo</string>
+    <string name="referral_to_beach_management_unit">Rufaa ya Kitengo cha Usimamizi wa fukwe</string>
+    <string name="refer_client">Toa Rufaa kwa mteja</string>
+    <string name="independent_client">Mteja</string>
+    <string name="gender_male">Me</string>
+    <string name="gender_female">Ke</string>
 </resources>
