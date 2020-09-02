@@ -3,20 +3,20 @@
     <string name="fp_return_to_previous_page">Rudi kwenye orodha ya wateja wa Uzazi wa Mpango</string>
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_fp_followup">" Rekodi Ufuatiliaji wa Rufaa za Uzazi wa Mpango"</string>
-    <string name="introduction_to_fp">Utambulisho kuhusu uzazi wa mpango</string>
+    <string name="introduction_to_fp">Taarifa za uzazi wa mpango</string>
     <string name="issue_anc_referral">Toa rufaa ya mama mjamzito</string>
     <string name="issue_hiv_referral">Issue HIV Treatment and Care Clinic (CTC) Referral</string>
     <string name="issue_sti_referral">Issue STI Referral</string>
     <string name="issue_htc_referral">Toa rufaa kwenda kitengo cha Upimaji na Ushauri nasaha</string>
-    <string name="issue_pregnancy_test_referral">Toa Rufaa ya kupima ujauzito</string>
+    <string name="issue_pregnancy_test_referral">Toa Rufaa ya kupima Ujauzito</string>
     <string name="fp_method_referral">Rufaa ya kupata njia ya uzazi wa Mpango</string>
     <string name="fp_method_refill_referral">Family Planning Method Refill Referral</string>
-    <string name="fp_pregnancy_screening">Uchunguzi wa ujauzito</string>
-    <string name="fp_pregnancy_test_followup">Pregnancy Test Followup</string>
-    <string name="choose_fp_method">Chagua Njia ya Uzazi wa Mpango</string>
+    <string name="fp_pregnancy_screening">Uchunguzi wa Ujauzito</string>
+    <string name="fp_pregnancy_test_followup">Kumfwatilia mteja anayepima Ujauzito</string>
+    <string name="choose_fp_method">Chagua Njia</string>
     <string name="give_fp_method">Toa Njia ya Uzazi wa Mpango</string>
-    <string name="risk_assessment">Risk assessment, HIV testing &amp; Dual protection counseling</string>
-    <string name="citizen_report_card">Citizen Report Card</string>
+    <string name="risk_assessment">Uchunguzi wa hali hatarishi</string>
+    <string name="citizen_report_card">Kadi ya Ripoti ya Mteja</string>
     <string name="referral_followup">Ufwatiliaji wa Rufaa</string>
     <string name="fp_visit_done">Family planning follow-up visit done</string>
     <string name="not_visiting_this_month">Not visiting this month</string>
@@ -49,18 +49,18 @@
     <string name="copy_to_clipboard">Copy to clipboard</string>
     <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
     <!--FP -->
-    <string name="fp_visit_day_next_due">Next Due %s </string>
-    <string name="fp_visit_day_due">%s DAYS DUE</string>
-    <string name="fp_visit_day_due_today">DUE TODAY</string>
-    <string name="fp_visit_day_overdue">%s DAYS OVERDUE</string>
-    <string name="fp_visit_day_overdue_today">OVERDUE TODAY</string>
+    <string name="fp_visit_day_next_due">Siku ya kumfwatila %s </string>
+    <string name="fp_visit_day_due">Siku %s tangu siku ya kumfwatilia</string>
+    <string name="fp_visit_day_due_today">Wakufwatiliwa leo</string>
+    <string name="fp_visit_day_overdue">Umechelewa kwa siku %s</string>
+    <string name="fp_visit_day_overdue_today">Wakufwatiliwa leo</string>
     <string name="fp_follow_up_visit">Fp Follow Up Visit</string>
     <string name="fp_side_effects">Side effects</string>
     <string name="counseling">Counseling</string>
     <string name="resupply">Resupply %s</string>
     <string name="next_health_facility_visit">Next health facility visit</string>
-    <string name="no_of_condoms">No. of Condoms:</string>
-    <string name="no_of_pill_cycles">No. of pill cycles:</string>
+    <string name="no_of_condoms">Idadi za Kondomu:</string>
+    <string name="no_of_pill_cycles">Idadi za vidonge:</string>
     <string name="date_of_next_injection">Date of next injection:</string>
     <string name="side_effects">Side-effects:</string>
     <string name="action">Action:</string>
@@ -106,11 +106,11 @@
     <string name="fp_on">tarehe</string>
 
     <string name="refill">{0} refill</string>
-    <string name="pregnant_client_followup">Pregnant client followup</string>
-    <string name="pregnancy_screening_followup">Pregnancy screening followup</string>
+    <string name="pregnant_client_followup">Kumfwatilia mteja mjamzito </string>
+    <string name="pregnancy_screening_followup">Kumfwatilia mteja aliyepima kama ni mjamzito </string>
     <string name="fp_method_choice_followup">Family Planning Method choice followup</string>
     <string name="fp_referral_followup">Referral followup</string>
-    <string name="man_chose_fp_method_for_partner_followup">Man Chose Family Planning Method For Partner followup</string>
+    <string name="man_chose_fp_method_for_partner_followup">Kumfwatilia Mwanaume aliyechagua njia ya uzazi wa mpango wa mwenza</string>
     <string name="follow_up_one">{0} follow-up 1</string>
     <string name="follow_up_two">{0} follow-up 2</string>
     <string name="follow_up_three">{0} follow-up 3</string>
@@ -122,4 +122,7 @@
     <string name="independent_client">Mteja</string>
     <string name="gender_male">Me</string>
     <string name="gender_female">Ke</string>
+
+    <string name="client_is_pregnant">Mteja ni Mjamzito</string>
+    <string name="client_is_not_pregnant">Mteja si Mjamzito</string>
 </resources>

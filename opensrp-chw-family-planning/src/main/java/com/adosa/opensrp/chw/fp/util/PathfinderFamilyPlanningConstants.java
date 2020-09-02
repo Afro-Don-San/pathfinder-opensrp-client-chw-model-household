@@ -30,7 +30,7 @@ public interface PathfinderFamilyPlanningConstants {
     }
 
     interface Forms {
-        String FAMILY_PLANNING_REGISTRATION_FORM = "family_planning_registration";
+        String FAMILY_PLANNING_REGISTRATION_FORM = "pathfinder_female_family_planning_registration";
     }
 
     interface CONFIGURATION {

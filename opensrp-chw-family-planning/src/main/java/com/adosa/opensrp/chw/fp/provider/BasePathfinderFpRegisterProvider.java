@@ -15,12 +15,9 @@ import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 import com.adosa.opensrp.chw.fp.fragment.BasePathfinderFpRegisterFragment;
 import com.adosa.opensrp.chw.fp.util.FpUtil;
 import com.adosa.opensrp.chw.fp.util.PathfinderFamilyPlanningConstants;
-import com.google.gson.Gson;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.cursoradapter.RecyclerViewProvider;
 import org.smartregister.util.Utils;
@@ -60,11 +57,11 @@ public class BasePathfinderFpRegisterProvider implements RecyclerViewProvider<Ba
         PathfinderFpMemberObject pathfinderFpMemberObject = PathfinderFpDao.getMember(pc.getCaseId());
 
         if (visibleColumns.isEmpty()) {
-            populatePatientColumn(pc,pathfinderFpMemberObject, registerViewHolder);
+            populatePatientColumn(pc, pathfinderFpMemberObject, registerViewHolder);
         }
     }
 
-    private void populatePatientColumn(CommonPersonObjectClient pc,PathfinderFpMemberObject pathfinderFpMemberObject, final RegisterViewHolder viewHolder) {
+    private void populatePatientColumn(CommonPersonObjectClient pc, PathfinderFpMemberObject pathfinderFpMemberObject, final RegisterViewHolder viewHolder) {
         try {
             String firstName = getName(
                     pathfinderFpMemberObject.getFirstName(),
@@ -78,7 +75,7 @@ public class BasePathfinderFpRegisterProvider implements RecyclerViewProvider<Ba
             viewHolder.patientName.setText(patientName + ", " + age);
             viewHolder.textViewFpMethod.setText(methodAccepted);
 
-            if(methodAccepted.equals("") || methodAccepted.equals("0")){
+            if (methodAccepted.equals("") || methodAccepted.equals("0")) {
                 viewHolder.textViewFpMethod.setVisibility(View.GONE);
             }
 
