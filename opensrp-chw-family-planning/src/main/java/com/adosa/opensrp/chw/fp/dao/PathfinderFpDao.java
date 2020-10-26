@@ -187,6 +187,7 @@ public class PathfinderFpDao extends AbstractDao {
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FAMILY_PLANNING_PREGNANCY_SCREENING + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.CHOOSING_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FP_FOLLOW_UP_VISIT + "' COLLATE NOCASE  OR " +
+                "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.FAMILY_PLANNING_METHOD_REFERRAL_FOLLOWUP + "' COLLATE NOCASE  OR " +
                 "v.visit_type = '" + PathfinderFamilyPlanningConstants.EventType.GIVE_FAMILY_PLANNING_METHOD + "' COLLATE NOCASE) " +
                 "ORDER BY v.visit_date DESC";
         List<Visit> visit = AbstractDao.readData(sql, getVisitDataMap());

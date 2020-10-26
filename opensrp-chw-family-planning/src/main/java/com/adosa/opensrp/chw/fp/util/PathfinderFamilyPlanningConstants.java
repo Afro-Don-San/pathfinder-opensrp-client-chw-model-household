@@ -27,6 +27,7 @@ public interface PathfinderFamilyPlanningConstants {
         String ANC_REFERRAL = "ANC Referral";
         String FAMILY_PLANNING_REFERRAL = "Family Planning Referral";
         String FAMILY_PLANNING_REFERRAL_FOLLOWUP = "Family Planning Referral Followup";
+        String FAMILY_PLANNING_METHOD_REFERRAL_FOLLOWUP = "Family Planning Method Referral Followup";
     }
 
     interface Forms {

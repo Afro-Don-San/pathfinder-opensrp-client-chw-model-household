@@ -34,6 +34,7 @@ import org.smartregister.domain.AlertStatus;
 import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.view.activity.BaseProfileActivity;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -79,6 +80,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     private View overDueRow;
     private View familyRow;
     private ImageRenderHelper imageRenderHelper;
+    public static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
 
     public static void startProfileActivity(Activity activity, PathfinderFpMemberObject memberObject) {
         Intent intent = new Intent(activity, BasePathfinderFpProfileActivity.class);
@@ -409,12 +411,21 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         return timePassedString;
     }
 
+    private String parseFpStartDate(String startDate) {
+        try {
+            return  String.valueOf(formatTime(Long.parseLong(startDate)));
+        } catch (Exception e) {
+            Timber.e(e);
+            return formatTime(startDate).toString();
+        }
+    }
+
     public String getFpMethodRowString(String fpMethod, String fpStartDate, String fpRegistrationDate) {
         String fpMethodDisplayText;
         String fpDisplayDate = "";
         if (StringUtils.isNotEmpty(fpStartDate) || StringUtils.isNotEmpty(fpRegistrationDate)) {
             if (StringUtils.isNotEmpty(fpStartDate))
-                fpDisplayDate = String.valueOf(formatTime(Long.parseLong(fpStartDate)));
+                fpDisplayDate = parseFpStartDate(fpStartDate);
             else
                 fpDisplayDate = String.valueOf(fpRegistrationDate);
         }

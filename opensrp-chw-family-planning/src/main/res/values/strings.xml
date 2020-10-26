@@ -131,5 +131,6 @@
     <string name="gender_female">Female</string>
     <string name="client_is_pregnant">Client is Pregnant</string>
     <string name="client_is_not_pregnant">Client is not Pregnant</string>
+    <string name="no_woman_available">No woman client is available</string>
 
 </resources>
