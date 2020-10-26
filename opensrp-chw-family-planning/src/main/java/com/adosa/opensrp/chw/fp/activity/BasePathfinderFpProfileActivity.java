@@ -34,7 +34,6 @@ import org.smartregister.domain.AlertStatus;
 import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.view.activity.BaseProfileActivity;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -43,6 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
 
 public class BasePathfinderFpProfileActivity extends BaseProfileActivity implements BaseFpProfileContract.View {
+    public static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
     protected View lastVisitRow;
     protected LinearLayout recordFollowUpVisitLayout;
     protected RelativeLayout recordVisitStatusBarLayout;
@@ -80,7 +80,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     private View overDueRow;
     private View familyRow;
     private ImageRenderHelper imageRenderHelper;
-    public static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
 
     public static void startProfileActivity(Activity activity, PathfinderFpMemberObject memberObject) {
         Intent intent = new Intent(activity, BasePathfinderFpProfileActivity.class);
@@ -369,9 +368,9 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
                 pathfinderFpMemberObject.getMiddleName(), pathfinderFpMemberObject.getLastName(), age));
 
 
-        if(pathfinderFpMemberObject.getGender().equals("Male")){
+        if (pathfinderFpMemberObject.getGender().equals("Male")) {
             tvGender.setText(getResources().getString(R.string.gender_male));
-        }else {
+        } else {
             tvGender.setText(getResources().getString(R.string.gender_female));
         }
 
@@ -413,7 +412,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
     private String parseFpStartDate(String startDate) {
         try {
-            return  String.valueOf(formatTime(Long.parseLong(startDate)));
+            return String.valueOf(formatTime(Long.parseLong(startDate)));
         } catch (Exception e) {
             Timber.e(e);
             return formatTime(startDate).toString();
