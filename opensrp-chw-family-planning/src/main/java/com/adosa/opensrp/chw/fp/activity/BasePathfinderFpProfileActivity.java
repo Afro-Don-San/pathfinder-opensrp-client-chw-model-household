@@ -79,6 +79,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     private TextView tvUniqueID;
     private View overDueRow;
     private View familyRow;
+    protected View viewFamilyLocationRow;
+    protected RelativeLayout rlFamilyLocation;
     private ImageRenderHelper imageRenderHelper;
 
     public static void startProfileActivity(Activity activity, PathfinderFpMemberObject memberObject) {
@@ -161,6 +163,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvReferralFollowup = findViewById(R.id.textview_referral_followup);
         tvReferralFollowup.setVisibility(View.GONE);
         tvFpMethodRow = findViewById(R.id.textview_fp_method_date_row);
+        rlFamilyLocation = findViewById(R.id.rlFamilyLocation);
+        viewFamilyLocationRow = findViewById(R.id.view_family_location_row);
 
         tvUndo.setOnClickListener(this);
         tvEditVisit.setOnClickListener(this);
@@ -173,10 +177,12 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvReferralFollowup.setOnClickListener(this);
         tvFpPregnancyTestFollowup.setOnClickListener(this);
         tvRiskAssessment.setOnClickListener(this);
+        rlFamilyLocation.setOnClickListener(this);
         findViewById(R.id.rl_last_visit_layout).setOnClickListener(this);
         findViewById(R.id.rlUpcomingServices).setOnClickListener(this);
         findViewById(R.id.rlFamilyServicesDue).setOnClickListener(this);
         findViewById(R.id.rlFpRegistrationDate).setOnClickListener(this);
+        setFamilyLocation();
     }
 
     @Override
@@ -240,6 +246,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
             this.openCitizenReportCard();
         } else if (id == R.id.textview_referral_followup) {
             this.openReferralFollowup();
+        } else if (id == R.id.rlFamilyLocation) {
+            this.openFamilyLocation();
         }
     }
 
@@ -610,5 +618,15 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     @Override
     public void showProgressBar(boolean status) {
         progressBar.setVisibility(status ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void setFamilyLocation() {
+        //Implement
+    }
+
+    @Override
+    public void openFamilyLocation() {
+        //Implement
     }
 }
