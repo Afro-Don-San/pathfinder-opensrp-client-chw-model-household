@@ -349,7 +349,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         rlUpcomingServices.setVisibility(View.VISIBLE);
 
         if (status == AlertStatus.upcoming) {
-            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.fp_service_upcoming, service, dateFormat.format(date))));
+            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.pathfinder_fp_service_upcoming, service, dateFormat.format(date))));
         } else {
             tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.fp_service_due, service, dateFormat.format(date))));
         }
