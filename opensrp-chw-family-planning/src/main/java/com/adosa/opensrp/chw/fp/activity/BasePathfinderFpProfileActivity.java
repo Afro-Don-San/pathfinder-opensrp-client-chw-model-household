@@ -436,52 +436,54 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
             else
                 fpDisplayDate = String.valueOf(fpRegistrationDate);
         }
-        String insertionText = getString(R.string.fp_insertion);
-        String startedText = getString(R.string.fp_started);
-        String onText = getString(R.string.fp_on);
+        String fpMethodName = "";
 
         switch (fpMethod) {
             case PathfinderFamilyPlanningConstants.DBConstants.FP_POP:
-                fpMethodDisplayText = getString(R.string.pop) + " " + startedText;
+                fpMethodName = getString(R.string.pop);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_COC:
-                fpMethodDisplayText = getString(R.string.coc) + " " + startedText;
+                fpMethodName = getString(R.string.coc);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_FEMALE_CONDOM:
-                fpMethodDisplayText = getString(R.string.female_condom) + " " + startedText;
+                fpMethodName = getString(R.string.female_condom);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_MALE_CONDOM:
-                fpMethodDisplayText = getString(R.string.male_condom) + " " + startedText;
+                fpMethodName = getString(R.string.male_condom);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_INJECTABLE:
-                fpMethodDisplayText = getString(R.string.injectable) + " " + startedText;
+                fpMethodName = getString(R.string.injectable);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_IUD:
-                fpMethodDisplayText = getString(R.string.iud) + " " + insertionText;
+                fpMethodName = getString(R.string.iud);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_VASECTOMY:
-                fpMethodDisplayText = getString(R.string.vasectomy);
+                fpMethodName = getString(R.string.vasectomy);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_TUBAL_LIGATION:
-                fpMethodDisplayText = getString(R.string.tubal_ligation);
+                fpMethodName = getString(R.string.tubal_ligation);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_LAM:
-                fpMethodDisplayText = getString(R.string.lam) + " " + insertionText;
+                fpMethodName = getString(R.string.lam);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_IMPLANTS:
-                fpMethodDisplayText = getString(R.string.implants) + " " + insertionText;
+                fpMethodName = getString(R.string.implants);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_SDM:
-                fpMethodDisplayText = getString(R.string.standard_day_method) + " " + startedText;
-                break;
-            case "0": //TODO coze update empty fp method to ""
-                fpMethodDisplayText = getString(R.string.registered) + " ";
+                fpMethodName = getString(R.string.standard_day_method);
                 break;
             default:
-                fpMethodDisplayText = fpMethod + " " + getString(R.string.fp_started) + " " + onText;
+                fpMethodName = fpMethod;
         }
 
-        return fpMethodDisplayText + " " + onText + " " + fpDisplayDate;
+        fpMethodDisplayText = getString(R.string.fp_method_started, fpMethodName, fpDisplayDate);
+
+        if(fpMethod.equals("0")){
+            fpMethodDisplayText = getString(R.string.registered) + " "+fpDisplayDate;
+        }
+
+        Timber.e("Coze now = "+fpMethodDisplayText);
+        return fpMethodDisplayText;
     }
 
     @Override

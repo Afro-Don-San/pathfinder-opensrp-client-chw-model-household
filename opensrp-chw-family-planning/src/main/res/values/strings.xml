@@ -109,8 +109,7 @@
     <string name="emergency_contraceptive">Emergency contraceptive</string>
     <string name="not_applicable">Not applicable</string>
     <string name="fp_insertion">insertion</string>
-    <string name="fp_started">started</string>
-    <string name="fp_on">on</string>
+    <string name="fp_method_started"> %1$s started on %2$s</string>
 
     <string name="refill">{0} refill</string>
     <string name="pregnant_client_followup">Pregnant client followup</string>
@@ -133,5 +132,12 @@
     <string name="client_is_not_pregnant">Client is not Pregnant</string>
     <string name="no_woman_available">No woman client is available</string>
     <string name="family_location">Client location</string>
+    <string name="fp_method_provided">Please select the FP method provided</string>
+    <string name="pregnancy_test_referral_reason">Pregnancy Test</string>
+    <string name="start_anc_clinic_referral_reason">Start ANC Clinic</string>
+    <string name="fp_method_referral_reason">FP Method</string>
+    <string name="sti_referral_reason">STI</string>
+    <string name="htc_referral_reason">Test for HIV/AIDS</string>
+    <string name="suspect_hiv_referral_reason">Care and Treatment (CTC) services</string>
 
 </resources>

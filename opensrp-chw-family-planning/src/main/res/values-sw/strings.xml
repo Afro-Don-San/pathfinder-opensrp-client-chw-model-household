@@ -102,8 +102,7 @@
     <string name="emergency_contraceptive">Emergency contraceptive</string>
     <string name="not_applicable">Not applicable</string>
     <string name="fp_insertion">insertion</string>
-    <string name="fp_started">Ameanza</string>
-    <string name="fp_on">tarehe</string>
+    <string name="fp_method_started">Ameanza kutumia %1$s tarehe %2$s</string>
 
     <string name="refill">{0} refill</string>
     <string name="pregnant_client_followup">Kumfwatilia mteja mjamzito </string>
@@ -127,4 +126,12 @@
     <string name="client_is_not_pregnant">Mteja si Mjamzito</string>
     <string name="no_woman_available">Hakuna mteja wa kike anayepatikana.</string>
     <string name="family_location">Eneo analoishi mteja</string>
+
+    <string name="fp_method_provided">Njia ya uzazi wa mpango aliyopewa</string>
+    <string name="pregnancy_test_referral_reason">Kupima ujauzito</string>
+    <string name="start_anc_clinic_referral_reason">Kuanza klinik ya wajawazito</string>
+    <string name="fp_method_referral_reason">Njia ya uzazi wa mpango</string>
+    <string name="sti_referral_reason">Magonjwa ya ngono</string>
+    <string name="htc_referral_reason">Kupimwa Ukimwi/VVU</string>
+    <string name="suspect_hiv_referral_reason">Matibabu na ushauri nasaha (CTC)</string>
 </resources>

@@ -30,6 +30,10 @@ public interface PathfinderFamilyPlanningConstants {
         String FAMILY_PLANNING_METHOD_REFERRAL_FOLLOWUP = "Family Planning Method Referral Followup";
     }
 
+    interface FORM_SUBMISSION_FIELD {
+        String SERVICE_PROVIDED = "service_provided";
+    }
+
     interface Forms {
         String FAMILY_PLANNING_REGISTRATION_FORM = "pathfinder_female_family_planning_registration";
     }
