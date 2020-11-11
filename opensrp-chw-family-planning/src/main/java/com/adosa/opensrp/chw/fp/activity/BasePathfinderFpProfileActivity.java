@@ -431,7 +431,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         String fpMethodDisplayText;
         String fpDisplayDate = "";
         if (StringUtils.isNotEmpty(fpStartDate) || StringUtils.isNotEmpty(fpRegistrationDate)) {
-            if (StringUtils.isNotEmpty(fpStartDate))
+            if (StringUtils.isNotEmpty(fpStartDate) && !fpStartDate.equals("0"))
                 fpDisplayDate = parseFpStartDate(fpStartDate);
             else
                 fpDisplayDate = String.valueOf(fpRegistrationDate);
