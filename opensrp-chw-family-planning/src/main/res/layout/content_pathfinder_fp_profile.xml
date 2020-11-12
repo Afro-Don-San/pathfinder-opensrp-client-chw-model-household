@@ -255,7 +255,7 @@
                 android:layout_below="@+id/textview_family_has"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/family_image"
-                android:text="@string/go_to_family_s_profile"
+                android:text="@string/pathfinder_go_to_family_s_profile"
                 android:textColor="@android:color/darker_gray" />
 
         </RelativeLayout>

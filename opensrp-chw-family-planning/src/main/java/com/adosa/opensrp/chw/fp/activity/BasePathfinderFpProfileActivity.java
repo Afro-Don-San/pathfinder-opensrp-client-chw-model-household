@@ -351,7 +351,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         if (status == AlertStatus.upcoming) {
             tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.pathfinder_fp_service_upcoming, service, dateFormat.format(date))));
         } else {
-            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.fp_service_due, service, dateFormat.format(date))));
+            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.pathfinder_fp_service_due, service, dateFormat.format(date))));
         }
     }
 
@@ -365,7 +365,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         } else if (status == AlertStatus.normal) {
             tvFamilyStatus.setText(getString(R.string.family_has_services_due));
         } else if (status == AlertStatus.urgent) {
-            tvFamilyStatus.setText(FpUtil.fromHtml(getString(R.string.family_has_service_overdue)));
+            tvFamilyStatus.setText(FpUtil.fromHtml(getString(R.string.pathfinder_family_has_service_overdue)));
         }
     }
 
@@ -440,37 +440,37 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
         switch (fpMethod) {
             case PathfinderFamilyPlanningConstants.DBConstants.FP_POP:
-                fpMethodName = getString(R.string.pop);
+                fpMethodName = getString(R.string.fp_pop);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_COC:
-                fpMethodName = getString(R.string.coc);
+                fpMethodName = getString(R.string.fp_coc);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_FEMALE_CONDOM:
-                fpMethodName = getString(R.string.female_condom);
+                fpMethodName = getString(R.string.fp_female_condom);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_MALE_CONDOM:
-                fpMethodName = getString(R.string.male_condom);
+                fpMethodName = getString(R.string.fp_male_condom);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_INJECTABLE:
-                fpMethodName = getString(R.string.injectable);
+                fpMethodName = getString(R.string.fp_injection);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_IUD:
-                fpMethodName = getString(R.string.iud);
+                fpMethodName = getString(R.string.fp_iud);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_VASECTOMY:
-                fpMethodName = getString(R.string.vasectomy);
+                fpMethodName = getString(R.string.fp_vasectomy);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_TUBAL_LIGATION:
-                fpMethodName = getString(R.string.tubal_ligation);
+                fpMethodName = getString(R.string.fp_tubal_ligation);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_LAM:
-                fpMethodName = getString(R.string.lam);
+                fpMethodName = getString(R.string.fp_lam);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_IMPLANTS:
-                fpMethodName = getString(R.string.implants);
+                fpMethodName = getString(R.string.fp_implants);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_SDM:
-                fpMethodName = getString(R.string.standard_day_method);
+                fpMethodName = getString(R.string.fp_standard_day_method);
                 break;
             default:
                 fpMethodName = fpMethod;

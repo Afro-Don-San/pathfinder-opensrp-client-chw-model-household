@@ -160,27 +160,27 @@ public class FpUtil {
         if (fpMethod != null) {
             switch (fpMethod) {
                 case "coc":
-                    return context.getString(R.string.coc);
+                    return context.getString(R.string.fp_coc);
                 case "pop":
-                    return context.getString(R.string.pop);
+                    return context.getString(R.string.fp_pop);
                 case "vasectomy":
-                    return context.getString(R.string.vasectomy);
+                    return context.getString(R.string.fp_vasectomy);
                 case "male_condom":
-                    return context.getString(R.string.male_condom);
+                    return context.getString(R.string.fp_male_condom);
                 case "female_condom":
-                    return context.getString(R.string.female_condom);
+                    return context.getString(R.string.fp_female_condom);
                 case "tubal_ligation":
-                    return context.getString(R.string.tubal_ligation);
+                    return context.getString(R.string.fp_tubal_ligation);
                 case "iud":
-                    return context.getString(R.string.iud);
+                    return context.getString(R.string.fp_iud);
                 case "lam":
-                    return context.getString(R.string.lam);
+                    return context.getString(R.string.fp_lam);
                 case "implants":
-                    return context.getString(R.string.implants);
+                    return context.getString(R.string.fp_implants);
                 case "injection":
-                    return context.getString(R.string.injectable);
+                    return context.getString(R.string.fp_injection);
                 case "sdm":
-                    return context.getString(R.string.standard_day_method);
+                    return context.getString(R.string.fp_standard_day_method);
                 default:
                     return fpMethod;
             }

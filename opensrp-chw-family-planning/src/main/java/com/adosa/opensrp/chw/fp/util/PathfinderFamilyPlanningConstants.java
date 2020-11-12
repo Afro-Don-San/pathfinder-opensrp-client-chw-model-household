@@ -104,6 +104,7 @@ public interface PathfinderFamilyPlanningConstants {
     interface ChoosePregnancyTestReferral {
         String WAIT_FOR_NEXT_VISIT = "wait_for_next_visit";
         String RECEIVE_PREGNANCY_TEST_REFERRAL = "receive_pregnancy_test_referral";
+        String COMPLETE_PREGNANCY_TEST_QUESTIONS_WITHOUT_COMPLETING_REFERRAL = "complete_pregnancy_screening_questions";
     }
 
 }
