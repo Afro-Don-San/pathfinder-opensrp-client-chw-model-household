@@ -50,7 +50,7 @@
     <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
     <!--FP -->
     <string name="pathfinder_fp_visit_day_next_due">Siku ya kumfwatila %s </string>
-    <string name="pathfinder_fp_visit_day_due">Siku %s tangu siku ya kumfwatilia</string>
+    <string name="pathfinder_fp_visit_day_due">Zimepita siku %s </string>
     <string name="pathfinder_fp_visit_day_due_today">Wakufwatiliwa leo</string>
     <string name="pathfinder_fp_visit_day_overdue">Umechelewa kwa siku %s</string>
     <string name="pathfinder_fp_visit_day_overdue_today">Wakufwatiliwa leo</string>
