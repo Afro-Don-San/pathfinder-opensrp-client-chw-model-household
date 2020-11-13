@@ -33,7 +33,7 @@
     <string name="pathfinder_fp_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f> (%2$s)</font></b>]]></string>
     <string name="pathfinder_fp_service_overdue"><![CDATA[%1$s <font color=#f04646>overdue (%2$s)</font></b>]]></string>
     <string name="pathfinder_fp_service_due"><![CDATA[Tarehe ya %1$s <font color=#000000> itakuwa (%2$s)</font></b>]]></string>
-    <string name="pathfinder_family_has_service_overdue"><![CDATA[Family has <font color=#FF0000>familia ina huduma ambazo hazijatolewa</font></b>]]></string>
+    <string name="pathfinder_family_has_service_overdue"><![CDATA[Familia ina <font color=#FF0000> huduma ambazo hazijatolewa</font></b>]]></string>
     <string name="pathfinder_go_to_family_s_profile">Fungua taarifa za familia</string>
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
     <string name="fp_followup_visit">FOLLOWUP\nVISIT</string>
