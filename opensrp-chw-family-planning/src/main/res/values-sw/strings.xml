@@ -17,7 +17,7 @@
     <string name="give_fp_method">Toa Njia ya Uzazi wa Mpango</string>
     <string name="risk_assessment">Uchunguzi wa hali hatarishi</string>
     <string name="citizen_report_card">Kadi ya Ripoti ya Mteja</string>
-    <string name="referral_followup">Ufwatiliaji wa Rufaa</string>
+    <string name="referral_followup">Ufuatiliaji wa Rufaa</string>
     <string name="fp_visit_done">Family planning follow-up visit done</string>
     <string name="not_visiting_this_month">Not visiting this month</string>
     <string name="last_visit">Last visit</string>
@@ -51,10 +51,10 @@
     <!--FP -->
     <string name="pathfinder_fp_visit_day_next_due">Siku ya kumfwatila %s </string>
     <string name="pathfinder_fp_visit_day_due">Zimepita siku %s </string>
-    <string name="pathfinder_fp_visit_day_due_today">Wakufwatiliwa leo</string>
+    <string name="pathfinder_fp_visit_day_due_today">Wakufuatiliwa leo</string>
     <string name="pathfinder_fp_visit_day_overdue">Umechelewa kwa siku %s</string>
-    <string name="pathfinder_fp_visit_day_overdue_today">Wakufwatiliwa leo</string>
-    <string name="pathfinder_fp_follow_up_visit">Kufwatilia rufaa</string>
+    <string name="pathfinder_fp_visit_day_overdue_today">Wakufuatiliwa leo</string>
+    <string name="pathfinder_fp_follow_up_visit">Kufuatilia rufaa</string>
     <string name="pathfinder_fp_side_effects">Maudhui madogo</string>
     <string name="counseling">Counseling</string>
     <string name="resupply">Resupply %s</string>
@@ -108,7 +108,7 @@
     <string name="pregnant_client_followup">Kumfwatilia mteja mjamzito </string>
     <string name="pregnancy_screening_followup">Kumfwatilia mteja aliyepima kama ni mjamzito </string>
     <string name="fp_method_choice_followup">Family Planning Method choice followup</string>
-    <string name="fp_referral_followup">Ufwatiliaji wa rufaa</string>
+    <string name="fp_referral_followup">Ufuatiliaji wa rufaa</string>
     <string name="man_chose_fp_method_for_partner_followup">Kumfwatilia Mwanaume aliyechagua njia ya uzazi wa mpango wa mwenza</string>
     <string name="follow_up_one">{0} follow-up 1</string>
     <string name="follow_up_two">{0} follow-up 2</string>

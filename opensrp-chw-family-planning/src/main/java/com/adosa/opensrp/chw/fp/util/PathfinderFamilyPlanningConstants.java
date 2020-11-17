@@ -21,6 +21,7 @@ public interface PathfinderFamilyPlanningConstants {
         String FP_FOLLOW_UP_VISIT_COUNSELLING = "FP Follow up visit Counselling";
         String INTRODUCTION_TO_FAMILY_PLANNING= "Introduction to Family Planning";
         String FAMILY_PLANNING_PREGNANCY_SCREENING = "Family Planning Pregnancy Screening";
+        String FAMILY_PLANNING_PREGNANCY_TEST_REFERRAL_FOLLOWUP = "Family Planning Pregnancy Test Referral Followup";
         String CHOOSING_FAMILY_PLANNING_METHOD = "Family Planning Method Choice";
         String GIVE_FAMILY_PLANNING_METHOD = "Give Family Planning Method";
         String FAMILY_PLANNING_DISCONTINUATION= "Family Planning Discontinuation";
