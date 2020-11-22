@@ -71,6 +71,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     protected BaseFpFloatingMenu fpFloatingMenu;
     protected PathfinderFpMemberObject pathfinderFpMemberObject;
     protected int numOfDays;
+    protected View viewFamilyLocationRow;
+    protected RelativeLayout rlFamilyLocation;
     private ProgressBar progressBar;
     private CircleImageView profileImageView;
     private TextView tvName;
@@ -79,8 +81,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     private TextView tvUniqueID;
     private View overDueRow;
     private View familyRow;
-    protected View viewFamilyLocationRow;
-    protected RelativeLayout rlFamilyLocation;
     private ImageRenderHelper imageRenderHelper;
 
     public static void startProfileActivity(Activity activity, PathfinderFpMemberObject memberObject) {
@@ -343,8 +343,10 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     public void setUpComingServicesStatus(String service, AlertStatus status, Date date) {
         showProgressBar(false);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
-        if (status == AlertStatus.complete)
+        if (status == AlertStatus.complete) {
+            rlUpcomingServices.setVisibility(View.GONE);
             return;
+        }
         overDueRow.setVisibility(View.VISIBLE);
         rlUpcomingServices.setVisibility(View.VISIBLE);
 
@@ -478,11 +480,11 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
         fpMethodDisplayText = getString(R.string.fp_method_started, fpMethodName, fpDisplayDate);
 
-        if(fpMethod.equals("0")){
-            fpMethodDisplayText = getString(R.string.registered) + " "+fpDisplayDate;
+        if (fpMethod.equals("0")) {
+            fpMethodDisplayText = getString(R.string.registered) + " " + fpDisplayDate;
         }
 
-        Timber.e("Coze now = "+fpMethodDisplayText);
+        Timber.e("Coze now = " + fpMethodDisplayText);
         return fpMethodDisplayText;
     }
 
@@ -503,6 +505,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     public void onMemberDetailsReloaded(PathfinderFpMemberObject pathfinderFpMemberObject) {
         setupViews();
         fetchProfileData();
+        fpProfilePresenter.refreshProfileFpStatusInfo();
     }
 
     @Override

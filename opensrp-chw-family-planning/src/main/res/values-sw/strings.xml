@@ -12,7 +12,7 @@
     <string name="fp_method_referral">Rufaa ya kupata njia ya uzazi wa Mpango</string>
     <string name="fp_method_refill_referral">Rufaa ya kupata njia ya uzazi wa Mpango</string>
     <string name="fp_pregnancy_screening">Uchunguzi wa Ujauzito</string>
-    <string name="fp_pregnancy_test_followup">Kumfwatilia mteja anayepima Ujauzito</string>
+    <string name="fp_pregnancy_test_followup">Kumfuatilia mteja anayepima Ujauzito</string>
     <string name="choose_fp_method">Chagua Njia</string>
     <string name="give_fp_method">Toa Njia ya Uzazi wa Mpango</string>
     <string name="risk_assessment">Uchunguzi wa hali hatarishi</string>
@@ -49,7 +49,7 @@
     <string name="copy_to_clipboard">Copy to clipboard</string>
     <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
     <!--FP -->
-    <string name="pathfinder_fp_visit_day_next_due">Siku ya kumfwatila %s </string>
+    <string name="pathfinder_fp_visit_day_next_due">Siku ya kumfuatila %s </string>
     <string name="pathfinder_fp_visit_day_due">Zimepita siku %s </string>
     <string name="pathfinder_fp_visit_day_due_today">Wakufuatiliwa leo</string>
     <string name="pathfinder_fp_visit_day_overdue">Umechelewa kwa siku %s</string>
@@ -87,8 +87,8 @@
     <string name="registered">Alisajiliwa</string>
 
     <!--Family planning fp start dates row-->
-    <string name="fp_male_condom">Kodomu za kiume</string>
-    <string name="fp_female_condom">Kodomu za kike</string>
+    <string name="fp_male_condom">Kondomu za kiume</string>
+    <string name="fp_female_condom">Kondomu za kike</string>
     <string name="fp_coc">Vidonge vyenye vichocheo viwili (COC)</string>
     <string name="fp_pop">Vidonge vyenye kichocheo Kimoja (POP)</string>
     <string name="fp_injection">Sindano</string>
@@ -105,11 +105,12 @@
     <string name="fp_method_started">Ameanza kutumia %1$s tarehe %2$s</string>
 
     <string name="pathfinder_refill">tembeleo la kumuongezea mteja {0} </string>
-    <string name="pregnant_client_followup">Kumfwatilia mteja mjamzito </string>
-    <string name="pregnancy_screening_followup">Kumfwatilia mteja aliyepima kama ni mjamzito </string>
+    <string name="pathfinder_referral_method_followup">tembeleo la mteja anayetumia {0} </string>
+    <string name="pregnant_client_followup">Kumfuatilia mteja mjamzito </string>
+    <string name="pregnancy_screening_followup">Kumfuatilia mteja aliyepima kama ni mjamzito </string>
     <string name="fp_method_choice_followup">Family Planning Method choice followup</string>
     <string name="fp_referral_followup">Ufuatiliaji wa rufaa</string>
-    <string name="man_chose_fp_method_for_partner_followup">Kumfwatilia Mwanaume aliyechagua njia ya uzazi wa mpango wa mwenza</string>
+    <string name="man_chose_fp_method_for_partner_followup">Kumfuatilia Mwanaume aliyechagua njia ya uzazi wa mpango wa mwenza</string>
     <string name="follow_up_one">{0} follow-up 1</string>
     <string name="follow_up_two">{0} follow-up 2</string>
     <string name="follow_up_three">{0} follow-up 3</string>

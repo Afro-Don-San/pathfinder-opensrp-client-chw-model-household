@@ -112,6 +112,7 @@
     <string name="fp_method_started"> %1$s started on %2$s</string>
 
     <string name="pathfinder_refill">{0} refill</string>
+    <string name="pathfinder_referral_method_followup">{0} followup</string>
     <string name="pregnant_client_followup">Pregnant client followup</string>
     <string name="pregnancy_screening_followup">Pregnancy screening followup</string>
     <string name="fp_method_choice_followup">Family Planning Method choice followup</string>
