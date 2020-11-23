@@ -123,8 +123,10 @@
     <string name="follow_up_three">{0} follow-up 3</string>
 
     <!--Pathfinder referrals-->
-    <string name="referral_to_loan_unit">Referral to Loan Unit</string>
+    <string name="referral_to_loan_unit">Referral to Cocoba</string>
     <string name="referral_to_beach_management_unit">Referral to Beach management unit</string>
+    <string name="referral_to_client_smart_agriculture">Referral to Climate Smart Agriculture</string>
+    <string name="referral_to_model_household">Referral to Model Household</string>
     <string name="refer_client">Refer Client</string>
     <string name="independent_client">Independent</string>
     <string name="gender_male">Male</string>
@@ -141,5 +143,8 @@
     <string name="htc_referral_reason">Test for HIV/AIDS</string>
     <string name="suspect_hiv_referral_reason">Care and Treatment (CTC) services</string>
     <string name="referral_for_text">Referral for %s</string>
+    <string name="referral_to_other_available_services">Referral to other available services</string>
+    <string name="give_referral_to_other_available_services">Give referral to other available services</string>
+    <string name="other_refer_client_title">Other services</string>
 
 </resources>

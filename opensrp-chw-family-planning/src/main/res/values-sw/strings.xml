@@ -116,8 +116,10 @@
     <string name="follow_up_three">{0} follow-up 3</string>
 
     <!--Pathfinder referrals-->
-    <string name="referral_to_loan_unit">Rufaa ya sehemu ya mkopo</string>
+    <string name="referral_to_loan_unit">Rufaa ya COCOBA</string>
     <string name="referral_to_beach_management_unit">Rufaa ya Kitengo cha Usimamizi wa fukwe</string>
+    <string name="referral_to_client_smart_agriculture">Rufaa ya Kilimo Endelevu</string>
+    <string name="referral_to_model_household">Rufaa ya Kaya ya mfano</string>
     <string name="refer_client">Toa Rufaa kwa mteja</string>
     <string name="independent_client">Mteja</string>
     <string name="gender_male">Me</string>
@@ -136,4 +138,7 @@
     <string name="htc_referral_reason">Kupimwa Ukimwi/VVU</string>
     <string name="suspect_hiv_referral_reason">Matibabu na ushauri nasaha (CTC)</string>
     <string name="referral_for_text">Amepewa rufaa ya %s</string>
+    <string name="referral_to_other_available_services">Rufaa ya huduma nyingine zinazopatikana</string>
+    <string name="give_referral_to_other_available_services">Toa rufaa ya huduma nyingine zinazopatikana</string>
+    <string name="other_refer_client_title">Huduma Nyingine</string>
 </resources>
