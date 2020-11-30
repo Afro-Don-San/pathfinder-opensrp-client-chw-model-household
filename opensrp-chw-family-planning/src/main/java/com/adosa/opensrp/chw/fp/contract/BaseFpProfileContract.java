@@ -87,6 +87,10 @@ public interface BaseFpProfileContract {
 
         void showChooseFpMethodButton();
 
+        void setFamilyLocation();
+
+        void openFamilyLocation();
+
         void showGiveFpMethodButton();
 
         void showCitizenReportCardButton();

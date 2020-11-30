@@ -23,6 +23,6 @@ public class BasePathfinderFpFollowUpVisitActivity extends BaseAncHomeVisitActiv
 
     @Override
     public void redrawHeader(MemberObject memberObject) {
-        tvTitle.setText(MessageFormat.format("{0}, {1} \u00B7 {2}", memberObject.getFullName(), memberObject.getAge(), getString(R.string.fp_follow_up_visit)));
+        tvTitle.setText(MessageFormat.format("{0}, {1} \u00B7 {2}", memberObject.getFullName(), memberObject.getAge(), getString(R.string.pathfinder_fp_follow_up_visit)));
     }
 }

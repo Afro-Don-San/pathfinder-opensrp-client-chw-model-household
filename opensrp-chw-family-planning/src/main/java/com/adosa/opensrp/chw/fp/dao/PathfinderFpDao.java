@@ -50,7 +50,7 @@ public class PathfinderFpDao extends AbstractDao {
     public static PathfinderFpMemberObject getMember(String baseEntityID) {
         String sql = "select m.base_entity_id , m.unique_id , m.relational_id , m.dob , m.first_name , " +
                 "m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , " +
-                "f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town, f.nearest_facility ," +
+                "f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town, f.nearest_facility , f.landmark,  f.gps ," +
                 "fh.first_name family_head_first_name , fh.middle_name family_head_middle_name , " +
                 "fh.last_name family_head_last_name, fh.phone_number family_head_phone_number, " +
                 "pcg.first_name pcg_first_name , pcg.last_name pcg_last_name , pcg.middle_name pcg_middle_name , " +
@@ -97,6 +97,8 @@ public class PathfinderFpDao extends AbstractDao {
             memberObject.setEdd(getCursorValue(cursor, "edd", ""));
             memberObject.setPeriodsRegularity(getCursorValue(cursor, "periods_regularity", ""));
             memberObject.setIssuedReferralService(getCursorValue(cursor, "issued_referral_service", ""));
+            memberObject.setGps(getCursorValue(cursor, "gps", ""));
+            memberObject.setLandmark(getCursorValue(cursor, "landmark", ""));
 
             memberObject.setManRequestedMethodForPartner(getCursorValue(cursor, "man_request_method_for_partner", "").equals("true"));
             memberObject.setDoesTheClientRememberLmp(getCursorValue(cursor, "does_the_client_remember_lmp", "").equals("yes"));

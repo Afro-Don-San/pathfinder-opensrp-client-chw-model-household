@@ -35,6 +35,8 @@ public class PathfinderFpMemberObject implements Serializable {
     private String fpMethodChoiceDate;
     private String periodsRegularity;
     private String issuedReferralService;
+    private String gps;
+    private String landmark;
     private boolean introductionToFamilyPlanningDone;
     private boolean pregnancyScreeningDone;
     private boolean fpMethodChoiceDone;
@@ -385,5 +387,21 @@ public class PathfinderFpMemberObject implements Serializable {
 
     public void setClientIsCurrentlyReferred(boolean clientIsCurrentlyReferred) {
         this.clientIsCurrentlyReferred = clientIsCurrentlyReferred;
+    }
+
+    public String getGps() {
+        return gps;
+    }
+
+    public void setGps(String gps) {
+        this.gps = gps;
+    }
+
+    public String getLandmark() {
+        return landmark;
+    }
+
+    public void setLandmark(String landmark) {
+        this.landmark = landmark;
     }
 }

@@ -34,7 +34,6 @@ import org.smartregister.domain.AlertStatus;
 import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.view.activity.BaseProfileActivity;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -43,6 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
 
 public class BasePathfinderFpProfileActivity extends BaseProfileActivity implements BaseFpProfileContract.View {
+    public static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
     protected View lastVisitRow;
     protected LinearLayout recordFollowUpVisitLayout;
     protected RelativeLayout recordVisitStatusBarLayout;
@@ -71,6 +71,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     protected BaseFpFloatingMenu fpFloatingMenu;
     protected PathfinderFpMemberObject pathfinderFpMemberObject;
     protected int numOfDays;
+    protected View viewFamilyLocationRow;
+    protected RelativeLayout rlFamilyLocation;
     private ProgressBar progressBar;
     private CircleImageView profileImageView;
     private TextView tvName;
@@ -80,7 +82,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     private View overDueRow;
     private View familyRow;
     private ImageRenderHelper imageRenderHelper;
-    public static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
 
     public static void startProfileActivity(Activity activity, PathfinderFpMemberObject memberObject) {
         Intent intent = new Intent(activity, BasePathfinderFpProfileActivity.class);
@@ -162,6 +163,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvReferralFollowup = findViewById(R.id.textview_referral_followup);
         tvReferralFollowup.setVisibility(View.GONE);
         tvFpMethodRow = findViewById(R.id.textview_fp_method_date_row);
+        rlFamilyLocation = findViewById(R.id.rlFamilyLocation);
+        viewFamilyLocationRow = findViewById(R.id.view_family_location_row);
 
         tvUndo.setOnClickListener(this);
         tvEditVisit.setOnClickListener(this);
@@ -174,10 +177,12 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         tvReferralFollowup.setOnClickListener(this);
         tvFpPregnancyTestFollowup.setOnClickListener(this);
         tvRiskAssessment.setOnClickListener(this);
+        rlFamilyLocation.setOnClickListener(this);
         findViewById(R.id.rl_last_visit_layout).setOnClickListener(this);
         findViewById(R.id.rlUpcomingServices).setOnClickListener(this);
         findViewById(R.id.rlFamilyServicesDue).setOnClickListener(this);
         findViewById(R.id.rlFpRegistrationDate).setOnClickListener(this);
+        setFamilyLocation();
     }
 
     @Override
@@ -241,6 +246,8 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
             this.openCitizenReportCard();
         } else if (id == R.id.textview_referral_followup) {
             this.openReferralFollowup();
+        } else if (id == R.id.rlFamilyLocation) {
+            this.openFamilyLocation();
         }
     }
 
@@ -336,15 +343,17 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     public void setUpComingServicesStatus(String service, AlertStatus status, Date date) {
         showProgressBar(false);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
-        if (status == AlertStatus.complete)
+        if (status == AlertStatus.complete) {
+            rlUpcomingServices.setVisibility(View.GONE);
             return;
+        }
         overDueRow.setVisibility(View.VISIBLE);
         rlUpcomingServices.setVisibility(View.VISIBLE);
 
         if (status == AlertStatus.upcoming) {
-            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.fp_service_upcoming, service, dateFormat.format(date))));
+            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.pathfinder_fp_service_upcoming, service, dateFormat.format(date))));
         } else {
-            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.fp_service_due, service, dateFormat.format(date))));
+            tvUpComingServices.setText(FpUtil.fromHtml(getString(R.string.pathfinder_fp_service_due, service, dateFormat.format(date))));
         }
     }
 
@@ -358,7 +367,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         } else if (status == AlertStatus.normal) {
             tvFamilyStatus.setText(getString(R.string.family_has_services_due));
         } else if (status == AlertStatus.urgent) {
-            tvFamilyStatus.setText(FpUtil.fromHtml(getString(R.string.family_has_service_overdue)));
+            tvFamilyStatus.setText(FpUtil.fromHtml(getString(R.string.pathfinder_family_has_service_overdue)));
         }
     }
 
@@ -369,9 +378,9 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
                 pathfinderFpMemberObject.getMiddleName(), pathfinderFpMemberObject.getLastName(), age));
 
 
-        if(pathfinderFpMemberObject.getGender().equals("Male")){
+        if (pathfinderFpMemberObject.getGender().equals("Male")) {
             tvGender.setText(getResources().getString(R.string.gender_male));
-        }else {
+        } else {
             tvGender.setText(getResources().getString(R.string.gender_female));
         }
 
@@ -413,7 +422,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
 
     private String parseFpStartDate(String startDate) {
         try {
-            return  String.valueOf(formatTime(Long.parseLong(startDate)));
+            return String.valueOf(formatTime(Long.parseLong(startDate)));
         } catch (Exception e) {
             Timber.e(e);
             return formatTime(startDate).toString();
@@ -424,57 +433,57 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         String fpMethodDisplayText;
         String fpDisplayDate = "";
         if (StringUtils.isNotEmpty(fpStartDate) || StringUtils.isNotEmpty(fpRegistrationDate)) {
-            if (StringUtils.isNotEmpty(fpStartDate))
+            if (StringUtils.isNotEmpty(fpStartDate) && !fpStartDate.equals("0"))
                 fpDisplayDate = parseFpStartDate(fpStartDate);
             else
                 fpDisplayDate = String.valueOf(fpRegistrationDate);
         }
-        String insertionText = getString(R.string.fp_insertion);
-        String startedText = getString(R.string.fp_started);
-        String onText = getString(R.string.fp_on);
+        String fpMethodName = "";
 
         switch (fpMethod) {
             case PathfinderFamilyPlanningConstants.DBConstants.FP_POP:
-                fpMethodDisplayText = getString(R.string.pop) + " " + startedText;
+                fpMethodName = getString(R.string.fp_pop);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_COC:
-                fpMethodDisplayText = getString(R.string.coc) + " " + startedText;
+                fpMethodName = getString(R.string.fp_coc);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_FEMALE_CONDOM:
-                fpMethodDisplayText = getString(R.string.female_condom) + " " + startedText;
+                fpMethodName = getString(R.string.fp_female_condom);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_MALE_CONDOM:
-                fpMethodDisplayText = getString(R.string.male_condom) + " " + startedText;
+                fpMethodName = getString(R.string.fp_male_condom);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_INJECTABLE:
-                fpMethodDisplayText = getString(R.string.injectable) + " " + startedText;
+                fpMethodName = getString(R.string.fp_injection);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_IUD:
-                fpMethodDisplayText = getString(R.string.iud) + " " + insertionText;
+                fpMethodName = getString(R.string.fp_iud);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_VASECTOMY:
-                fpMethodDisplayText = getString(R.string.vasectomy);
+                fpMethodName = getString(R.string.fp_vasectomy);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_TUBAL_LIGATION:
-                fpMethodDisplayText = getString(R.string.tubal_ligation);
+                fpMethodName = getString(R.string.fp_tubal_ligation);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_LAM:
-                fpMethodDisplayText = getString(R.string.lam) + " " + insertionText;
+                fpMethodName = getString(R.string.fp_lam);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_IMPLANTS:
-                fpMethodDisplayText = getString(R.string.implants) + " " + insertionText;
+                fpMethodName = getString(R.string.fp_implants);
                 break;
             case PathfinderFamilyPlanningConstants.DBConstants.FP_SDM:
-                fpMethodDisplayText = getString(R.string.standard_day_method) + " " + startedText;
-                break;
-            case "0": //TODO coze update empty fp method to ""
-                fpMethodDisplayText = getString(R.string.registered) + " ";
+                fpMethodName = getString(R.string.fp_standard_day_method);
                 break;
             default:
-                fpMethodDisplayText = fpMethod + " " + getString(R.string.fp_started) + " " + onText;
+                fpMethodName = fpMethod;
         }
 
-        return fpMethodDisplayText + " " + onText + " " + fpDisplayDate;
+        fpMethodDisplayText = getString(R.string.fp_method_started, fpMethodName, fpDisplayDate);
+
+        if (fpMethod.equals("0")) {
+            fpMethodDisplayText = getString(R.string.registered) + " " + fpDisplayDate;
+        }
+        return fpMethodDisplayText;
     }
 
     @Override
@@ -494,6 +503,7 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     public void onMemberDetailsReloaded(PathfinderFpMemberObject pathfinderFpMemberObject) {
         setupViews();
         fetchProfileData();
+        fpProfilePresenter.refreshProfileFpStatusInfo();
     }
 
     @Override
@@ -611,5 +621,15 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
     @Override
     public void showProgressBar(boolean status) {
         progressBar.setVisibility(status ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void setFamilyLocation() {
+        //Implement
+    }
+
+    @Override
+    public void openFamilyLocation() {
+        //Implement
     }
 }

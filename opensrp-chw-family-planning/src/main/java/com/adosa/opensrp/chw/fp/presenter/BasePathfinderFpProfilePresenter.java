@@ -61,6 +61,7 @@ public class BasePathfinderFpProfilePresenter implements BaseProfileContract, Ba
         if (getView() != null) {
             getView().setUpComingServicesStatus(service, status, date);
         }
+        refreshProfileTopSection(pathfinderFpMemberObject);
     }
 
     @Override

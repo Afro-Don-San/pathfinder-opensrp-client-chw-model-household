@@ -21,6 +21,7 @@ public interface PathfinderFamilyPlanningConstants {
         String FP_FOLLOW_UP_VISIT_COUNSELLING = "FP Follow up visit Counselling";
         String INTRODUCTION_TO_FAMILY_PLANNING= "Introduction to Family Planning";
         String FAMILY_PLANNING_PREGNANCY_SCREENING = "Family Planning Pregnancy Screening";
+        String FAMILY_PLANNING_PREGNANCY_TEST_REFERRAL_FOLLOWUP = "Family Planning Pregnancy Test Referral Followup";
         String CHOOSING_FAMILY_PLANNING_METHOD = "Family Planning Method Choice";
         String GIVE_FAMILY_PLANNING_METHOD = "Give Family Planning Method";
         String FAMILY_PLANNING_DISCONTINUATION= "Family Planning Discontinuation";
@@ -28,6 +29,10 @@ public interface PathfinderFamilyPlanningConstants {
         String FAMILY_PLANNING_REFERRAL = "Family Planning Referral";
         String FAMILY_PLANNING_REFERRAL_FOLLOWUP = "Family Planning Referral Followup";
         String FAMILY_PLANNING_METHOD_REFERRAL_FOLLOWUP = "Family Planning Method Referral Followup";
+    }
+
+    interface FORM_SUBMISSION_FIELD {
+        String SERVICE_PROVIDED = "service_provided";
     }
 
     interface Forms {
@@ -100,6 +105,7 @@ public interface PathfinderFamilyPlanningConstants {
     interface ChoosePregnancyTestReferral {
         String WAIT_FOR_NEXT_VISIT = "wait_for_next_visit";
         String RECEIVE_PREGNANCY_TEST_REFERRAL = "receive_pregnancy_test_referral";
+        String COMPLETE_PREGNANCY_TEST_QUESTIONS_WITHOUT_COMPLETING_REFERRAL = "complete_pregnancy_screening_questions";
     }
 
 }

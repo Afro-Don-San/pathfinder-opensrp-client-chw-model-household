@@ -37,11 +37,11 @@
     <string name="view_upcoming_services">View upcoming services</string>
     <string name="family_has_nothing_due">Family has nothing due</string>
     <string name="family_has_services_due">Family has services due</string>
-    <string name="fp_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
-    <string name="fp_service_overdue"><![CDATA[%1$s <font color=#f04646>overdue (%2$s)</font></b>]]></string>
-    <string name="fp_service_due"><![CDATA[%1$s <font color=#000000>due (%2$s)</font></b>]]></string>
-    <string name="family_has_service_overdue"><![CDATA[Family has <font color=#FF0000>services overdue</font></b>]]></string>
-    <string name="go_to_family_s_profile">Go to family\'s profile</string>
+    <string name="pathfinder_fp_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
+    <string name="pathfinder_fp_service_overdue"><![CDATA[%1$s <font color=#f04646>overdue (%2$s)</font></b>]]></string>
+    <string name="pathfinder_fp_service_due"><![CDATA[%1$s <font color=#000000>due (%2$s)</font></b>]]></string>
+    <string name="pathfinder_family_has_service_overdue"><![CDATA[Family has <font color=#FF0000>services overdue</font></b>]]></string>
+    <string name="pathfinder_go_to_family_s_profile">Go to family\'s profile</string>
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
     <string name="fp_followup_visit">FOLLOWUP\nVISIT</string>
     <string name="sort">Sort</string>
@@ -56,13 +56,13 @@
     <string name="copy_to_clipboard">Copy to clipboard</string>
     <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
     <!--FP -->
-    <string name="fp_visit_day_next_due">Next Due %s </string>
-    <string name="fp_visit_day_due">%s DAYS DUE</string>
-    <string name="fp_visit_day_due_today">DUE TODAY</string>
-    <string name="fp_visit_day_overdue">%s DAYS OVERDUE</string>
-    <string name="fp_visit_day_overdue_today">OVERDUE TODAY</string>
-    <string name="fp_follow_up_visit">Fp Follow Up Visit</string>
-    <string name="fp_side_effects">Side effects</string>
+    <string name="pathfinder_fp_visit_day_next_due">Next Due %s </string>
+    <string name="pathfinder_fp_visit_day_due">%s DAYS DUE</string>
+    <string name="pathfinder_fp_visit_day_due_today">DUE TODAY</string>
+    <string name="pathfinder_fp_visit_day_overdue">%s DAYS OVERDUE</string>
+    <string name="pathfinder_fp_visit_day_overdue_today">OVERDUE TODAY</string>
+    <string name="pathfinder_fp_follow_up_visit">Fp Follow Up Visit</string>
+    <string name="pathfinder_fp_side_effects">Side effects</string>
     <string name="counseling">Counseling</string>
     <string name="resupply">Resupply %s</string>
     <string name="next_health_facility_visit">Next health facility visit</string>
@@ -94,25 +94,25 @@
     <string name="registered">Registered</string>
 
     <!--Family planning fp start dates row-->
-    <string name="male_condom">Male Condom</string>
-    <string name="female_condom">Female Condom</string>
-    <string name="coc">COC</string>
-    <string name="pop">POP</string>
-    <string name="injectable">Injectable</string>
-    <string name="lam">Lactational amenorrhea method (LAM)</string>
+    <string name="fp_male_condom">Male Condom</string>
+    <string name="fp_female_condom">Female Condom</string>
+    <string name="fp_coc">COC</string>
+    <string name="fp_pop">POP</string>
+    <string name="fp_injection">Injectable</string>
+    <string name="fp_lam">Lactational amenorrhea method (LAM)</string>
     <string name="jadelle">Jadelle</string>
-    <string name="vasectomy">Vasectomy</string>
-    <string name="tubal_ligation">Tubal ligation</string>
-    <string name="iud">IUD</string>
-    <string name="implants">Implants</string>
-    <string name="standard_day_method">Standard day method</string>
-    <string name="emergency_contraceptive">Emergency contraceptive</string>
+    <string name="fp_vasectomy">Vasectomy</string>
+    <string name="fp_tubal_ligation">Tubal ligation</string>
+    <string name="fp_iud">IUD</string>
+    <string name="fp_implants">Implants</string>
+    <string name="fp_standard_day_method">Standard day method</string>
+    <string name="fp_emergency_contraceptive">Emergency contraceptive</string>
     <string name="not_applicable">Not applicable</string>
     <string name="fp_insertion">insertion</string>
-    <string name="fp_started">started</string>
-    <string name="fp_on">on</string>
+    <string name="fp_method_started"> %1$s started on %2$s</string>
 
-    <string name="refill">{0} refill</string>
+    <string name="pathfinder_refill">{0} refill</string>
+    <string name="pathfinder_referral_method_followup">{0} followup</string>
     <string name="pregnant_client_followup">Pregnant client followup</string>
     <string name="pregnancy_screening_followup">Pregnancy screening followup</string>
     <string name="fp_method_choice_followup">Family Planning Method choice followup</string>
@@ -123,8 +123,10 @@
     <string name="follow_up_three">{0} follow-up 3</string>
 
     <!--Pathfinder referrals-->
-    <string name="referral_to_loan_unit">Referral to Loan Unit</string>
+    <string name="referral_to_loan_unit">Referral to Cocoba</string>
     <string name="referral_to_beach_management_unit">Referral to Beach management unit</string>
+    <string name="referral_to_client_smart_agriculture">Referral to Climate Smart Agriculture</string>
+    <string name="referral_to_model_household">Referral to Model Household</string>
     <string name="refer_client">Refer Client</string>
     <string name="independent_client">Independent</string>
     <string name="gender_male">Male</string>
@@ -132,5 +134,17 @@
     <string name="client_is_pregnant">Client is Pregnant</string>
     <string name="client_is_not_pregnant">Client is not Pregnant</string>
     <string name="no_woman_available">No woman client is available</string>
+    <string name="family_location">Client location</string>
+    <string name="fp_method_provided">Please select the FP method provided</string>
+    <string name="pregnancy_test_referral_reason">Pregnancy Test</string>
+    <string name="start_anc_clinic_referral_reason">Start ANC Clinic</string>
+    <string name="fp_method_referral_reason">FP Method</string>
+    <string name="sti_referral_reason">STI</string>
+    <string name="htc_referral_reason">Test for HIV/AIDS</string>
+    <string name="suspect_hiv_referral_reason">Care and Treatment (CTC) services</string>
+    <string name="referral_for_text">Referral for %s</string>
+    <string name="referral_to_other_available_services">Referral to other available services</string>
+    <string name="pathfinder_give_referral_to_other_available_services">Give referral to other available services</string>
+    <string name="pathfinder_other_refer_client_title">Other services</string>
 
 </resources>

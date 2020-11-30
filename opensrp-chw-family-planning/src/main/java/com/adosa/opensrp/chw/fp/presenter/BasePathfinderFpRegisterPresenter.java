@@ -52,7 +52,7 @@ public class BasePathfinderFpRegisterPresenter implements BaseFpRegisterContract
                 fp_method.put("fp_method", updateValue);
                 formAsJson.put("global", fp_method);
             }else if (PathfinderFamilyPlanningConstants.ActivityPayload.CITIZEN_REPORT_CARD.equals(payloadType)) {
-                JSONArray fields = formAsJson.getJSONObject("step3").getJSONArray("fields");
+                JSONArray fields = formAsJson.getJSONObject("step5").getJSONArray("fields");
                 for (int i = 0; i < fields.length(); i++) {
                     JSONObject object = fields.getJSONObject(i);
                     if (object.getString("key").equals("name_of_health_facility_visited_for_family_planning_services")) {
