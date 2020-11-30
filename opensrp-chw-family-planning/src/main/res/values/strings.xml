@@ -144,7 +144,7 @@
     <string name="suspect_hiv_referral_reason">Care and Treatment (CTC) services</string>
     <string name="referral_for_text">Referral for %s</string>
     <string name="referral_to_other_available_services">Referral to other available services</string>
-    <string name="give_referral_to_other_available_services">Give referral to other available services</string>
-    <string name="other_refer_client_title">Other services</string>
+    <string name="pathfinder_give_referral_to_other_available_services">Give referral to other available services</string>
+    <string name="pathfinder_other_refer_client_title">Other services</string>
 
 </resources>

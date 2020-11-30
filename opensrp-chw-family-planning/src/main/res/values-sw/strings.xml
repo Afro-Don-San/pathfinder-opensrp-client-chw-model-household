@@ -139,6 +139,6 @@
     <string name="suspect_hiv_referral_reason">Matibabu na ushauri nasaha (CTC)</string>
     <string name="referral_for_text">Amepewa rufaa ya %s</string>
     <string name="referral_to_other_available_services">Rufaa ya huduma nyingine zinazopatikana</string>
-    <string name="give_referral_to_other_available_services">Toa rufaa ya huduma nyingine zinazopatikana</string>
-    <string name="other_refer_client_title">Huduma Nyingine</string>
+    <string name="pathfinder_give_referral_to_other_available_services">Toa rufaa ya huduma nyingine zinazopatikana</string>
+    <string name="pathfinder_other_refer_client_title">Huduma Nyingine</string>
 </resources>
