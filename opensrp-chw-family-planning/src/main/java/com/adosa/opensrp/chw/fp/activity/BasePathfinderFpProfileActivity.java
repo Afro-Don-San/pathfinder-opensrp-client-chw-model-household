@@ -483,8 +483,6 @@ public class BasePathfinderFpProfileActivity extends BaseProfileActivity impleme
         if (fpMethod.equals("0")) {
             fpMethodDisplayText = getString(R.string.registered) + " " + fpDisplayDate;
         }
-
-        Timber.e("Coze now = " + fpMethodDisplayText);
         return fpMethodDisplayText;
     }
 

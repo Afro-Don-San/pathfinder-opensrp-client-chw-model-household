@@ -26,11 +26,8 @@ import com.adosa.opensrp.chw.fp.domain.PathfinderFpMemberObject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
-import org.joda.time.DateTime;
 import org.json.JSONObject;
 import org.smartregister.clientandeventmodel.Event;
-import org.smartregister.domain.Task;
-import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.repository.BaseRepository;
 import org.smartregister.sync.ClientProcessorForJava;
@@ -38,7 +35,6 @@ import org.smartregister.sync.helper.ECSyncHelper;
 import org.smartregister.util.PermissionUtils;
 
 import java.util.Date;
-import java.util.UUID;
 
 import timber.log.Timber;
 
