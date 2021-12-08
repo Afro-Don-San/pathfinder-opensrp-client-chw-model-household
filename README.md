@@ -1,5 +1,5 @@
 
 
-# pathfinder-opensrp-client-chw-family-planning
-Pathfinder's OpenSRP client chw Family Planning module library
+# pathfinder-opensrp-client-chw-model-household
+Pathfinder's OpenSRP client chw Model Household module library
 
