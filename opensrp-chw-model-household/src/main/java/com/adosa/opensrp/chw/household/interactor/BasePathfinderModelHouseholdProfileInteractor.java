@@ -1,17 +1,21 @@
 package com.adosa.opensrp.chw.household.interactor;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
+import com.adosa.opensrp.chw.household.PathfinderModelHouseholdLibrary;
 import com.adosa.opensrp.chw.household.contract.BaseModelHouseholdProfileContract;
-import com.adosa.opensrp.chw.household.domain.PathfinderModelHouseholdMemberObject;
 import com.adosa.opensrp.chw.household.util.AppExecutors;
 
-import org.smartregister.domain.AlertStatus;
+import org.smartregister.commonregistry.CommonPersonObject;
+import org.smartregister.commonregistry.CommonPersonObjectClient;
+import org.smartregister.commonregistry.CommonRepository;
 
-import java.util.Date;
-
+/**
+ * Created by cozej4 on 08/12/2021.
+ */
 public class BasePathfinderModelHouseholdProfileInteractor implements BaseModelHouseholdProfileContract.Interactor {
-    protected AppExecutors appExecutors;
+
+    private AppExecutors appExecutors;
 
     @VisibleForTesting
     BasePathfinderModelHouseholdProfileInteractor(AppExecutors appExecutors) {
@@ -23,18 +27,32 @@ public class BasePathfinderModelHouseholdProfileInteractor implements BaseModelH
     }
 
     @Override
-    public void refreshProfileView(PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject, boolean isForEdit, BaseModelHouseholdProfileContract.InteractorCallback callback) {
-        Runnable runnable = () -> appExecutors.mainThread().execute(() -> callback.refreshProfileTopSection(pathfinderModelHouseholdMemberObject));
-        appExecutors.diskIO().execute(runnable);
+    public void onDestroy(boolean isChangingConfiguration) {// TODO implement this
     }
 
     @Override
-    public void updateProfileFpStatusInfo(PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject, BaseModelHouseholdProfileContract.InteractorCallback callback) {
-        Runnable runnable = () -> appExecutors.mainThread().execute(() -> {
-            callback.refreshFamilyStatus(AlertStatus.normal);
-            callback.refreshUpComingServicesStatus("Family Planning Followup Visit", AlertStatus.normal, new Date());
-            callback.refreshLastVisit(new Date());
-        });
+    public void refreshProfileView(final String baseEntityId, final BaseModelHouseholdProfileContract.InteractorCallBack callback) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                final CommonPersonObject personObject = getCommonRepository("ec_family_member").findByBaseEntityId(baseEntityId);
+                final CommonPersonObjectClient pClient = new CommonPersonObjectClient(personObject.getCaseId(),
+                        personObject.getDetails(), "");
+                pClient.setColumnmaps(personObject.getColumnmaps());
+
+                appExecutors.mainThread().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.refreshProfileTopSection(pClient);
+                    }
+                });
+            }
+        };
+
         appExecutors.diskIO().execute(runnable);
+    }
+
+    public CommonRepository getCommonRepository(String tableName) {
+        return PathfinderModelHouseholdLibrary.getInstance().context().commonrepository(tableName);
     }
 }

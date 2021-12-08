@@ -8,7 +8,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../.gradle/caches/transforms-2/files-2.1/04f99632a96fc38c981accaecfe0aa2d/jetified-opensrp-client-core-4.3.6-SNAPSHOT/res/menu/bottom_navigation_menu.xml" value="0.3026041666666667" />
+        <entry key="../../.gradle/caches/transforms-2/files-2.1/08e02eb6dcf85112e38b06b007a07272/opensrp-client-core-4.3.6-SNAPSHOT/res/menu/main_menu.xml" value="0.47685185185185186" />
+        <entry key="../../.gradle/caches/transforms-2/files-2.1/3ca81621185022462d67d5a921ef8efb/opensrp-client-core-1.11.5-SNAPSHOT/res/layout/content_base_profile.xml" value="0.3596014492753623" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/activity_base_pathfinder_fp_profile.xml" value="0.375" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/activity_base_pathfinder_model_household_profile.xml" value="0.22554347826086957" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/content_pathfinder_fp_profile.xml" value="0.22554347826086957" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/family_planning_register_list_row.xml" value="0.3596014492753623" />
+        <entry key="opensrp-chw-model-household/src/main/res/menu/bottom_nav_family_menu.xml" value="0.3026041666666667" />
+        <entry key="opensrp-chw-model-household/src/main/res/menu/model_household_menu.xml" value="0.3026041666666667" />
       </map>
     </option>
   </component>

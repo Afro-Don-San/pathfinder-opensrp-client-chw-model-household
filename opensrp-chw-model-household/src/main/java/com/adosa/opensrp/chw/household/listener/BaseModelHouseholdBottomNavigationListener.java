@@ -1,7 +1,7 @@
 package com.adosa.opensrp.chw.household.listener;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.MenuItem;
 
 import com.adosa.opensrp.chw.household.R;

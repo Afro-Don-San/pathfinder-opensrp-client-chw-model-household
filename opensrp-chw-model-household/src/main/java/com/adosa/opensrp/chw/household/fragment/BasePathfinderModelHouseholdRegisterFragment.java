@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adosa.opensrp.chw.household.R;
-import com.adosa.opensrp.chw.household.activity.BasePathfinderFpFollowUpVisitActivity;
+import com.adosa.opensrp.chw.household.activity.BasePathfinderModelHouseholdProfileActivity;
 import com.adosa.opensrp.chw.household.contract.BaseModelHouseholdRegisterFragmentContract;
 import com.adosa.opensrp.chw.household.model.BaseModelHouseholdRegisterFragmentModel;
 import com.adosa.opensrp.chw.household.presenter.BasePathfinderModelHouseholdRegisterFragmentPresenter;
@@ -118,18 +118,12 @@ public class BasePathfinderModelHouseholdRegisterFragment extends BaseRegisterFr
         }
         if (view.getTag() instanceof CommonPersonObjectClient && view.getTag(R.id.VIEW_ID) == CLICK_VIEW_NORMAL) {
             openProfile((CommonPersonObjectClient) view.getTag());
-        } else if (view.getTag() instanceof CommonPersonObjectClient && view.getTag(R.id.VIEW_ID) == FOLLOW_UP_VISIT) {
-            openFollowUpVisit((CommonPersonObjectClient) view.getTag());
         }
     }
 
     protected void openProfile(CommonPersonObjectClient client) {
-//        BasePathfinderFpProfileActivity.startProfileActivity(getActivity(), new PathfinderFpMemberObject(client));
     }
 
-    protected void openFollowUpVisit(CommonPersonObjectClient client) {
-        BasePathfinderFpFollowUpVisitActivity.startMe(getActivity(), client.getCaseId(), false);
-    }
 
     @Override
     public void showNotFoundPopup(String s) {

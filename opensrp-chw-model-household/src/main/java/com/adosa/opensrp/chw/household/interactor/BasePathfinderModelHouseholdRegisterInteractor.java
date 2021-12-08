@@ -1,6 +1,6 @@
 package com.adosa.opensrp.chw.household.interactor;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import com.adosa.opensrp.chw.household.contract.BaseModelHouseholdRegisterContract;
 import com.adosa.opensrp.chw.household.util.AppExecutors;

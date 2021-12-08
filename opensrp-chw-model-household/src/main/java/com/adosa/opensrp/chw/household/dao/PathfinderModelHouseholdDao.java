@@ -1,18 +1,12 @@
 package com.adosa.opensrp.chw.household.dao;
 
-import com.adosa.opensrp.chw.household.domain.PathfinderFpAlertObject;
 import com.adosa.opensrp.chw.household.domain.PathfinderModelHouseholdMemberObject;
-import com.adosa.opensrp.chw.household.util.PathfinderModelHouseholdConstants;
 
-import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.dao.AbstractDao;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 import timber.log.Timber;
 
@@ -57,7 +51,7 @@ public class PathfinderModelHouseholdDao extends AbstractDao {
             JSONArray locationArray = null;
             try {
                 locationArray = new JSONArray(getCursorValue(cursor, "nearest_facility"));
-                memberObject.setAddress(locationArray.getString(locationArray.length()-1));
+                memberObject.setAddress(locationArray.getString(locationArray.length() - 1));
             } catch (JSONException e) {
                 Timber.e(e);
                 memberObject.setAddress(getCursorValue(cursor, "village_town"));
@@ -65,7 +59,7 @@ public class PathfinderModelHouseholdDao extends AbstractDao {
             memberObject.setGender(getCursorValue(cursor, "gender"));
             memberObject.setUniqueId(getCursorValue(cursor, "unique_id", ""));
             memberObject.setAge(getCursorValue(cursor, "dob"));
-           memberObject.setFamilyBaseEntityId(getCursorValue(cursor, "relational_id", ""));
+            memberObject.setFamilyBaseEntityId(getCursorValue(cursor, "relational_id", ""));
             memberObject.setRelationalId(getCursorValue(cursor, "relational_id", ""));
             memberObject.setPrimaryCareGiver(getCursorValue(cursor, "primary_caregiver"));
             memberObject.setFamilyName(getCursorValue(cursor, "family_name", ""));

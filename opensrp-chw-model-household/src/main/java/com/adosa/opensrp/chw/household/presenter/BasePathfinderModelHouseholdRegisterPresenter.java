@@ -1,6 +1,6 @@
 package com.adosa.opensrp.chw.household.presenter;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import com.adosa.opensrp.chw.household.R;

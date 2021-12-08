@@ -1,73 +1,140 @@
 package com.adosa.opensrp.chw.household.presenter;
 
-import com.adosa.opensrp.chw.household.contract.BaseModelHouseholdProfileContract;
-import com.adosa.opensrp.chw.household.domain.PathfinderModelHouseholdMemberObject;
+import static org.smartregister.util.Utils.getName;
 
-import org.smartregister.domain.AlertStatus;
+import com.adosa.opensrp.chw.household.R;
+import com.adosa.opensrp.chw.household.contract.BaseModelHouseholdProfileContract;
+import com.adosa.opensrp.chw.household.interactor.BasePathfinderModelHouseholdProfileInteractor;
+import com.adosa.opensrp.chw.household.util.ModelHouseholdUtil;
+import com.adosa.opensrp.chw.household.util.PathfinderModelHouseholdConstants;
+
+import org.smartregister.commonregistry.CommonPersonObjectClient;
+import org.smartregister.configurableviews.model.RegisterConfiguration;
 import org.smartregister.view.contract.BaseProfileContract;
 
 import java.lang.ref.WeakReference;
-import java.util.Date;
+import java.util.Set;
+import java.util.TreeSet;
 
-public class BasePathfinderModelHouseholdProfilePresenter implements BaseProfileContract, BaseModelHouseholdProfileContract.Presenter, BaseModelHouseholdProfileContract.InteractorCallback {
-    private WeakReference<BaseModelHouseholdProfileContract.View> view;
-    private PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject;
-    private BaseModelHouseholdProfileContract.Interactor interactor;
+public class BasePathfinderModelHouseholdProfilePresenter implements BaseProfileContract.Presenter, BaseModelHouseholdProfileContract.Presenter, BaseModelHouseholdProfileContract.InteractorCallBack {
 
-    public BasePathfinderModelHouseholdProfilePresenter(BaseModelHouseholdProfileContract.View view, BaseModelHouseholdProfileContract.Interactor interactor, PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject) {
-        this.view = new WeakReference<>(view);
-        this.interactor = interactor;
-        this.pathfinderModelHouseholdMemberObject = pathfinderModelHouseholdMemberObject;
+    protected WeakReference<BaseModelHouseholdProfileContract.View> viewReference;
+
+    protected BaseModelHouseholdProfileContract.Model model;
+
+    protected RegisterConfiguration config;
+
+    protected String baseEntityId;
+    protected String familyHead;
+    protected String primaryCaregiver;
+    protected String villageTown;
+
+    protected Set<org.smartregister.configurableviews.model.View> visibleColumns = new TreeSet<>();
+
+    private BasePathfinderModelHouseholdProfileInteractor interactor;
+
+    private String viewConfigurationIdentifier;
+
+    public BasePathfinderModelHouseholdProfilePresenter(BaseModelHouseholdProfileContract.View view, BaseModelHouseholdProfileContract.Model model, String viewConfigurationIdentifier, String baseEntityId, String familyHead, String primaryCaregiver, String villageTown) {
+        this.viewReference = new WeakReference<>(view);
+        this.model = model;
+        this.viewConfigurationIdentifier = viewConfigurationIdentifier;
+        this.config = model.defaultRegisterConfiguration();
+
+        this.baseEntityId = baseEntityId;
+        this.familyHead = familyHead;
+        this.primaryCaregiver = primaryCaregiver;
+        this.villageTown = villageTown;
+
+        this.interactor = new BasePathfinderModelHouseholdProfileInteractor();
     }
 
     @Override
-    public BaseModelHouseholdProfileContract.View getView() {
-        if (view != null && view.get() != null)
-            return view.get();
+    public void onDestroy(boolean isChangingConfiguration) {
 
-        return null;
-    }
+        viewReference = null;//set to null on destroy
 
-    @Override
-    public void refreshProfileData() {
-        if (getView() != null) {
-            getView().showProgressBar(true);
+        // Inform interactor
+        interactor.onDestroy(isChangingConfiguration);
+
+        // Activity destroyed set interactor to null
+        if (!isChangingConfiguration) {
+            interactor = null;
         }
-        interactor.refreshProfileView(pathfinderModelHouseholdMemberObject, false, this);
+    }
+
+    protected BaseModelHouseholdProfileContract.View getView() {
+        if (viewReference != null)
+            return viewReference.get();
+        else
+            return null;
+    }
+
+
+    @Override
+    public void fetchProfileData() {
+        interactor.refreshProfileView(baseEntityId, this);
     }
 
     @Override
-    public void refreshProfileFpStatusInfo() {
-        interactor.updateProfileFpStatusInfo(pathfinderModelHouseholdMemberObject, this);
+    public void refreshProfileView() {
+        interactor.refreshProfileView(baseEntityId, this);
     }
 
+
+    private void setVisibleColumns(Set<org.smartregister.configurableviews.model.View> visibleColumns) {
+        this.visibleColumns = visibleColumns;
+    }
+
+    public void setModel(BaseModelHouseholdProfileContract.Model model) {
+        this.model = model;
+    }
+
+    public String getBaseEntityId() {
+        return baseEntityId;
+    }
+
+
     @Override
-    public void refreshLastVisit(Date lastVisitDate) {
-        if (getView() != null) {
-            getView().updateLastVisitRow(lastVisitDate);
+    public void refreshProfileTopSection(CommonPersonObjectClient client) {
+
+        if (client == null || client.getColumnmaps() == null) {
+            return;
         }
-    }
 
-    @Override
-    public void refreshProfileTopSection(PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject) {
-        if (getView() != null) {
-            getView().setProfileViewDetails(pathfinderModelHouseholdMemberObject);
-            getView().showProgressBar(false);
-        }
-    }
+        String firstName = ModelHouseholdUtil.getValue(client.getColumnmaps(), PathfinderModelHouseholdConstants.DBConstants.FIRST_NAME, true);
+        String lastName = ModelHouseholdUtil.getValue(client.getColumnmaps(), PathfinderModelHouseholdConstants.DBConstants.LAST_NAME, true);
 
-    @Override
-    public void refreshUpComingServicesStatus(String service, AlertStatus status, Date date) {
-        if (getView() != null) {
-            getView().setUpComingServicesStatus(service, status, date);
-        }
-        refreshProfileTopSection(pathfinderModelHouseholdMemberObject);
-    }
+        getView().setProfileName(getName(firstName, lastName));
 
-    @Override
-    public void refreshFamilyStatus(AlertStatus status) {
-        if (getView() != null) {
-            getView().setFamilyStatus(status);
+        String gender = ModelHouseholdUtil.getValue(client.getColumnmaps(), PathfinderModelHouseholdConstants.DBConstants.GENDER, true);
+        getView().setProfileDetailOne(gender);
+
+        getView().setProfileDetailTwo(villageTown);
+
+        String uniqueId = ModelHouseholdUtil.getValue(client.getColumnmaps(), PathfinderModelHouseholdConstants.DBConstants.UNIQUE_ID, false);
+        getView().setProfileDetailThree(String.format(getView().getString(R.string.id_with_value), uniqueId));
+
+        if (baseEntityId.equals(familyHead)) {
+            getView().toggleFamilyHead(true);
+        } else {
+            getView().toggleFamilyHead(false);
         }
+
+        if (baseEntityId.equals(primaryCaregiver)) {
+            getView().togglePrimaryCaregiver(true);
+        } else {
+            getView().togglePrimaryCaregiver(false);
+        }
+
+        /*String dobString = Utils.getDuration(Utils.getValue(client.getColumnmaps(), DBConstants.KEY.DOB, false));
+        dobString = dobString.contains("y") ? dobString.substring(0, dobString.indexOf("y")) : dobString;
+        dobString = String.format(getView().getString(R.string.age_text), dobString);
+        getView().setProfileDetailTwo(dobString);
+
+        String phoneNumber = Utils.getValue(client.getColumnmaps(), DBConstants.KEY.PHONE_NUMBER, false);
+        getView().setProfileDetailThree(phoneNumber);*/
+
+        getView().setProfileImage(client.getCaseId());
     }
 }

@@ -1,6 +1,6 @@
 package com.adosa.opensrp.chw.household.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.adosa.opensrp.chw.household.PathfinderModelHouseholdLibrary;
 import com.adosa.opensrp.chw.household.contract.BaseModelHouseholdRegisterFragmentContract;

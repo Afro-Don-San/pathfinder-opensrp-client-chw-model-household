@@ -1,134 +1,64 @@
 package com.adosa.opensrp.chw.household.contract;
 
-import android.content.Context;
-
-import com.adosa.opensrp.chw.household.domain.PathfinderModelHouseholdMemberObject;
-
-import org.smartregister.domain.AlertStatus;
+import org.smartregister.commonregistry.CommonPersonObjectClient;
+import org.smartregister.configurableviews.model.RegisterConfiguration;
+import org.smartregister.configurableviews.model.ViewConfiguration;
 import org.smartregister.view.contract.BaseProfileContract;
 
-import java.util.Date;
+import java.util.Set;
 
 public interface BaseModelHouseholdProfileContract {
 
     interface View extends BaseProfileContract.View {
 
-        Context getContext();
+        BaseModelHouseholdProfileContract.Presenter presenter();
 
-        void openMedicalHistory();
+        void setProfileImage(String baseEntityId);
 
-        void openFamilyPlanningRegistration();
+        void setProfileName(String fullName);
 
-        void openFamilyPlanningIntroduction();
+        void setProfileDetailOne(String detailOne);
 
-        void openPregnancyScreening();
+        void setProfileDetailTwo(String detailTwo);
 
-        void openPregnancyTestFollowup();
+        void setProfileDetailThree(String detailThree);
 
-        void openChooseFpMethod();
+        void toggleFamilyHead(boolean show);
 
-        void openGiveFpMethodButton();
+        void togglePrimaryCaregiver(boolean show);
 
-        void openRiskAssessment();
-
-        void showRiskAssessmentButton();
-
-        void openUpcomingServices();
-
-        void openFamilyDueServices();
-
-        void openFpRegistrationForm();
-
-        void openCitizenReportCard();
-
-        void openReferralFollowup();
-
-        void openFollowUpVisitForm(boolean isEdit);
-
-        void setUpComingServicesStatus(String service, AlertStatus status, Date date);
-
-        void setFamilyStatus(AlertStatus status);
-
-        void setProfileViewDetails(PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject);
-
-        void setupFollowupVisitEditViews(boolean isWithin24Hours);
-
-        void updateLastVisitRow(Date lastVisitDate);
-
-        void setFollowUpButtonOverdue();
-
-        void setFollowUpButtonDue();
-
-        void setPregnancyScreeningButtonDue();
-
-        void setPregnancyScreeningButtonOverdue();
-
-        void setPregnancyTestFollowupButtonDue();
-
-        void setPregnancyTestFollowupButtonOverdue();
-
-        void setReferralFollowupButtonDue();
-
-        void setReferralFollowupButtonOverdue();
-
-        void setFpMethodChoiceButtonDue();
-
-        void setFpMethodChoiceButtonOverdue();
-
-        void hideFollowUpVisitButton();
-
-        void showFollowUpVisitButton();
-
-        void showIntroductionToFpButton();
-
-        void showFpPregnancyScreeningButton();
-
-        void showFpPregnancyTestFollowupButton();
-
-        void showChooseFpMethodButton();
-
-        void setFamilyLocation();
-
-        void openFamilyLocation();
-
-        void showGiveFpMethodButton();
-
-        void showCitizenReportCardButton();
-
-        void showReferralFollowupButton();
-
-        void showProgressBar(boolean status);
-
-        void onMemberDetailsReloaded(PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject);
+        String getString(int resId);
 
     }
 
     interface Presenter {
 
-        View getView();
+        void onDestroy(boolean isChangingConfiguration);
 
-        void refreshProfileData();
+        void fetchProfileData();
 
-        void refreshProfileFpStatusInfo();
+        void refreshProfileView();
 
+    }
+
+    interface Model {
+        RegisterConfiguration defaultRegisterConfiguration();
+
+        ViewConfiguration getViewConfiguration(String viewConfigurationIdentifier);
+
+        Set<org.smartregister.configurableviews.model.View> getRegisterActiveColumns(String viewConfigurationIdentifier);
     }
 
     interface Interactor {
 
-        void refreshProfileView(PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject, boolean isForEdit, BaseModelHouseholdProfileContract.InteractorCallback callback);
+        void onDestroy(boolean isChangingConfiguration);
 
-        void updateProfileFpStatusInfo(PathfinderModelHouseholdMemberObject memberObject, BaseModelHouseholdProfileContract.InteractorCallback callback);
+        void refreshProfileView(String baseEntityId, InteractorCallBack callback);
 
     }
 
-    interface InteractorCallback {
+    interface InteractorCallBack {
 
-        void refreshProfileTopSection(PathfinderModelHouseholdMemberObject pathfinderModelHouseholdMemberObject);
-
-        void refreshUpComingServicesStatus(String service, AlertStatus status, Date date);
-
-        void refreshFamilyStatus(AlertStatus status);
-
-        void refreshLastVisit(Date lastVisitDate);
+        void refreshProfileTopSection(CommonPersonObjectClient client);
     }
 }

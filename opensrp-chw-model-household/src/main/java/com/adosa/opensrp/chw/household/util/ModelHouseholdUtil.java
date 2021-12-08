@@ -11,8 +11,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.Spanned;
@@ -21,11 +21,9 @@ import android.widget.Toast;
 import com.adosa.opensrp.chw.household.PathfinderModelHouseholdLibrary;
 import com.adosa.opensrp.chw.household.R;
 import com.adosa.opensrp.chw.household.contract.BaseFpCallDialogContract;
-import com.adosa.opensrp.chw.household.dao.PathfinderModelHouseholdDao;
 import com.adosa.opensrp.chw.household.domain.PathfinderModelHouseholdMemberObject;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
 import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.repository.AllSharedPreferences;
@@ -38,9 +36,7 @@ import java.util.Date;
 
 import timber.log.Timber;
 
-import static org.smartregister.util.Utils.getAllSharedPreferences;
-
-public class ModelHouseholdUtil {
+public class ModelHouseholdUtil extends org.smartregister.util.Utils  {
     public static ClientProcessorForJava getClientProcessorForJava() {
         return PathfinderModelHouseholdLibrary.getInstance().getClientProcessorForJava();
     }
@@ -143,9 +139,4 @@ public class ModelHouseholdUtil {
             return true;
         }
     }
-
-    public static int getMemberProfileImageResourceIDentifier() {
-        return R.mipmap.ic_member;
-    }
-
 }

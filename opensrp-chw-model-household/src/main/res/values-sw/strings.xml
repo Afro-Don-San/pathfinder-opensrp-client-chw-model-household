@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Uzazi wa Mpango</string>
-    <string name="fp_return_to_previous_page">Rudi kwenye orodha ya wateja wa Uzazi wa Mpango</string>
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_fp_followup">" Rekodi Ufuatiliaji wa Rufaa za Uzazi wa Mpango"</string>
     <string name="issue_anc_referral">Toa rufaa ya mama mjamzito</string>
@@ -143,4 +142,6 @@
     <!--    Model Household-->
     <string name="model_household">Kaya/Boma/Olmarei ya Mfano</string>
     <string name="model_household_registration">Sajili kwenye Kaya/Boma/Olmarei ya Mfano</string>
+    <string name="model_household_return_to_previous_page">Rudi kwenye orodha ya boma/kaya/olmarei ya mfano</string>
+    <string name="id_with_value">Kitambulisho: %1$s</string>
 </resources>
