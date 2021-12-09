@@ -15,6 +15,9 @@
         <entry key="opensrp-chw-model-household/src/main/res/layout/activity_base_pathfinder_model_household_profile.xml" value="0.22554347826086957" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/content_pathfinder_fp_profile.xml" value="0.22554347826086957" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/family_planning_register_list_row.xml" value="0.3596014492753623" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_item_in_progress.xml" value="0.22554347826086957" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_items_in_progress_list.xml" value="0.22554347826086957" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_model_household_parameters.xml" value="0.22554347826086957" />
         <entry key="opensrp-chw-model-household/src/main/res/menu/bottom_nav_family_menu.xml" value="0.3026041666666667" />
         <entry key="opensrp-chw-model-household/src/main/res/menu/model_household_menu.xml" value="0.3026041666666667" />
       </map>

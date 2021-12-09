@@ -85,7 +85,7 @@
     <string name="incisional_bleeding">Incisional bleeding</string>
     <string name="pus_discharge_from_incision">Pus/Discharge from incision</string>
     <string name="swollen_around_the_incision">Swollen around the incision</string>
-   <!--action taken -->
+    <!--action taken -->
     <string name="managed">Managed</string>
     <string name="Referred">Referred</string>
     <string name="registered">Registered</string>
@@ -150,5 +150,7 @@
     <string name="model_household_registration">Model Household Registration</string>
     <string name="model_household_return_to_previous_page">Return to all model households</string>
     <string name="id_with_value">ID: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
