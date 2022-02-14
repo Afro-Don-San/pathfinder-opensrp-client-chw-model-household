@@ -144,4 +144,34 @@
     <string name="model_household_registration">Sajili kwenye Kaya/Boma/Olmarei ya Mfano</string>
     <string name="model_household_return_to_previous_page">Rudi kwenye orodha ya boma/kaya/olmarei ya mfano</string>
     <string name="id_with_value">Kitambulisho: %1$s</string>
+
+    <string name="tab_things_in_progress">Yanayofanyika</string>
+    <string name="tab_evaluation_marks">Alama za Vipengele</string>
+
+    <string name="parameter_health">Afya</string>
+    <string name="parameter_social_integration">Utengamano</string>
+    <string name="parameter_land">Ardhi</string>
+    <string name="parameter_farming">Kilimo</string>
+    <string name="parameter_livestock">Ufugaji</string>
+
+    <string name="model_household_health_evaluation_form_name">Tathmini ya Afya</string>
+    <string name="model_household_health_discussion_form_name">Majadiliano kuhusu Afya</string>
+    <string name="model_household_health_ongoing_activities_form_name">Yanayofanyiwa kazi kuhusu Afya</string>
+
+    <string name="model_household_social_integration_evaluation_form_name">Tathmini ya Utengamano</string>
+    <string name="model_household_social_integration_discussion_form_name">Majadiliano kuhusu Utengamano</string>
+    <string name="model_household_social_integration_ongoing_activities_form_name">Yanayofanyiwa kazi kuhusu Utengamano</string>
+
+    <string name="model_household_land_evaluation_form_name">Tathmini ya Ardhi</string>
+    <string name="model_household_land_discussion_form_name">Majadiliano kuhusu Ardhi</string>
+    <string name="model_household_land_ongoing_activities_form_name">Yanayofanyiwa kazi kuhusu Ardhi</string>
+
+    <string name="model_household_farming_evaluation_form_name">Tathmini ya Kilimo</string>
+    <string name="model_household_farming_discussion_form_name">Majadiliano kuhusu Kilimo</string>
+    <string name="model_household_farming_ongoing_activities_form_name">Yanayofanyiwa kazi kuhusu Kilimo</string>
+
+    <string name="model_household_livestock_evaluation_form_name">Tathmini ya Ufugaji</string>
+    <string name="model_household_livestock_discussion_form_name">Majadiliano kuhusu Ufugaji</string>
+    <string name="model_household_livestock_ongoing_activities_form_name">Yanayofanyiwa kazi kuhusu Ufugaji</string>
+    <string name="completion">Yaliyokamilika: 0</string>
 </resources>

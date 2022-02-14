@@ -1,12 +1,7 @@
 package com.adosa.opensrp.chw.household.util;
 
 public interface PathfinderModelHouseholdConstants {
-
     int REQUEST_CODE_GET_JSON = 2244;
-
-    interface FamilyPlanningMemberObject {
-        String MEMBER_OBJECT = "pathfinderFpMemberObject";
-    }
 
     interface JsonFromExtra {
         String JSON = "json";
@@ -75,20 +70,21 @@ public interface PathfinderModelHouseholdConstants {
         String MODEL_HOUSEHOLD_FORM_NAME = "MODEL_HOUSEHOLD_FORM_NAME";
         String HOUSEHOLD_REGISTRATION_PAYLOAD_TYPE = "HOUSEHOLD_REGISTRATION";
         String UPDATE_HOUSEHOLD_REGISTRATION_PAYLOAD_TYPE = "UPDATE_HOUSEHOLD_REGISTRATION";
+        String MODEL_HOUSEHOLD_EVALUATION_PAYLOAD_TYPE = "EVALUATION";
+        String MODEL_HOUSEHOLD_DISCUSSION_PAYLOAD_TYPE = "DISCUSSION";
+        String MODEL_HOUSEHOLD_ON_PROGRESS_ACTIVITIES_PAYLOAD_TYPE = "ON_PROGRESS";
         String DOB = "DOB";
         String FORM_AS_STRING = "FORM_AS_STRING";
+        String TITLE_TEXT = "title_text";
+        String EVALUATION_TYPE = "evaluation_type";
     }
 
-    interface PregnancyStatus {
-        String PREGNANT = "PREGNANT";
-        String NOT_LIKELY_PREGNANT = "NOT LIKELY PREGNANT";
-        String NOT_UNLIKELY_PREGNANT = "NOT UNLIKELY PREGNANT";
+    interface EvaluationTypes {
+        String HEALTH = "HEALTH";
+        String LAND = "LAND";
+        String SOCIAL_INTEGRATION = "SOCIAL_INTEGRATION";
+        String FARMING = "FARMING";
+        String LIVESTOCK = "LIVESTOCK";
+        String ALL = "ALL";
     }
-
-    interface ChoosePregnancyTestReferral {
-        String WAIT_FOR_NEXT_VISIT = "wait_for_next_visit";
-        String RECEIVE_PREGNANCY_TEST_REFERRAL = "receive_pregnancy_test_referral";
-        String COMPLETE_PREGNANCY_TEST_QUESTIONS_WITHOUT_COMPLETING_REFERRAL = "complete_pregnancy_screening_questions";
-    }
-
 }

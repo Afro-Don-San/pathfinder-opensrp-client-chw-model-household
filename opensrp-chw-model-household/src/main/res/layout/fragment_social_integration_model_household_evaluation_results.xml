@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.BaseModelHouseholdParametersFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/textview_children_school_attendance"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="start"
+                android:text="ASILIMIA WATOTO KUHUDHURIA SHULE"
+                android:textColor="@android:color/black" />
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/children_school_attendance_percentage"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            android:background="@color/light_grey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/textview_social_activities"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="start"
+                android:text="ASILIMIA SHUGHULI ZA KIJAMII"
+                android:textColor="@android:color/black" />
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/social_activities_percentage"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            android:background="@color/light_grey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/textview_joint_decision_making"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="start"
+                android:text="ASILIMIA KUFANYA MAAMUZI KWA PAMOJA"
+                android:textColor="@android:color/black" />
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/joint_decision_making_percentage"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            android:background="@color/light_grey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/textview_environmental_friendly_activities"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="start"
+                android:text="ASILIMIA SHUGHULI RAFIKI KWA MAZINGIRA"
+                android:textColor="@android:color/black" />
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/environmental_friendly_activities_percentage"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            android:background="@color/light_grey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/textview_stove"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="start"
+                android:text="ASILIMIA JIKO BANIFU"
+                android:textColor="@android:color/black" />
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/stove_percentage"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            android:background="@color/light_grey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/textview_mosquito_net"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="start"
+                android:text="ASILIMIA CHANDARUA"
+                android:textColor="@android:color/black" />
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/mosquito_net_percentage"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            android:background="@color/light_grey" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -74,11 +74,13 @@ public class ModelHouseholdUtil extends org.smartregister.util.Utils  {
             JSONObject eventJson = new JSONObject(ModelHouseholdJsonFormUtils.gson.toJson(baseEvent));
             getSyncHelper().addEvent(baseEvent.getBaseEntityId(), eventJson);
 
+            startClientProcessing();
+
             long lastSyncTimeStamp = getAllSharedPreferences().fetchLastUpdatedAtDate(0);
             Date lastSyncDate = new Date(lastSyncTimeStamp);
             getClientProcessorForJava().processClient(getSyncHelper().getEvents(lastSyncDate, BaseRepository.TYPE_Unsynced));
             getAllSharedPreferences().saveLastUpdatedAtDate(lastSyncDate.getTime());
-            startClientProcessing();
+
         }
     }
 

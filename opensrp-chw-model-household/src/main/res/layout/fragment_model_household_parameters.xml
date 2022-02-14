@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ModelHouseholdParametersFragment">
+    tools:context=".fragment.BaseModelHouseholdParametersFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_below="@+id/textview_land"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/health_image"
-                android:text="Completion: 80"
+                android:text="@string/completion"
                 android:textColor="@android:color/darker_gray" />
         </RelativeLayout>
         <View
@@ -100,7 +100,7 @@
                 android:layout_below="@+id/textview_social_integration"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/social_integration_image"
-                android:text="Completion: 30"
+                android:text="@string/completion"
                 android:textColor="@android:color/darker_gray" />
         </RelativeLayout>
         <View
@@ -149,7 +149,7 @@
                 android:layout_below="@+id/textview_health"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/land_image"
-                android:text="Completion: 20"
+                android:text="@string/completion"
                 android:textColor="@android:color/darker_gray" />
         </RelativeLayout>
         <View
@@ -157,22 +157,22 @@
             android:layout_height="1px"
             android:background="@color/light_grey" />
         <RelativeLayout
-            android:id="@+id/agriculture_row"
+            android:id="@+id/farming_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/list_item_background_selctor"
             android:padding="20dp">
 
             <ImageView
-                android:id="@+id/agriculture_image"
+                android:id="@+id/farming_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/ic_action_agriculture" />
+                android:src="@drawable/ic_action_farming" />
 
             <ImageView
-                android:id="@+id/agriculture_arrow_image"
+                android:id="@+id/farming_arrow_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -180,25 +180,25 @@
                 android:src="@drawable/row_goto" />
 
             <org.smartregister.view.customcontrols.CustomFontTextView
-                android:id="@+id/textview_agriculture"
+                android:id="@+id/textview_farming"
                 style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/agriculture_image"
+                android:layout_toRightOf="@+id/farming_image"
                 android:gravity="center_horizontal"
                 android:text="Kilimo"
                 android:textColor="@android:color/black" />
 
             <org.smartregister.view.customcontrols.CustomFontTextView
-                android:id="@+id/text_view_agriculture_profile"
+                android:id="@+id/text_view_farming_profile"
                 style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textview_agriculture"
+                android:layout_below="@+id/textview_farming"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/agriculture_image"
-                android:text="Completion: 0"
+                android:layout_toRightOf="@+id/farming_image"
+                android:text="@string/completion"
                 android:textColor="@android:color/darker_gray" />
         </RelativeLayout>
         <View
@@ -206,22 +206,22 @@
             android:layout_height="1px"
             android:background="@color/light_grey" />
         <RelativeLayout
-            android:id="@+id/animal_husbandry_row"
+            android:id="@+id/livestock_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/list_item_background_selctor"
             android:padding="20dp">
 
             <ImageView
-                android:id="@+id/animal_husbandry_image"
+                android:id="@+id/livestock_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/ic_action_animals" />
+                android:src="@drawable/ic_action_livestock" />
 
             <ImageView
-                android:id="@+id/animal_husbandry_arrow_image"
+                android:id="@+id/livestock_arrow_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -229,25 +229,25 @@
                 android:src="@drawable/row_goto" />
 
             <org.smartregister.view.customcontrols.CustomFontTextView
-                android:id="@+id/textview_animal_husbandry"
+                android:id="@+id/textview_livestock"
                 style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/animal_husbandry_image"
+                android:layout_toRightOf="@+id/livestock_image"
                 android:gravity="center_horizontal"
                 android:text="Ufugaji"
                 android:textColor="@android:color/black" />
 
             <org.smartregister.view.customcontrols.CustomFontTextView
-                android:id="@+id/text_view_animal_husbandry_profile"
+                android:id="@+id/text_view_livestock_profile"
                 style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textview_animal_husbandry"
+                android:layout_below="@+id/textview_livestock"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/animal_husbandry_image"
-                android:text="Completion: 0"
+                android:layout_toRightOf="@+id/livestock_image"
+                android:text="@string/completion"
                 android:textColor="@android:color/darker_gray" />
         </RelativeLayout>
     </LinearLayout>
