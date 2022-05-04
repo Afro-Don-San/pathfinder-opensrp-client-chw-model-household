@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.adosa.opensrp.chw.household.R;
+import com.adosa.opensrp.chw.household.dao.PathfinderModelHouseholdDao;
+
+import org.smartregister.view.customcontrols.CustomFontTextView;
 
 public class BaseLivestockModelHouseholdResultsFragment extends Fragment {
     protected static final String BASE_ENTITY_ID = "base_entity_id";
@@ -43,8 +46,12 @@ public class BaseLivestockModelHouseholdResultsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_model_household_parameters, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_livestock_model_household_evaluation_results, container, false);
+        setupViews(view);
         return view;
+    }
+
+    protected void setupViews(View view) {
+        ((CustomFontTextView) view.findViewById(R.id.livestock_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "livestock_evaluation_score")));
     }
 }

@@ -173,5 +173,5 @@
     <string name="model_household_livestock_evaluation_form_name">Tathmini ya Ufugaji</string>
     <string name="model_household_livestock_discussion_form_name">Majadiliano kuhusu Ufugaji</string>
     <string name="model_household_livestock_ongoing_activities_form_name">Yanayofanyiwa kazi kuhusu Ufugaji</string>
-    <string name="completion">Yaliyokamilika: 0</string>
+    <string name="completion" formatted="false">Alama za tathmini: %1$s</string>
 </resources>

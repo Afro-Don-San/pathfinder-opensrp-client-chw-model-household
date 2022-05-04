@@ -29,6 +29,37 @@ public class PathfinderModelHouseholdDao extends AbstractDao {
         return res.get(0) > 0;
     }
 
+
+    public static float getScore(String baseEntityID, String scoreType) {
+        String sql = "select "+scoreType+" as score " +
+                "from ec_model_household " +
+                "where base_entity_id = '" + baseEntityID + "'" +
+                "  and ec_model_household.is_closed = 0 " +
+                "  and ec_model_household.does_the_client_want_to_be_enrolled_into_model_household = 'yes'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "score");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0 && res.get(0) != null)
+            return Float.parseFloat(res.get(0));
+        return 0;
+    }
+
+
+    public static String getItemBeingWorkedOn(String baseEntityID, String actionBeingWorkedOn, String type) {
+        String sql = "select "+actionBeingWorkedOn+" as action " +
+                "from ec_model_household_ongoing_activities " +
+                "where base_entity_id = '" + baseEntityID + "'" +
+                "  and type = '"+type+"'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "action");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0 && res.get(0) != null)
+            return res.get(0);
+        return null;
+    }
+
     public static PathfinderModelHouseholdMemberObject getMember(String baseEntityID) {
         String sql = "select m.base_entity_id , m.unique_id , m.relational_id , m.dob , m.first_name , " +
                 "m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , " +
@@ -37,7 +68,7 @@ public class PathfinderModelHouseholdDao extends AbstractDao {
                 "fh.last_name family_head_last_name, fh.phone_number family_head_phone_number, " +
                 "pcg.first_name pcg_first_name , pcg.last_name pcg_last_name , pcg.middle_name pcg_middle_name , " +
                 "pcg.phone_number  pcg_phone_number , mr.* from ec_family_member m " +
-                "inner join ec_family f on m.relational_id = f.base_entity_id " +
+                "inner join ec_family f  ON f.unique_id LIKE ('%' || m.unique_id || '%')" +
                 "inner join ec_model_household mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver where m.base_entity_id ='" + baseEntityID + "' ";
@@ -69,6 +100,7 @@ public class PathfinderModelHouseholdDao extends AbstractDao {
             memberObject.setFamilyHeadPhoneNumber(getCursorValue(cursor, "pcg_phone_number", ""));
             memberObject.setFamilyHeadPhoneNumber(getCursorValue(cursor, "family_head_phone_number", ""));
             memberObject.setHouseholdType(getCursorValue(cursor, "household_type", ""));
+            memberObject.setLocation(getCursorValue(cursor, "nearest_facility", ""));
             String familyHeadName = getCursorValue(cursor, "family_head_first_name", "") + " "
                     + getCursorValue(cursor, "family_head_middle_name", "");
 

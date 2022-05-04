@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
-            android:maxLines="10"
+            android:maxLines="30"
             android:gravity="start"
             android:text="Kujenga Choo"
             android:textColor="@android:color/black" />

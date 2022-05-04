@@ -180,6 +180,45 @@
     <string name="model_household_livestock_evaluation_form_name">Tathmini ya Ufugaji</string>
     <string name="model_household_livestock_discussion_form_name">Majadiliano kuhusu Ufugaji</string>
     <string name="model_household_livestock_ongoing_activities_form_name">Yanayofanyiwa kazi kuhusu Ufugaji</string>
-    <string name="completion">Completion: 0</string>
+    <string name="completion" formatted="false">Evaluation Score: %1$s</string>
+
+    <string name="building_a_toilet">Ujenzi wa choo</string>
+    <string name="building_toilet_door">Ujenzi wa mlango au kifuniko cha choo</string>
+    <string name="building_a_bathroom">Ujenzi wa Bafu</string>
+    <string name="bathroom_cleanliness">Usafi na matumizi ya Bafu kila wakati</string>
+    <string name="building_a_place_to_wash_hands">Ujenzi wa bomba la kuosha mikono</string>
+    <string name="washing_hands_frequently">Nawa mikono kwa sabuni na maji yanayotiririka</string>
+    <string name="building_a_littering_pit">Ujenzi wa shimo la taka kulingana na maelekezo</string>
+    <string name="throwing_dirt_in_litter_pit">Kutupa taka zote kwenye shimo la taka na kuhakikisha mazingira yote ni safi</string>
+    <string name="building_dishes_drying_container">Ujenzi wa kichanja cha kukaushia vyombo</string>
+    <string name="usage_of_dish_drying_container_to_keep_dishes_clean">Matumizi ya kichanja ili kuweka vyombo safi</string>
+    <string name="boiling_drinking_water">Kuchemsha maji ya kunywa</string>
+    <string name="storing_drinking_water">Tunza maji ya kunywa katika chombo kisafi na chenye mfuniko</string>
+    <string name="buying_mosquito_nets_for_all_family_members">Kununua chandarua kwa manafamilia wote</string>
+    <string name="ensure_all_family_members_use_mosquito_nets">Kuhakikisha kila mwanafamilia anatumia chandarua kila akilala</string>
+    <string name="destroying_mosquito_breeding_places">Kuondoa mazalia ya mbu na kuweka mazingira ya nyumba kuwa safi</string>
+    <string name="meeting_fp_chw">Kukutana na Mtoa huduma wa Uzazi wa Mpango</string>
+    <string name="understanding_the_relationship_between_phe_and_fp">Kujua Mahusiano kati ya uzazi wa mpango na watu, afya, na mazingira</string>
+    <string name="schedule_pregnancy_visit_to_the_health_facility">Panga tembeleo la Mjamzito kituo cha afya</string>
+    <string name="develop_birth_preparedness_plan">Panga mpango wa maandalizi ya kujifungua</string>
+    <string name="plan_visit_after_delivery">Panga tembeleo baada ya kujifungua</string>
+    <string name="plan_to_breastfeed_exclusively_for_six_months">Panga utaratibu wa kunyonyesha maziwa ya mama pekee kwa miezi sita</string>
+    <string name="plan_facility_visit_for_child_immunization">Panga tembeleo la kwenda kituo cha afya kwaajili ya mtoto kupata huduma ya chanjo</string>
+    <string name="plan_for_storing_food">Mkakati wa kuhifadhi chakula</string>
+    <string name="post_harvest_damage_control">Mkakati wa kudhibiti uharibifu/upotevu wa mazao baada ya kuvuna (kuhifadhi kwenye mfuko maalum, kuweka dawa ya kuua wadudu, kuweka kwenye moshi, kuweka kwenye kihenge/ghala)</string>
+    <string name="creating_a_vegetable_garden_at_home">Kutengeneza bustani ya mboga mboga kwenye kaya/boma/olmarei</string>
+    <string name="meeting_farming_specialist">Kukutana na mtaalamu wa kilimo (waachie namba yake ya simu)</string>
+    <string name="participation_in_land_ownership_meetings">Kushiriki kwenye mkutano ujao wa umiliki wa ardhi na mali asili</string>
+    <string name="learn_3_laws_regarding_natural_resources_maintance">Kufahamu sheria 3 za utunzaji wa mazingira</string>
+    <string name="meet_caw">Kuonana na muhamasishaji wa kilimo wa jamii (CAW) kwaajili ya masaada wa upandaji miti</string>
+    <string name="planting_trees_around_the_household">Kupanda miti maeneo yanayozunguka kaya</string>
+    <string name="livestock_rotation_strategy">Mkakati wa mbinu za malisho mzunguko ya mifugo (Engituroroto)</string>
+    <string name="strategy_on_livestock_fattening_for_sale">Mkakati wa unenepeshaji wa mifugo kwa ajili ya kuuza</string>
+    <string name="strategy_on_animal_food_storage">Mkakati wa kuhifadhi vyakula vya mifugo (Alalii)</string>
+    <string name="strategy_on_improved_land_use">Mkakati wa matumizi bora ya ardhi</string>
+    <string name="strategy_on_dealing_with_weed">Mkakati wa kukabiliana na mimea vamizi</string>
+    <string name="strategy_on_climate_change">Mkakati wa kukabiliana na mabadiliko ya tabia nchi</string>
+    <string name="strategy_on_improving_livestock_health">Mkakati wa kukabiliana na mabadiliko ya tabia nchi</string>
+    <string name="meet_livestock_caw">Kukutana na mtaalamu wa mifugo (waachie namba yake ya simu)</string>
 
 </resources>

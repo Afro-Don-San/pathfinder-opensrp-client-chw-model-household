@@ -16,7 +16,7 @@ public class PathfinderModelHouseholdOngoingActivitiesDao extends AbstractDao {
                 "fh.last_name family_head_last_name, fh.phone_number family_head_phone_number, " +
                 "pcg.first_name pcg_first_name , pcg.last_name pcg_last_name , pcg.middle_name pcg_middle_name , " +
                 "pcg.phone_number  pcg_phone_number , mr.* from ec_family_member m " +
-                "inner join ec_family f on m.relational_id = f.base_entity_id " +
+                "inner join ec_family f  ON f.unique_id LIKE ('%' || m.unique_id || '%')" +
                 "inner join ec_model_household_ongoing_activities mr on mr.entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver where m.base_entity_id ='" + baseEntityID + "' ";
@@ -60,8 +60,8 @@ public class PathfinderModelHouseholdOngoingActivitiesDao extends AbstractDao {
                 "fh.last_name family_head_last_name, fh.phone_number family_head_phone_number, " +
                 "pcg.first_name pcg_first_name , pcg.last_name pcg_last_name , pcg.middle_name pcg_middle_name , " +
                 "pcg.phone_number  pcg_phone_number , mr.* from ec_family_member m " +
-                "inner join ec_family f on m.relational_id = f.base_entity_id " +
-                "inner join ec_model_household_ongoing_activities mr on mr.base_entity_id = m.base_entity_id " +
+                "inner join ec_family f  ON f.unique_id LIKE ('%' || m.unique_id || '%')" +
+                "inner join ec_model_household_ongoing_activities mr on mr.entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver where m.base_entity_id ='" + baseEntityID + "' and mr.type = '"+type+"' ";
 

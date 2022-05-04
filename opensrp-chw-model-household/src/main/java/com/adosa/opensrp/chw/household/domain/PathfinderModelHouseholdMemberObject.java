@@ -25,6 +25,7 @@ public class PathfinderModelHouseholdMemberObject implements Serializable {
     private String familyName;
     private String phoneNumber;
     private String householdType;
+    private String location;
 
     public PathfinderModelHouseholdMemberObject() {
     }
@@ -195,5 +196,13 @@ public class PathfinderModelHouseholdMemberObject implements Serializable {
 
     public void setHouseholdType(String householdType) {
         this.householdType = householdType;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

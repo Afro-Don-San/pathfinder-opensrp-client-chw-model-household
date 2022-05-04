@@ -76,6 +76,7 @@ public class BaseModelHouseholdRegisterFragmentModel implements BaseModelHouseho
         columnList.add(PathfinderModelHouseholdConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderModelHouseholdConstants.DBConstants.LAST_NAME);
         columnList.add(PathfinderModelHouseholdConstants.DBConstants.FAMILY_MEMBER + "." + PathfinderModelHouseholdConstants.DBConstants.DOB);
         columnList.add(PathfinderModelHouseholdConstants.DBConstants.FAMILY + "." + PathfinderModelHouseholdConstants.DBConstants.VILLAGE_TOWN);
+        columnList.add(PathfinderModelHouseholdConstants.DBConstants.FAMILY + "." + PathfinderModelHouseholdConstants.DBConstants.NEAREST_FACILITY);
 
         return columnList.toArray(new String[columnList.size()]);
     }
