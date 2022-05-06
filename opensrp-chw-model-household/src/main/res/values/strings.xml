@@ -220,5 +220,11 @@
     <string name="strategy_on_climate_change">Mkakati wa kukabiliana na mabadiliko ya tabia nchi</string>
     <string name="strategy_on_improving_livestock_health">Mkakati wa kukabiliana na mabadiliko ya tabia nchi</string>
     <string name="meet_livestock_caw">Kukutana na mtaalamu wa mifugo (waachie namba yake ya simu)</string>
+    <string name="social_economic_activities">Kufanya shuguli za kuingiza kipato katika familia</string>
+    <string name="meeting_cocoba_representatives">Kukutana na mtu wa mkufunzi wa vikundi vya huduma ndogo za kifedha rafiki kwa Mazingira (TOT wa CCMG) ili kupata taarifa zaidi juu ya shuguli za kiuchumi ambazo ni rafiki kwa mazingira</string>
+    <string name="build_creative_stove">Kujenga jiko banifu la kuokoa nishati</string>
+    <string name="frequent_use_of_creative_stove">Kutumia jiko banifu mara kwa mara</string>
+    <string name="participation_in_social_activities">Kushiriki katika mkutano mkuu wa kijamii</string>
+    <string name="respect_decision_made_by_women">Kuzingatia maamuzi yanayofanywa na wanawa</string>
 
 </resources>

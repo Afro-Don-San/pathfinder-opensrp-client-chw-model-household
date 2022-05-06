@@ -25,7 +25,7 @@ import com.adosa.opensrp.chw.household.util.PathfinderModelHouseholdConstants;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_things_in_progress, R.string.tab_evaluation_marks};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_evaluation_marks, R.string.tab_things_in_progress};
     private final Context mContext;
     private final String type;
     private final String baseEntityId;
@@ -42,7 +42,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if (position == 0) {
+        if (position == 1) {
             return OnGoingActivitiesFragment.newInstance(baseEntityId, type);
         } else if (type.equals(PathfinderModelHouseholdConstants.EvaluationTypes.HEALTH)) {
             return BaseHealthModelHouseholdResultsFragment.newInstance(baseEntityId);

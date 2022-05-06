@@ -25,6 +25,8 @@ import com.adosa.opensrp.chw.household.databinding.FragmentModelHouseholdOngonin
 import com.adosa.opensrp.chw.household.domain.PathfinderModelHouseholdOngoingActivitiesObject;
 import com.adosa.opensrp.chw.household.util.PathfinderModelHouseholdConstants;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,91 +86,118 @@ public class OnGoingActivitiesFragment extends Fragment {
                         lineSeparator = "\n";
                     }
 
-                    View itemInProgress = getLayoutInflater().inflate(R.layout.fragment_item_in_progress, null);
-
-                    TextView ongoingActivitiesTv = itemInProgress.findViewById(R.id.ongoing_activities);
-                    TextView dateTv = itemInProgress.findViewById(R.id.date);
-
-                    SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
-                    Date date = new Date(Long.parseLong(pathfinderModelHouseholdOngoingActivitiesObject.getLastInteractedWith()));
-                    dateTv.setText(lineSeparator + sf.format(date));
-
-                    SpannableString spanString;
-
-
                     ArrayList<String> list = new ArrayList<>();
 
                     if (type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.ALL) || type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.HEALTH)) {
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnToiletUsageBeingWorkedOn().equals("")) {
-                            String itemsOnToiletUsageBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnToiletUsageBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnToiletUsageBeingWorkedOn().length() - 1);
+                            String itemsOnToiletUsageBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnToiletUsageBeingWorkedOn();
+                            if (itemsOnToiletUsageBeingWorkedOn.contains("[")) {
+                                itemsOnToiletUsageBeingWorkedOn = itemsOnToiletUsageBeingWorkedOn.substring(1, itemsOnToiletUsageBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(itemsOnToiletUsageBeingWorkedOn.split(",\\s*")));
                         }
 
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnBathroomUsageBeingWorkedOn().equals("")) {
-                            String itemsOnBathroomUsageBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnBathroomUsageBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnBathroomUsageBeingWorkedOn().length() - 1);
+                            String itemsOnBathroomUsageBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnBathroomUsageBeingWorkedOn();
+                            if (itemsOnBathroomUsageBeingWorkedOn.contains("[")) {
+                                itemsOnBathroomUsageBeingWorkedOn = itemsOnBathroomUsageBeingWorkedOn.substring(1, itemsOnBathroomUsageBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(itemsOnBathroomUsageBeingWorkedOn.split(",\\s*")));
                         }
 
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn().equals("")) {
-                            String itemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn().length() - 1);
+                            String itemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn();
+                            if (itemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn.contains("[")) {
+                                itemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn = itemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn.substring(1, itemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(itemsOnHandsWashingAreaOutsideTheToiletBeingWorkedOn.split(",\\s*")));
                         }
 
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnDishesDryingContainerBeingWorkedOn().equals("")) {
-                            String itemsOnDishesDryingContainerBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnDishesDryingContainerBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnDishesDryingContainerBeingWorkedOn().length() - 1);
+                            String itemsOnDishesDryingContainerBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnDishesDryingContainerBeingWorkedOn();
+                            if (itemsOnDishesDryingContainerBeingWorkedOn.contains("[")) {
+                                itemsOnDishesDryingContainerBeingWorkedOn = itemsOnDishesDryingContainerBeingWorkedOn.substring(1, itemsOnDishesDryingContainerBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(itemsOnDishesDryingContainerBeingWorkedOn.split(",\\s*")));
                         }
 
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnTreatingDrinkingWaterBeingWorkedOn().equals("")) {
-                            String itemsOnTreatingDrinkingWaterBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnTreatingDrinkingWaterBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnTreatingDrinkingWaterBeingWorkedOn().length() - 1);
+                            String itemsOnTreatingDrinkingWaterBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnTreatingDrinkingWaterBeingWorkedOn();
+                            if (itemsOnTreatingDrinkingWaterBeingWorkedOn.contains("[")) {
+                                itemsOnTreatingDrinkingWaterBeingWorkedOn = itemsOnTreatingDrinkingWaterBeingWorkedOn.substring(1, itemsOnTreatingDrinkingWaterBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(itemsOnTreatingDrinkingWaterBeingWorkedOn.split(",\\s*")));
                         }
 
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnUsageOfMosquitoNetsBeingWorkedOn().equals("")) {
-                            String usageOfMosquitoNetsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnUsageOfMosquitoNetsBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnUsageOfMosquitoNetsBeingWorkedOn().length() - 1);
+                            String usageOfMosquitoNetsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnUsageOfMosquitoNetsBeingWorkedOn();
+                            if (usageOfMosquitoNetsBeingWorkedOn.contains("[")) {
+                                usageOfMosquitoNetsBeingWorkedOn = usageOfMosquitoNetsBeingWorkedOn.substring(1, usageOfMosquitoNetsBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(usageOfMosquitoNetsBeingWorkedOn.split(",\\s*")));
                         }
 
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnFpBeingWorkedOn().equals("")) {
-                            String fpBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnFpBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnFpBeingWorkedOn().length() - 1);
+                            String fpBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getThingsOnFpBeingWorkedOn();
+                            if (fpBeingWorkedOn.contains("[")) {
+                                fpBeingWorkedOn = fpBeingWorkedOn.substring(1, fpBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(fpBeingWorkedOn.split(",\\s*")));
                         }
 
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getHealthFacilitiesItemsBeingWorkedOn().equals("")) {
-                            String healthFacilitiesItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getHealthFacilitiesItemsBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getHealthFacilitiesItemsBeingWorkedOn().length() - 1);
+                            String healthFacilitiesItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getHealthFacilitiesItemsBeingWorkedOn();
+                            if (healthFacilitiesItemsBeingWorkedOn.contains("[")) {
+                                healthFacilitiesItemsBeingWorkedOn = healthFacilitiesItemsBeingWorkedOn.substring(1, healthFacilitiesItemsBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(healthFacilitiesItemsBeingWorkedOn.split(",\\s*")));
                         }
                     }
 
                     if (type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.ALL) || type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.SOCIAL_INTEGRATION)) {
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getSocialIntegrationItemsBeingWorkedOn().equals("")) {
-                            String socialIntegrationItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getSocialIntegrationItemsBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getSocialIntegrationItemsBeingWorkedOn().length() - 1);
+                            String socialIntegrationItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getSocialIntegrationItemsBeingWorkedOn();
+                            if (socialIntegrationItemsBeingWorkedOn.contains("[")) {
+                                socialIntegrationItemsBeingWorkedOn = socialIntegrationItemsBeingWorkedOn.substring(1, socialIntegrationItemsBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(socialIntegrationItemsBeingWorkedOn.split(",\\s*")));
                         }
                     }
 
                     if (type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.ALL) || type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.LAND)) {
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnLandBeingWorkedOn().equals("")) {
-                            String itemsOnLandBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnLandBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnLandBeingWorkedOn().length() - 1);
+                            String itemsOnLandBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getItemsOnLandBeingWorkedOn();
+                            if (itemsOnLandBeingWorkedOn.contains("[")) {
+                                itemsOnLandBeingWorkedOn = itemsOnLandBeingWorkedOn.substring(1, itemsOnLandBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(itemsOnLandBeingWorkedOn.split(",\\s*")));
                         }
                     }
 
                     if (type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.ALL) || type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.FARMING)) {
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getFarmingItemsBeingWorkedOn().equals("")) {
-                            String farmingItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getFarmingItemsBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getFarmingItemsBeingWorkedOn().length() - 1);
+                            String farmingItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getFarmingItemsBeingWorkedOn();
+                            if (farmingItemsBeingWorkedOn.contains("[")) {
+                                farmingItemsBeingWorkedOn = farmingItemsBeingWorkedOn.substring(1, farmingItemsBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(farmingItemsBeingWorkedOn.split(",\\s*")));
                         }
                     }
 
                     if (type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.ALL) || type.equalsIgnoreCase(PathfinderModelHouseholdConstants.EvaluationTypes.LIVESTOCK)) {
                         if (!pathfinderModelHouseholdOngoingActivitiesObject.getLivestockItemsBeingWorkedOn().equals("")) {
-                            String livestockItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getLivestockItemsBeingWorkedOn().substring(1, pathfinderModelHouseholdOngoingActivitiesObject.getLivestockItemsBeingWorkedOn().length() - 1);
+                            String livestockItemsBeingWorkedOn = pathfinderModelHouseholdOngoingActivitiesObject.getLivestockItemsBeingWorkedOn();
+                            if (livestockItemsBeingWorkedOn.contains("[")) {
+                                livestockItemsBeingWorkedOn = livestockItemsBeingWorkedOn.substring(1, livestockItemsBeingWorkedOn.length() - 1);
+                            }
                             list.addAll(Arrays.asList(livestockItemsBeingWorkedOn.split(",\\s*")));
                         }
                     }
 
 
+                    View itemInProgress = getLayoutInflater().inflate(R.layout.fragment_item_in_progress, null);
+
+                    SpannableString spanString;
                     StringBuilder sb = new StringBuilder();
 
 
@@ -191,10 +220,16 @@ public class OnGoingActivitiesFragment extends Fragment {
                         }
                     }
 
-                    ongoingActivitiesTv.setText(spanString);
+                    if (StringUtils.isNotBlank(concat)) {
+                        TextView ongoingActivitiesTv = itemInProgress.findViewById(R.id.ongoing_activities);
+                        TextView dateTv = itemInProgress.findViewById(R.id.date);
 
-
-                    onActivitiesList.addView(itemInProgress);
+                        SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
+                        Date date = new Date(Long.parseLong(pathfinderModelHouseholdOngoingActivitiesObject.getLastInteractedWith()));
+                        dateTv.setText(lineSeparator + sf.format(date));
+                        ongoingActivitiesTv.setText(spanString);
+                        onActivitiesList.addView(itemInProgress);
+                    }
                 }
             }
         });

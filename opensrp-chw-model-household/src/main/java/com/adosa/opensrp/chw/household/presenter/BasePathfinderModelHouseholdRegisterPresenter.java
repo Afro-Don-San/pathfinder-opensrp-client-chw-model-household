@@ -1,7 +1,8 @@
 package com.adosa.opensrp.chw.household.presenter;
 
-import androidx.annotation.Nullable;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
 
 import com.adosa.opensrp.chw.household.R;
 import com.adosa.opensrp.chw.household.contract.BaseModelHouseholdRegisterContract;
@@ -34,7 +35,7 @@ public class BasePathfinderModelHouseholdRegisterPresenter implements BaseModelH
         if (StringUtils.isBlank(entityId)) {
             return;
         }
-        if (PathfinderModelHouseholdConstants.ActivityPayload.UPDATE_HOUSEHOLD_REGISTRATION_PAYLOAD_TYPE.equals(payloadType)) {
+        if (form != null && PathfinderModelHouseholdConstants.ActivityPayload.UPDATE_HOUSEHOLD_REGISTRATION_PAYLOAD_TYPE.equals(payloadType) || PathfinderModelHouseholdConstants.ActivityPayload.MODEL_HOUSEHOLD_DISCUSSION_PAYLOAD_TYPE.equals(payloadType)) {
             getView().startFormActivity(form);
         } else {
             if (form == null) {
@@ -48,8 +49,13 @@ public class BasePathfinderModelHouseholdRegisterPresenter implements BaseModelH
     @Override
     public void saveForm(String jsonString) {
         try {
-            if (getView() != null)
-                getView().showProgressDialog(R.string.saving_dialog_title);
+//            if (getView() != null) {
+//                try {
+//                    getView().showProgressDialog(R.string.saving_dialog_title);
+//                } catch (Exception e) {
+//                    Timber.e(e);
+//                }
+//            }
             interactor.saveRegistration(jsonString, this);
         } catch (Exception e) {
             Timber.e(TAG, Log.getStackTraceString(e));

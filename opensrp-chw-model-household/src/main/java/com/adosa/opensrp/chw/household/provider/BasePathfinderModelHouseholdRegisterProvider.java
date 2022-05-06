@@ -1,13 +1,17 @@
 package com.adosa.opensrp.chw.household.provider;
 
+import static org.smartregister.util.Utils.getName;
+
 import android.content.Context;
 import android.database.Cursor;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.adosa.opensrp.chw.household.R;
 import com.adosa.opensrp.chw.household.dao.PathfinderModelHouseholdDao;
@@ -32,15 +36,13 @@ import java.util.Set;
 
 import timber.log.Timber;
 
-import static org.smartregister.util.Utils.getName;
-
 public class BasePathfinderModelHouseholdRegisterProvider implements RecyclerViewProvider<BasePathfinderModelHouseholdRegisterProvider.RegisterViewHolder> {
 
     private final LayoutInflater inflater;
     protected View.OnClickListener onClickListener;
-    private View.OnClickListener paginationClickListener;
-    private Context context;
-    private Set<org.smartregister.configurableviews.model.View> visibleColumns;
+    private final View.OnClickListener paginationClickListener;
+    private final Context context;
+    private final Set<org.smartregister.configurableviews.model.View> visibleColumns;
 
     public BasePathfinderModelHouseholdRegisterProvider(Context context, View.OnClickListener paginationClickListener, View.OnClickListener onClickListener, Set visibleColumns) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -79,13 +81,13 @@ public class BasePathfinderModelHouseholdRegisterProvider implements RecyclerVie
             viewHolder.patientColumn.setTag(pc);
             viewHolder.patientColumn.setTag(R.id.VIEW_ID, BasePathfinderModelHouseholdRegisterFragment.CLICK_VIEW_NORMAL);
 
-            viewHolder.dueButton.setOnClickListener(onClickListener);
-            viewHolder.dueButton.setTag(pc);
-            viewHolder.dueButton.setTag(R.id.VIEW_ID, BasePathfinderModelHouseholdRegisterFragment.FOLLOW_UP_VISIT);
+
+            viewHolder.rating.setTag(pc);
+            viewHolder.rating.setTag(R.id.VIEW_ID, BasePathfinderModelHouseholdRegisterFragment.FOLLOW_UP_VISIT);
+            viewHolder.rating.setRating(totalScore(pathfinderModelHouseholdMemberObject.getBaseEntityId()));
             viewHolder.registerColumns.setOnClickListener(onClickListener);
 
             viewHolder.registerColumns.setOnClickListener(v -> viewHolder.patientColumn.performClick());
-            viewHolder.registerColumns.setOnClickListener(v -> viewHolder.dueButton.performClick());
 
         } catch (Exception e) {
             Timber.e(e);
@@ -147,7 +149,7 @@ public class BasePathfinderModelHouseholdRegisterProvider implements RecyclerVie
         public TextView parentName;
         public TextView textViewVillage;
         public TextView textViewHouseholdType;
-        public Button dueButton;
+        public RatingBar rating;
         public View patientColumn;
 
         public View registerColumns;
@@ -160,7 +162,7 @@ public class BasePathfinderModelHouseholdRegisterProvider implements RecyclerVie
             patientName = itemView.findViewById(R.id.patient_name_age);
             textViewVillage = itemView.findViewById(R.id.text_view_village);
             textViewHouseholdType = itemView.findViewById(R.id.text_view_household_type);
-            dueButton = itemView.findViewById(R.id.due_button);
+            rating = itemView.findViewById(R.id.rating);
             patientColumn = itemView.findViewById(R.id.patient_column);
             registerColumns = itemView.findViewById(R.id.register_columns);
             dueWrapper = itemView.findViewById(R.id.due_button_wrapper);
@@ -179,5 +181,35 @@ public class BasePathfinderModelHouseholdRegisterProvider implements RecyclerVie
             previousPageView = view.findViewById(org.smartregister.R.id.btn_previous_page);
             pageInfoView = view.findViewById(org.smartregister.R.id.txt_page_info);
         }
+    }
+
+    private float totalScore(String baseEntityId) {
+        float healthScore =
+                PathfinderModelHouseholdDao.getScore(baseEntityId, "toilet_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "bathroom_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "kibuyu_chirizi_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "household_cleanliness_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "dishes_drying_container_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "llin_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "use_of_health_facility_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "clean_drinking_water_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "fp_education_evaluation_score");
+
+        float socialIntegrationScore =
+                PathfinderModelHouseholdDao.getScore(baseEntityId, "economic_activities_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "village_activities_participation_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "joint_decision_making_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "children_school_attendance_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "stove_evaluation_score");
+
+        float landScore =
+                PathfinderModelHouseholdDao.getScore(baseEntityId, "natural_resources_evaluation_score") +
+                        PathfinderModelHouseholdDao.getScore(baseEntityId, "trees_evaluation_score");
+
+        float farmingScore = PathfinderModelHouseholdDao.getScore(baseEntityId, "farming_evaluation_score");
+
+        float livestockScore = PathfinderModelHouseholdDao.getScore(baseEntityId, "livestock_evaluation_score");
+
+        return (healthScore + socialIntegrationScore + landScore + farmingScore + livestockScore)/20;
     }
 }

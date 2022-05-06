@@ -3,8 +3,8 @@ package com.adosa.opensrp.chw.household.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.MenuRes;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import androidx.fragment.app.Fragment;
 
 import com.adosa.opensrp.chw.household.R;
@@ -15,6 +15,7 @@ import com.adosa.opensrp.chw.household.listener.BaseModelHouseholdBottomNavigati
 import com.adosa.opensrp.chw.household.model.BaseModelHouseholdRegisterModel;
 import com.adosa.opensrp.chw.household.presenter.BasePathfinderModelHouseholdRegisterPresenter;
 import com.adosa.opensrp.chw.household.util.PathfinderModelHouseholdConstants;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 
@@ -37,6 +38,7 @@ public class BasePathfinderModelHouseholdRegisterActivity extends BaseRegisterAc
     protected String DOB;
     protected String ACTION;
     protected String FORM_NAME;
+    protected String FORM_AS_STRING;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class BasePathfinderModelHouseholdRegisterActivity extends BaseRegisterAc
         DOB = getIntent().getStringExtra(PathfinderModelHouseholdConstants.ActivityPayload.DOB);
         ACTION = getIntent().getStringExtra(PathfinderModelHouseholdConstants.ActivityPayload.ACTION);
         FORM_NAME = getIntent().getStringExtra(PathfinderModelHouseholdConstants.ActivityPayload.MODEL_HOUSEHOLD_FORM_NAME);
+        FORM_AS_STRING = getIntent().getStringExtra(PathfinderModelHouseholdConstants.ActivityPayload.FORM_AS_STRING);
         onStartActivityWithAction();
     }
 
@@ -66,7 +69,10 @@ public class BasePathfinderModelHouseholdRegisterActivity extends BaseRegisterAc
     public void startFormActivity(String formName, String entityId, String payloadType) {
         try {
             if (mBaseFragment instanceof BasePathfinderModelHouseholdRegisterFragment) {
-                presenter().startForm(formName, entityId, payloadType, DOB, getFpFormForEdit());
+                if (FORM_AS_STRING != null)
+                    presenter().startForm(formName, entityId, payloadType, DOB, new JSONObject(FORM_AS_STRING));
+                else
+                    presenter().startForm(formName, entityId, payloadType, DOB, null);
             }
         } catch (Exception e) {
             Timber.e(e);

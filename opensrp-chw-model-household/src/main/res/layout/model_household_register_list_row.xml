@@ -73,7 +73,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/due_button_wrapper"
         android:layout_width="@dimen/register_list_item_width"
         android:layout_height="wrap_content"
@@ -89,26 +89,17 @@
         android:paddingRight="@dimen/register_list_item_padding"
         android:paddingBottom="@dimen/register_list_top_bottom_padding">
 
-        <Button
-            android:id="@+id/due_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:background="@drawable/due_contact"
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            style="?android:attr/ratingBarStyleSmall"
+            android:numStars="5"
+            android:stepSize="0.1"
             android:elevation="@dimen/register_list_elevation"
-            android:gravity="center"
-            android:hapticFeedbackEnabled="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:stateListAnimator="@drawable/button"
-            android:text="@string/fp_followup_visit"
-            android:textAllCaps="false"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="@color/vaccine_blue_bg_st"
-            android:textSize="@dimen/fp_register_list_due_size"
-            android:typeface="normal" />
+            android:isIndicator="true" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

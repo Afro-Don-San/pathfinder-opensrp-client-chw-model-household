@@ -8,6 +8,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="opensrp-chw-model-household/src/main/res/layout/activity_base_pathfinder_model_household_profile.xml" value="0.2477355072463768" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/activity_model_household_evaluation.xml" value="0.20018115942028986" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_farming_model_household_evaluation_results.xml" value="0.20555555555555555" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_health_model_household_evaluation_results.xml" value="0.2911458333333333" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_item_in_progress.xml" value="0.28854166666666664" />
@@ -15,6 +17,7 @@
         <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_livestock_model_household_evaluation_results.xml" value="0.24848024316109424" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_model_household_parameters.xml" value="0.2911458333333333" />
         <entry key="opensrp-chw-model-household/src/main/res/layout/fragment_social_integration_model_household_evaluation_results.xml" value="0.3867753623188406" />
+        <entry key="opensrp-chw-model-household/src/main/res/layout/model_household_register_list_row.xml" value="0.4941123188405797" />
       </map>
     </option>
   </component>
