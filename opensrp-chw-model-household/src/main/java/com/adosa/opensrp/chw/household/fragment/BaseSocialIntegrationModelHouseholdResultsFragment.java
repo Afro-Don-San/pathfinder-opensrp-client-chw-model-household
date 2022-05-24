@@ -12,6 +12,8 @@ import com.adosa.opensrp.chw.household.dao.PathfinderModelHouseholdDao;
 
 import org.smartregister.view.customcontrols.CustomFontTextView;
 
+import java.text.DecimalFormat;
+
 public class BaseSocialIntegrationModelHouseholdResultsFragment extends Fragment {
     protected static final String BASE_ENTITY_ID = "base_entity_id";
 
@@ -52,10 +54,13 @@ public class BaseSocialIntegrationModelHouseholdResultsFragment extends Fragment
     }
 
     protected void setupViews(View view) {
-        ((CustomFontTextView) view.findViewById(R.id.children_school_attendance_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "children_school_attendance_evaluation_score")));
-        ((CustomFontTextView) view.findViewById(R.id.social_activities_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "economic_activities_evaluation_score")));
-        ((CustomFontTextView) view.findViewById(R.id.joint_decision_making_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "joint_decision_making_evaluation_score")));
-        ((CustomFontTextView) view.findViewById(R.id.environmental_friendly_activities_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "village_activities_participation_evaluation_score")));
-        ((CustomFontTextView) view.findViewById(R.id.stove_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "stove_evaluation_score")));
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(0);
+
+        ((CustomFontTextView) view.findViewById(R.id.children_school_attendance_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "children_school_attendance_evaluation_score") * 100 / 2) + "%");
+        ((CustomFontTextView) view.findViewById(R.id.social_activities_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "village_activities_participation_evaluation_score") * 100 / 2) + "%");
+        ((CustomFontTextView) view.findViewById(R.id.joint_decision_making_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "joint_decision_making_evaluation_score") * 100 / 5) + "%");
+        ((CustomFontTextView) view.findViewById(R.id.environmental_friendly_activities_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "economic_activities_evaluation_score") * 100 / 4.5) + "%");
+        ((CustomFontTextView) view.findViewById(R.id.stove_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "stove_evaluation_score") * 100 / 7.5) + "%");
     }
 }

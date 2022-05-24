@@ -12,6 +12,8 @@ import com.adosa.opensrp.chw.household.dao.PathfinderModelHouseholdDao;
 
 import org.smartregister.view.customcontrols.CustomFontTextView;
 
+import java.text.DecimalFormat;
+
 public class BaseLivestockModelHouseholdResultsFragment extends Fragment {
     protected static final String BASE_ENTITY_ID = "base_entity_id";
 
@@ -52,6 +54,8 @@ public class BaseLivestockModelHouseholdResultsFragment extends Fragment {
     }
 
     protected void setupViews(View view) {
-        ((CustomFontTextView) view.findViewById(R.id.livestock_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "livestock_evaluation_score")));
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(0);
+        ((CustomFontTextView) view.findViewById(R.id.livestock_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "livestock_evaluation_score") * 100 / 9) + "%");
     }
 }

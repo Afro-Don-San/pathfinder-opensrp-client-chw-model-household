@@ -12,6 +12,8 @@ import com.adosa.opensrp.chw.household.dao.PathfinderModelHouseholdDao;
 
 import org.smartregister.view.customcontrols.CustomFontTextView;
 
+import java.text.DecimalFormat;
+
 public class BaseLandModelHouseholdResultsFragment extends Fragment {
     protected static final String BASE_ENTITY_ID = "base_entity_id";
 
@@ -52,7 +54,9 @@ public class BaseLandModelHouseholdResultsFragment extends Fragment {
     }
 
     protected void setupViews(View view) {
-        ((CustomFontTextView) view.findViewById(R.id.trees_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "trees_evaluation_score")));
-        ((CustomFontTextView) view.findViewById(R.id.natural_resources_percentage)).setText(String.valueOf(PathfinderModelHouseholdDao.getScore(baseEntityId, "natural_resources_evaluation_score")));
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(0);
+        ((CustomFontTextView) view.findViewById(R.id.trees_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "trees_evaluation_score") * 100 / 2) + "%");
+        ((CustomFontTextView) view.findViewById(R.id.natural_resources_percentage)).setText(df.format(PathfinderModelHouseholdDao.getScore(baseEntityId, "natural_resources_evaluation_score") * 100 / 9) + "%");
     }
 }

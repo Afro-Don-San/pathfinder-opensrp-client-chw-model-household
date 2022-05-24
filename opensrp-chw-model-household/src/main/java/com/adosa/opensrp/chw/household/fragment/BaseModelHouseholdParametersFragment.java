@@ -16,10 +16,14 @@ import com.adosa.opensrp.chw.household.activity.BaseModelHouseholdEvaluationActi
 import com.adosa.opensrp.chw.household.dao.PathfinderModelHouseholdDao;
 import com.adosa.opensrp.chw.household.domain.PathfinderModelHouseholdMemberObject;
 
+import java.text.DecimalFormat;
+
 public class BaseModelHouseholdParametersFragment extends Fragment implements View.OnClickListener {
     protected static final String BASE_ENTITY_ID = "base_entity_id";
 
     protected String baseEntityId;
+
+    private DecimalFormat df = new DecimalFormat();
 
     public BaseModelHouseholdParametersFragment() {
     }
@@ -42,6 +46,7 @@ public class BaseModelHouseholdParametersFragment extends Fragment implements Vi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        df.setMaximumFractionDigits(0);
         if (getArguments() != null) {
             baseEntityId = getArguments().getString(BASE_ENTITY_ID);
         }
@@ -64,8 +69,9 @@ public class BaseModelHouseholdParametersFragment extends Fragment implements Vi
                         PathfinderModelHouseholdDao.getScore(baseEntityId, "use_of_health_facility_evaluation_score") +
                         PathfinderModelHouseholdDao.getScore(baseEntityId, "clean_drinking_water_evaluation_score") +
                         PathfinderModelHouseholdDao.getScore(baseEntityId, "fp_education_evaluation_score");
+        healthScore = healthScore * 100 / 50;
         Resources res = getResources();
-        String textScore = res.getString(R.string.completion, String.valueOf(healthScore));
+        String textScore = res.getString(R.string.completion, df.format(healthScore) + "%");
         ((TextView) healthRow.findViewById(R.id.text_view_health_profile)).setText(textScore);
 
         RelativeLayout socialIntegrationRow = view.findViewById(R.id.social_integration_row);
@@ -76,7 +82,9 @@ public class BaseModelHouseholdParametersFragment extends Fragment implements Vi
                         PathfinderModelHouseholdDao.getScore(baseEntityId, "joint_decision_making_evaluation_score") +
                         PathfinderModelHouseholdDao.getScore(baseEntityId, "children_school_attendance_evaluation_score") +
                         PathfinderModelHouseholdDao.getScore(baseEntityId, "stove_evaluation_score");
-        textScore = res.getString(R.string.completion, String.valueOf(socialIntegrationScore));
+        socialIntegrationScore = socialIntegrationScore * 100 / 21;
+
+        textScore = res.getString(R.string.completion, df.format(socialIntegrationScore) + "%");
         ((TextView) socialIntegrationRow.findViewById(R.id.text_view_social_integration_profile)).setText(textScore);
 
         RelativeLayout landRow = view.findViewById(R.id.land_row);
@@ -84,7 +92,9 @@ public class BaseModelHouseholdParametersFragment extends Fragment implements Vi
         float landScore =
                 PathfinderModelHouseholdDao.getScore(baseEntityId, "natural_resources_evaluation_score") +
                         PathfinderModelHouseholdDao.getScore(baseEntityId, "trees_evaluation_score");
-        textScore = res.getString(R.string.completion, String.valueOf(landScore));
+        landScore = landScore * 100 / 11;
+
+        textScore = res.getString(R.string.completion, df.format(landScore) + "%");
         ((TextView) landRow.findViewById(R.id.text_view_land_profile)).setText(textScore);
 
         PathfinderModelHouseholdMemberObject householdMemberObject = PathfinderModelHouseholdDao.getMember(baseEntityId);
@@ -97,7 +107,8 @@ public class BaseModelHouseholdParametersFragment extends Fragment implements Vi
         }
 
         float farmingScore = PathfinderModelHouseholdDao.getScore(baseEntityId, "farming_evaluation_score");
-        textScore = res.getString(R.string.completion, String.valueOf(farmingScore));
+        farmingScore = farmingScore * 100 / 9;
+        textScore = res.getString(R.string.completion, df.format(farmingScore) + "%");
         ((TextView) farmingRow.findViewById(R.id.text_view_farming_profile)).setText(textScore);
 
 
@@ -110,7 +121,8 @@ public class BaseModelHouseholdParametersFragment extends Fragment implements Vi
         }
 
         float livestockScore = PathfinderModelHouseholdDao.getScore(baseEntityId, "livestock_evaluation_score");
-        textScore = res.getString(R.string.completion, String.valueOf(livestockScore));
+        livestockScore = livestockScore * 100 / 9;
+        textScore = res.getString(R.string.completion, df.format(livestockScore) + "%");
         ((TextView) livestockRow.findViewById(R.id.text_view_livestock_profile)).setText(textScore);
 
         healthRow.setOnClickListener(this);
